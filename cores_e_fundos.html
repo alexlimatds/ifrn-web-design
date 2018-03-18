@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="windows-1252">
+    <meta name="keywords" content="HTML,CSS" />
+    <meta name="author" content="Alexandre Gomes de Lima" />
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="estilos/aulas.css" />
+    <title>IFRN/DIATINF/Design Web: Cores e Fundos</title>
+    <style type="text/css">
+      .estrela{
+        background-image: url(cores_e_fundos/estrela.png);
+        border: solid 1px black;
+        height: 100px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="tudo">
+      <div id="cabecalho">
+        <img src="imagens/logo_ifrn.png" alt="IFRN" id="logoifrn" />
+        <h1 class="cabecalho">
+          Diretoria Acadêmica de Gestão e Tecnologia da Informação
+        </h1>
+        <h2 class="cabecalho">
+          Disciplina de Design Web e Arquitetura da Informação
+        </h2>
+      </div>
+      
+      <div id="conteudo">
+        <h1>Cores e fundos</h1>
+        <p>
+        Nesta aula iremos conhecer melhor as maneiras para declaração de cores em estilos CSS. 
+        Também iremos conhecer outras propriedades, além da 
+        <span class="html">background-color</span>, para estilização de fundo dos elementos HTML.
+        </p>
+        
+        <h2>Cores</h2>
+        <p>
+        Em CSS existem três formas para definir uma cor: por <em>palavra-chave</em>, por 
+        <em>valor hexadecimal</em> e por <em>valor RGB</em>. 
+        </p>
+        <p>
+        Anteriormente já vimos como definir uma cor através de valor hexadecimal: basta declarar 
+        um valor com seis dígitos hexadecimais (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F) 
+        precedido do caractere cerquilha (#) como no exemplo abaixo:
+        </p>
+        <pre class="html">
+  background-color: <b>#99AF1C</b>;
+        </pre>
+        <p>
+        Cada código hexadecimal representa na verdade uma cor RGB - os dois primeiros dígitos indicam 
+        a intensidade de vermelho (<b>R</b>ed), os dois seguintes a intensidade de verde (<b>G</b>reen) 
+        e os dois últimos a intensidade de azul (<b>B</b>lue). O site W3Schools disponibiliza uma 
+        ferramenta para escolha de cor e código hexadecimal em 
+        <a href="https://www.w3schools.com/colors/colors_picker.asp">https://www.w3schools.com/colors/colors_picker.asp</a>
+        </p>
+        <p>
+        A declaração de cor por valor RGB é formada por três valores separados por vírgula e colocados 
+        entre parênteses precedidos pela sigla <span class="html">rgb</span> como no exemplo a seguir:
+        </p>
+        <pre class="html">
+  background-color: <b>rgb(125, 222, 90)</b>;
+        </pre>
+        <p>
+        É permitido utilizar qualquer valor inteiro entre 0 e 255. Também é permitida a utilização de 
+        valores em porcentagem variando de 0% a 100%. No entanto, não é permitido misturar valores em 
+        porcentagem com valores absolutos. O próximo exemplo define a mesma cor do exemplo anterior 
+        através de valores em porcentagem.
+        </p>
+        <pre class="html">
+  background-color: <b>rgb(30%, 25%, 70%)</b>;
+        </pre>
+        <p>
+        A definição de cores por palavra chave já foi exemplificada em aulas anteriores. O endereço 
+        <a href="https://www.w3schools.com/colors/colors_names.asp">https://www.w3schools.com/colors/colors_names.asp</a> 
+        contém a lista de palavras-chave disponíveis.
+        </p>
+        
+        <h2>Fundos</h2>
+        <p>
+        Anteriormente, já vimos como formatar a cor de fundo de um elemento através da propriedade 
+        <span class="html">background-color</span>. Adicionalmente, a CSS disponibiliza as seguintes 
+        propriedades que nos permitem aplicar outros efeitos de fundo: <span class="html">background-image</span>, 
+        <span class="html">background-repeat</span>, <span class="html">background-attachment</span>, 
+        <span class="html">background-position</span> e <span class="html">background</span>.
+        </p>
+        <p>
+        Por padrão, o valor das propriedades de fundo não são herdadas pelos elementos filhos. No entanto, 
+        é possível o uso do valor <span class="html">inherit</span> para forçar o comportamento de herança.
+        </p>
+        <p>
+        Além de uma cor CSS, a propriedade <span class="html">background-color</span> admite o valor 
+        <span class="html">transparent</span>, o qual é o valor padrão. Consequentemente, quando não 
+        definimos a cor de fundo dos elementos filhos temos a falsa impressão de que estes herdam a 
+        cor de fundo do pai.
+        </p>
+        <p>
+        A propriedade <span class="html">background-image</span> nos permite definir uma imagem de fundo
+        para um elemento html. O valor da propriedade deve ser o nome do arquivo ou endereço da imagem, 
+        <span class="html">inherit</span> ou <span class="html">none</span> (valor padrão).
+        </p>
+        <p>
+        A propriedade <span class="html">background-repeat</span> define como a imagem de fundo será 
+        repetida. Os valores possíveis são <span class="html">inherit</span>, <span class="html">repeat</span> 
+        (valor padrão), <span class="html">repeat-x</span>, <span class="html">repeat-y</span> e 
+        <span class="html">no-repeat</span>. O próximo exemplo ilustra o uso dos diferentes valores 
+        para a propriedade.
+        </p>
+        <pre class="html">
+  div{
+    <b>background-image: url(cores_e_fundos/estrela.png);</b>
+    border: solid 1px black;
+    height: 100px;
+  }
+  
+  &lt;div />
+  &lt;div style="<b>background-repeat: repeat-x</b>"/>
+  &lt;div style="<b>background-repeat: repeat-y</b>"/>
+  &lt;div style="<b>background-repeat: no-repeat</b>"/>
+        </pre>
+        <div class="estrela"></div>
+        <div class="estrela" style="background-repeat: repeat-x"></div>
+        <div class="estrela" style="background-repeat: repeat-y"></div>
+        <div class="estrela" style="background-repeat: no-repeat"></div>
+        
+        <p>
+        <span class="html">background-image</span> e <span class="html">background-repeat</span> são 
+        muito utilizadas com imagens de textura na criação de páginas visualmente agradáveis. Na 
+        web, há diversos sites que disponibilizam imagens de textura com essa finalidade. Segue um 
+        exemplo desta forma de uso:
+        </p>
+        <pre class="html">
+  div{ 
+    <b>background-image: url(cores_e_fundos/tree_bark.png)
+    background-repeat: repeat;</b>
+  }
+  
+  &lt;div>
+    &lt;p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    &lt;/p>
+  &lt;/div>
+        </pre>
+        <div style="background: url(cores_e_fundos/tree_bark.png); width: 400px; max-width: 100%; padding: 15px; border: solid 1px">
+          <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+        </div>
+        
+        <p>
+        A propriedade <span class="html">background-attachment</span> indica se a imagem 
+        de fundo permanecerá fixa ou se irá rolar junto à visualização. Os valores permitidos 
+        são <span class="html">inherit</span>, <span class="html">scroll</span> (valor padrão) e 
+        <span class="html">fixed</span>. Verifique esta diferença na prática criando uma página contendo 
+        uma imagem de fundo sem repetição e com conteúdo suficiente para permitir a rolagem 
+        da página.
+        </p>
+        <p>
+        A propriedade <span class="html">background-position</span> define a posição inicial da imagem 
+        de fundo. Deve ser declarada em conjunto com dois valores: coordenada x (eixo horizontal) e coordenada y 
+        (eixo vertical). A origem do sistema de coordenadas (ponto 0 0) localiza-se no canto superior esquerdo. 
+        Para as coordenadas podemos informar medias em unidades CSS ou as palavras chaves <span class="html">top</span>, 
+        <span class="html">right</span>, <span class="html">bottom</span>, <span class="html">left</span>  
+        e <span class="html">center</span>. Por padrão, esta propriedade assume o valor 
+        <span class="html">left top</span> (valor equivalente a 0 0). O exemplo a seguir ilustra o uso 
+        desta propriedade.
+        </p>
+        <pre class="html">
+  div{
+    background-image: url(cores_e_fundos/estrela.png);
+    background-repeat: no-repeat;
+    <b>background-position: center center;</b>
+    border: solid 1px black;
+    height: 100px;
+  }
+  
+  &lt;div />
+        </pre>
+        <div class="estrela" style="background-repeat: no-repeat; background-position: center center"></div>
+        
+        <p>
+        A propriedade <span class="html">background</span> é um facilitador que permite a 
+        definição de várias propriedades de fundo em uma única declaração. Por exemplo, as 
+        declarações CSS a seguir
+        </p>
+        <pre class="html">
+  background-color: pink;
+  background-image: url(cores_e_fundos/estrela.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 30%;
+        </pre>
+        <p>
+        podem ser substituídas, com a obtenção do mesmo resultado, pela seguinte declaração única:
+        </p>
+        <pre class="html">
+  background: pink url(cores_e_fundos/estrela.png) no-repeat fixed 50% 30%;
+        </pre>
+        
+        <p>
+        A propriedade <span class="html">background</span> não exige a declaração de todos os seis 
+        valores, admitindo apenas algumas propriedades como no próximo exemplo. As propriedades 
+        omitidas assumirão seus valores padrão ou os valores definidos por regras CSS mais genéricas.
+        </p>
+        <pre class="html">
+  background: url(cores_e_fundos/estrela.png) no-repeat fixed;
+        </pre>
+        
+        <p>
+        A sequência de valores assumida por <span class="html">background</span> é 
+        <span class="html">background-color</span>, <span class="html">background-image</span>, 
+        <span class="html">background-repeat</span>, <span class="html">background-attachment</span> e 
+        <span class="html">background-position</span>. Essa sequência deve ser respeitada mesmo que 
+        nem todas as propriedades sejam contempladas com valores como no último exemplo.
+        </p>
+        
+        <h2>Exercícios</h2>
+        <div class="exercicios">
+          <p>
+          1) Utilize uma imagem de fundo para criar um efeito de marca d'água. A imagem deve ser  
+          posicionada no canto inferior direito da página e sempre estar visível na mesma posição, 
+          mesmo com a rolagem da página.
+          </p>
+          <p>
+          2) Utilize as propriedades de background para exibir um elemento <span class="html">h1</span> 
+          acompanhado de um ícone como na figura abaixo.
+          </p>
+          <img src="cores_e_fundos/exercicio2.png" alt="exemplo do exercício 2" />
+          <p>
+          3) Utilize as propriedades de background para personalizar a borda inferior de um 
+          elemento como no exemplo abaixo.
+          </p>
+          <img src="cores_e_fundos/exercicio3.png" alt="exemplo do exercício 3" />
+        </div>
+        
+        <h2 class="referencias">Referências</h2>
+        <ul>
+          <li class="referencia">
+            SILVA, Maurício Samy. <em class="referencia">Construindo sites com CSS e (X)HTML: sites controlados 
+          por folhas de estilo em cascata</em>. São Paulo: Novatec, 2008.
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+  </body>
+</html>

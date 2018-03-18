@@ -1,0 +1,251 @@
+﻿ <!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="keywords" content="HTML,CSS">
+    <meta name="author" content="Alexandre Gomes de Lima">
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="estilos/aulas.css">
+    <title>IFRN/DIATINF/Design Web: Listas e entidades de caractere</title>
+  </head>
+  <body>
+    <div id="tudo">
+      <header id="cabecalho">
+        <img src="imagens/logo_ifrn.png" alt="IFRN" id="logoifrn">
+        <h1 class="cabecalho">
+          Diretoria Acadêmica de Gestão e Tecnologia da Informação
+        </h1>
+        <h2 class="cabecalho">
+          Disciplina de Design Web e Arquitetura da Informação
+        </h2>
+      </header>
+      
+      <article id="conteudo">
+        <h1>Listas e entidades de caractere </h1>
+        <p>
+          Nesta aula iremos conhecer as tags necessárias para a criação de listas ordenadas e de listas 
+          não-ordenadas, além do conceito de entidade de caractere.
+        </p>
+        
+        <section>
+          <h2>Listas não-ordenadas</h2>
+          <p>
+            São listas que apresentam um conjunto de itens. A renderização padrão define uma linha para cada item 
+            e que inicia com um marcador. Para definir uma lista não-ordenadas utilizamos a tag <span class="html">ul</span> 
+            e para os itens utilizamos a tag <span class="html">li</span>. Todos os itens devem ser definidos como 
+            conteúdo da tag <span class="html">ul</span>. Veja o exemplo a seguir:
+          </p>
+          <pre class="html">
+  <strong>&lt;ul&gt;
+    &lt;li&gt;Araruna&lt;/li&gt;
+    &lt;li&gt;Boi Calemba&lt;/li&gt;
+    &lt;li&gt;Chegança&lt;/li&gt;
+    &lt;li&gt;Maculelê&lt;/li&gt;
+  &lt;/ul&gt;</strong>
+          </pre>
+          <figure>
+            <img src="listas_e_entidades/figura01.png" 
+                 alt="Renderização de uma lista não-ordenada">
+          </figure>
+          
+          <p>
+            É possível usar outras tags como conteúdo de um item de lista. Por exemplo:
+          </p>
+          <pre class="html">
+  &lt;ul&gt;
+    &lt;li&gt;
+      <strong>&lt;img src="http://gomesdemelo.com.br/wa_32_p/pa_1gbb2oi6pak3b1/big_1219289973_araruna.jpg?1cvig6joy2f3" alt="Araruna"&gt;</strong>
+    &lt;/li&gt;
+    &lt;li&gt;
+      <strong>&lt;a href="http://www.assessorn.com/2017/06/tradicao-o-boi-calemba.html"&gt;Boi Calemba&lt;/a&gt;</strong>
+    &lt;/li&gt;
+  &lt;/ul&gt;
+          </pre>
+          <figure>
+            <img src="listas_e_entidades/figura02.png" 
+                 alt="Renderização de uma lista não-ordenada com imagem e link nos itens">
+          </figure>
+          
+          <p>
+            Também é possível criar listas aninhadas. Para tal, basta definir uma lista como conteúdo do item de outra lista.  
+          </p>
+          <pre class="html">
+    &lt;ul&gt;
+      &lt;li&gt;
+        <strong>Zona Oeste:
+        &lt;ul&gt;
+          &lt;li&gt;Planalto&lt;/li&gt;
+          &lt;li&gt;Guarapes&lt;/li&gt;
+          &lt;li&gt;Cidade da Esperança&lt;/li&gt;
+        &lt;/ul&gt;</strong>
+      &lt;/li&gt;
+      &lt;li&gt;
+        <strong>Zona Leste:
+        &lt;ul&gt;
+          &lt;li&gt;Rocas&lt;/li&gt;
+          &lt;li&gt;Ribeira&lt;/li&gt;
+          &lt;li&gt;Tirol&lt;/li&gt;
+        &lt;/ul&gt;</strong>
+      &lt;/li&gt;
+    &lt;/ul&gt;
+          </pre>
+          <figure>
+            <img src="listas_e_entidades/figura03.png" 
+                 alt="Renderização de listas aninhadas">
+          </figure>
+          
+        </section>
+        
+        <section>
+          <h2>Listas ordenadas</h2>
+          <p>
+            Listas ordenadas são definidas através da tag <span class="html">ol</span> e cada item 
+            recebe uma numeração como marcador. Assim como nas listas não-ordenadas, um item é 
+            definido através da tag <span class="html">li</span>.
+          </p>
+          <pre class="html">
+      <strong>&lt;ol&gt;
+        &lt;li&gt;Natal&lt;/li&gt;
+        &lt;li&gt;Mossoró&lt;/li&gt;
+        &lt;li&gt;Parnamirim&lt;/li&gt;
+      &lt;/ol&gt;</strong>
+          </pre>
+          <figure>
+            <img src="listas_e_entidades/figura04.png" 
+                 alt="Renderização de lista ordenada">
+          </figure>
+          
+          <p>
+            É possível indicar o tipo de numeração desejado através do atributo <span class="html">type</span> 
+            e os seguintes valores: <span class="html">1</span> (algarimos indo-arábicos - valor padrão); 
+            <span class="html">A</span> (letras maiúsculas); <span class="html">a</span> (letras minúsculas); 
+            <span class="html">I</span> (algarismos romanos maiúsculos); <span class="html">i</span> (algarimos romanos minúsculos).
+          </p>
+          <pre class="html">
+      &lt;ol <strong>type="I"</strong>&gt;
+        &lt;li&gt;Natal&lt;/li&gt;
+        &lt;li&gt;Mossoró&lt;/li&gt;
+        &lt;li&gt;Parnamirim&lt;/li&gt;
+      &lt;/ol&gt;
+          </pre>
+          <figure>
+            <img src="listas_e_entidades/figura05.png" 
+                 alt="Renderização de lista ordenada com numeração em algarimos romanos maiúsculos">
+          </figure>
+        </section>
+        
+        <section>
+          <h2>Entidades de caractere</h2>
+          <p>
+            Em HTML alguns caracteres são reservados, isto é, não podem ser utilizados como conteúdo de tag ou 
+            como valor de atributo (i.e., de forma literal). Isto acontece porque estes caracteres possuem um significado especial, 
+            como o símbolo <strong>&lt;</strong> que é utilizado no início de uma tag. Também há a situação em que um determinado 
+            caractere não está presente no teclado e desta forma não pode ser inserido de forma direta, como o caractere 
+            <strong>&reg;</strong>. Quando houver a necessidade da utilização de tais caracteres de forma literal, devemos recorrer às 
+            entidades de caractere, as quais possuem o formato <span class="html">&amp;<em>nome_da_entidade</em>;</span> ou 
+            <span class="html">&amp;#<em>código_da_entidade</em>;</span>. Por exemplo, para inserir a expressão 
+            <strong>3 &lt; 5</strong> podemos utilizar uma das duas formas a seguir:
+          </p>
+          <pre class="html">
+      &lt;p&gt;3 <strong>&amp;lt;</strong> 5&lt;/p&gt;
+      
+      &lt;p&gt;3 <strong>&amp;#60;</strong> 5&lt;/p&gt;
+          </pre>
+          
+          <p>
+            A seguir é apresentada uma pequena relação de algumas entidades de caractere disponíveis. 
+            Uma relação mais ampla está disponível em 
+            <a href="https://www.w3schools.com/charsets/ref_html_entities_4.asp">https://www.w3schools.com/charsets/ref_html_entities_4.asp</a>.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Caractere</th>
+                <th>Descrição</th>
+                <th>Nome de entidade</th>
+                <th>Código de entidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="centralizada">&nbsp;</td>
+                <td>Espaço em branco</td>
+                <td class="centralizada">&amp;nbsp;</td>
+                <td class="centralizada">&amp;#160;</td>
+              </tr>
+              <tr>
+                <td class="centralizada">&lt;</td>
+                <td>Menor que</td>
+                <td class="centralizada">&amp;lt;</td>
+                <td class="centralizada">&amp;#60;</td>
+              </tr>
+              <tr>
+                <td class="centralizada">&gt;</td>
+                <td>Maior que</td>
+                <td class="centralizada">&amp;gt;</td>
+                <td class="centralizada">&amp;#62;</td>
+              </tr>
+              <tr>
+                <td class="centralizada">&amp;</td>
+                <td>E comercial</td>
+                <td class="centralizada">&amp;amp;</td>
+                <td class="centralizada">&amp;#38;</td>
+              </tr>
+              <tr>
+                <td class="centralizada">&quot;</td>
+                <td>Apas duplas</td>
+                <td class="centralizada">&amp;quot;</td>
+                <td class="centralizada">&amp;#34;</td>
+              </tr>
+              <tr>
+                <td class="centralizada">&apos;</td>
+                <td>Aspas simples</td>
+                <td class="centralizada">&amp;apos;</td>
+                <td class="centralizada">&amp;#39;</td>
+              </tr>
+              <tr>
+                <td class="centralizada">&reg;</td>
+                <td>Marca registrada</td>
+                <td class="centralizada">&amp;reg;</td>
+                <td class="centralizada">&amp;#174;</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        
+        <section>
+          <h2>Exercícios</h2>
+          <p>
+            1) Crie uma contendo paǵina HTML com uma lista ordenada contendo os nomes dos estados da região Nordeste 
+            com suas respectivas quantidades de habitantes. Ordene a lista de forma decrescente de acordo com 
+            a quantidade de habitantes.
+          </p>
+          <p>
+            2) Escreva uma página HTML com uma lista não-ordenada de dois níveis. No primeiro nível informe nomes de categorias 
+            de animais (e.g., anfíbios, mamíferos, etc) e no segundo nível insira imagens de animais pertencentes à categoria. 
+            Veja o exemplo abaixo.
+          </p>
+          <figure>
+            <img src="listas_e_entidades/figura06.png" 
+                 alt="Exemplo de lista requerida no exercício 2.">
+          </figure>
+        </section>
+        
+        <section>
+          <h2 class="referencias">Referências</h2>
+          <ul>
+            <li class="referencia">
+              PAPAIZ, Fabiano. <em class="referencia">Caracter de Entidade</em>. Notas de aula.
+            </li>
+            <li class="referencia">
+              W3Schools. <em class="referencia">HTML Lists</em>. Disponível em &lt;<a href="https://www.w3schools.com/html/html_lists.asp">https://www.w3schools.com/html/html_lists.asp</a>&gt;.
+            </li>
+            <li class="referencia">
+              W3Schools. <em class="referencia">HTML Entitues</em>. Disponível em &lt;<a href="https://www.w3schools.com/html/html_entities.asp">https://www.w3schools.com/html/html_entities.asp</a>&gt;.
+            </li>
+          </ul>
+        </section>
+      </article>
+      
+    </div>
+  </body>
+</html>

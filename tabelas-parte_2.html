@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="keywords" content="HTML,CSS">
+    <meta name="author" content="Alexandre Gomes de Lima">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="estilos/aulas.css">
+    <title>IFRN/DIATINF/Design Web: Tabelas - mesclando células</title>
+  </head>
+  <body>
+    <div id="tudo">
+      <header id="cabecalho">
+        <img src="imagens/logo_ifrn.png" alt="IFRN" id="logoifrn">
+        <h1 class="cabecalho">
+          Diretoria Acadêmica de Gestão e Tecnologia da Informação
+        </h1>
+        <h2 class="cabecalho">
+          Disciplina de Design Web e Arquitetura da Informação
+        </h2>
+      </header>
+      
+      <article id="conteudo">
+        <h1>Tabelas: mesclando células</h1>
+        
+        <section>
+          <p>
+            A mesclagem de células é necessária quando uma célula precisa cobrir mais de uma linha ou coluna. 
+            Por exemplo, veja a tabela a seguir. Nela, a primeira célula expande-se por duas colunas, a célula 
+            contendo o texto <em>Cursos Técnicos</em> expande-se por três linhas, enquanto que a célula 
+            com o texto <em>Cursos Tecnológicos</em> expande-se por quatro linhas.
+          </p>
+          
+          <table>
+            <tr>
+              <th colspan="2">
+                Cursos oferecidos pela DIATINF
+              </th>
+            </tr>
+            <tr>
+              <td rowspan="3">
+                Cursos Técnicos
+              </td>
+              <td>
+                Informática para Internet
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Manutenção e Suporte
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Administração
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="4">
+                Cursos Tecnológicos
+              </td>
+              <td>
+                TADS
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Redes de Computadores
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Gestão Pública
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Comércio Exterior
+              </td>
+            </tr>
+          </table>
+          
+          <p>
+            Para realizar a mesclagem de células utilizamos os atributos <span class="html">colspan</span> 
+            (expande pelas colunas) e <span class="html">rowspan</span> (expande pelas linhas) na tag 
+            <span class="html">td</span>. Para ver o uso destes atributos na prática, vamos realizar um passo-a-passo 
+            para produzir a tabela acima.
+          </p>
+          <p>
+            Começando com a primeira linha, repare que esta linha possui apenas uma célula que expande-se pelas 
+            duas colunas da tabela. Desta forma, iremos declarar apenas uma célula nesta linha e usaremos 
+            <span class="html">colspan</span> com valor igual a 2 para indicar que a célula cobrirá duas 
+            colunas. Atenção para um detalhe: para que realmente possamos visualizar a mesclagem de células 
+            iremos declarar a linha seguinte com as duas colunas.
+          </p>
+          
+          <pre class="html">
+  &lt;table border="1"&gt;
+    &lt;tr&gt;
+      &lt;th <strong>colspan="2"</strong>&gt;Cursos oferecidos pela DIATINF&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cursos Técnicos&lt;/td&gt;
+      &lt;td&gt;Informática para Internet&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+          </pre>
+          
+          <table>
+            <tr>
+              <th colspan="2">Cursos oferecidos pela DIATINF</th>
+            </tr>
+            <tr>
+              <td>Cursos Técnicos</td>
+              <td>Informática para Internet</td>
+            </tr>
+          </table>
+          
+          <p>
+            Agora vamos definir as próximas duas linhas da tabela, ou seja, a que contém o texto <em>Manutenção e Suporte</em> 
+            e a que contém o texto <em>Administração</em>. 
+            Repare que segundo a lógica da HTML, estas linha possuem apenas uma célula já que a coluna da esquerda será 
+            coberta pela célula com o texto <em>Cursos Técnicos</em>. Além disso, devemos acrescentar o atributo 
+            <span class="html">rowspan="3"</span> à célula que inicia a mesclagem, ou seja, a célula com 
+            o texto <em>Cursos Técnicos</em>.
+            Seguem o código resultante e a respectiva tabela.
+          </p>
+          <pre class="html">
+  &lt;table border="1"&gt;
+    &lt;tr&gt;
+      &lt;th colspan="2"&gt;Cursos oferecidos pela DIATINF&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td <strong>rowspan="3"</strong>&gt;Cursos Técnicos&lt;/td&gt;
+      &lt;td&gt;Informática para Internet&lt;/td&gt;
+    &lt;/tr&gt;
+    <strong>&lt;tr&gt;
+      &lt;td&gt;Manutenção e Suporte&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Administração&lt;/td&gt;
+    &lt;/tr&gt;</strong>
+  &lt;/table&gt;
+          </pre>
+          
+          <table>
+            <tr>
+              <th colspan="2">Cursos oferecidos pela DIATINF</th>
+            </tr>
+            <tr>
+              <td rowspan="3">Cursos Técnicos</td>
+              <td>Informática para Internet</td>
+            </tr>
+            <tr>
+              <td>Manutenção e Suporte</td>
+            </tr>
+            <tr>
+              <td>Administração</td>
+            </tr>
+          </table>
+          
+          <p>
+            Assim, repare que uma célula que se expande em direção a outras linhas ou colunas deve ser definida na 
+            primeira linha ou coluna da expansão.
+          </p>
+          
+          <p>
+            Para finalizar nossa tabela, vamos definir quatro últimas linhas. Nestas, a célula da esquerda se expande 
+            pelas quatro linhas. Assim, a primeira linha em questão, a que contém o texto <em>TADS</em>, será definida 
+            com duas células e as linhas restantes seráo definidas com apenas uma célula. Além disso, a primeira célula 
+            em questão deverá conter o atributo <span class="html">rowspan="4"</span>. Confira o código e o resultado 
+            final.
+          </p>
+          <pre class="html">
+  &lt;table border="1"&gt;
+    &lt;tr&gt;
+      &lt;th colspan="2"&gt;Cursos oferecidos pela DIATINF&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td rowspan="3"&gt;Cursos Técnicos&lt;/td&gt;
+      &lt;td&gt;Informática para Internet&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Manutenção e Suporte&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Administração&lt;/td&gt;
+    &lt;/tr&gt;
+    <strong>&lt;tr&gt;
+      &lt;td rowspan="4"&gt;Cursos Tecnológicos&lt;/td&gt;
+      &lt;td&gt;TADS&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Redes de Computadores&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Gestão Pública&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Comércio Exterior&lt;/td&gt;
+    &lt;/tr&gt;</strong>
+  &lt;/table&gt;
+          </pre>
+          
+            <table>
+              <tr>
+                <th colspan="2">Cursos oferecidos pela DIATINF</th>
+              </tr>
+              <tr>
+                <td rowspan="3">Cursos Técnicos</td>
+                <td>Informática para Internet</td>
+              </tr>
+              <tr>
+                <td>Manutenção e Suporte</td>
+              </tr>
+              <tr>
+                <td>Administração</td>
+              </tr>
+              <tr>
+                <td rowspan="4">Cursos Tecnológicos</td>
+                <td>TADS</td>
+              </tr>
+              <tr>
+                <td>Redes de Computadores</td>
+              </tr>
+              <tr>
+                <td>Gestão Pública</td>
+              </tr>
+              <tr>
+                <td>Comércio Exterior</td>
+              </tr>
+            </table>
+        </section>
+        
+        <section>
+          <h2 class="referencias">Exercícios</h2>
+          <p>
+            1) Escreva uma página HTML contendo as tabelas ilustradas a seguir.
+          </p>
+          <figure>
+            a) <img src="tabelas-parte_2/figura01.png" >
+          </figure>
+          <figure>
+            b) <img src="tabelas-parte_2/figura02.png" >
+          </figure>
+          <figure>
+            c) <img src="tabelas-parte_2/figura03.png" >
+          </figure>
+          <figure>
+            d) <img src="tabelas-parte_2/figura04.png" >
+          </figure>
+        </section>
+        
+        <section>
+          <h2 class="referencias">Referências</h2>
+          <ul>
+            <li class="referencia">
+              BEZERRA, Weskley. <em class="referencia">Listas e Tabelas</em>. Notas de Aula.
+            </li>
+            <li class="referencia">
+              PAPAIZ, Fabiano. <em class="referencia">Tabelas - parte II</em>. Notas de Aula.
+            </li>
+          </ul>
+        </section>
+      </article>
+      
+    </div>
+  </body>
+</html>

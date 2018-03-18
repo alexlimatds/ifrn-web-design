@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="keywords" content="XHTML,HTML,CSS" />
+    <meta name="author" content="Alexandre Gomes de Lima" />
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="estilos/aulas.css" />
+    <title>IFRN/DIATINF/Design Web: Layout CSS - parte 1</title>
+  </head>
+  <body>
+    <div id="tudo">
+      <div id="cabecalho">
+        <img src="imagens/logo_ifrn.png" alt="IFRN" id="logoifrn" />
+        <h1 class="cabecalho">
+          Diretoria Acadêmica de Gestão e Tecnologia da Informação
+        </h1>
+        <h2 class="cabecalho">
+          Disciplina de Design Web e Arquitetura da Informação
+        </h2>
+      </div>
+      
+      <div id="conteudo">
+        <h1>Layout CSS - parte 1</h1>
+        <p>
+          Nesta aula serão apresentadas algumas orientações sobre a construção de páginas 
+          com uma única coluna tanto baseadas em layout fixo ou layout flexível.
+        </p>
+        
+        <h2>Layout Fixo</h2>
+        <p>
+        Layouts fixos utilizam dimensões em pixels ou em unidades absolutas. As vantagens deste tipo de 
+        layout são a facilidade de construção e o controle absoluto sobre as dimensões finais dos elementos 
+        da página. Este tipo de layout é adequado para situações em que o desenvolvedor 
+        tem pleno conhecimento das características e dimensões da mídia de apresentação a ser utilizada 
+        para visualização da página, como por exemplo uma versão para impressão.
+        </p>
+        <p>
+        O código CSS abaixo foi aplicado ao <a href="layout_css_parte_1/exemplo1.html">exemplo 1</a> e 
+        define um layout com largura fixa de 700px. Ao redimensionar a janela do navegador, observe 
+        que o texto mantém a sua largura. Caso a janela fique muito estreita, uma barra de rolagem 
+        horizontal é exibida. A propriedade <span class="html">margin: auto</span> indica que as margens 
+        laterais do elemento serão iguais e calculadas a partir da diferença entre a largura da página e 
+        a largura do elemento. A consequência natural de valores iguais para as margens laterais é 
+        a centralização do elemento como pode ser visto no exemplo.
+        </p>
+        <pre class="html">
+        
+  body{
+    width: 700px;
+    text-align: justify;
+    margin: auto;
+  }
+        </pre>
+        
+        <h2>Layout flexível</h2>
+        <p>
+        Para páginas destinadas a um público amplo e diverso, o layout fixo geralmente não se apresenta 
+        como uma boa opção devido a falta de capacidade para adaptar-se a diferentes resoluções de tela 
+        utilizadas pelos dispositivos utilizados atualmente no acesso a web (e.g, computadores, 
+        smartphones, TVs, etc). Felizmente a CSS dispoõe de recursos que nos permite a criação de layouts 
+        flexíveis, ou seja, layouts capazes de se adequar a diferentes resoluções de tela e diferentes 
+        configurações do usuário, proporcionando um melhor aproveitamento da área de visualização disponível 
+        e uma melhor experiência de leitura da página.
+        </p>
+        <p>
+        Uma página com largura em porcentagem irá adaptar-se de acordo com a largura total disponível, ou 
+        seja, a largura da janela do navegador. No entanto, apenas a largura de página em porcentagem 
+        pode não ser suficiente para a criação de um bom layout. Dependendo da resolução de tela em uso, 
+        a largura resultante pode ser muito larga ou muito estreita, tornando a leitura de texto desagradável. 
+        Para evitar estes problemas, podemos utilizar as propriedades <span class="html">min-width</span> e 
+        <span class="html">max-width</span> com valores em <span class="html">px</span> ou 
+        <span class="html">em</span>.
+        </p>
+        <p>
+        A vantagem em utilizar <span class="html">em</span> é que as larguras 
+        máxima e mínima irão ser baseadas no tamanho de fonte utilizado, propriedade muitas vezes alterada 
+        pelo usuário para facilitar a leitura do conteúdo presente na página. Estudos tipográficos afirmam 
+        que, em textos longos, devemos utilizar linhas de texto contendo cerca de 100 caracteres para 
+        otimizar a leitura.
+        </p>
+        <p>
+        O código CSS a seguir foi aplicado ao <a href="layout_css_parte_1/exemplo2.html">exemplo 2</a>. 
+        Ao visualizar o exemplo, redimensione a janela do navegador e observe 
+        que a largura do texto acompanha a janela, mas também evita linhas muito longas ou muito estreitas. 
+        Quando a largura da janela é menor do que a largura mínima indicada, a barra de rolagem 
+        horizontal é exibida. Verifique o comportamento da largura após comentar as propriedades 
+        <span class="html">min-width</span> e <span class="html">max-width</span>.
+        </p>
+        <pre class="html">
+        
+  body{
+    width: 85%;
+    min-width: 30em;
+    max-width: 45em;
+    text-align: justify;
+    margin: auto;
+  }
+        </pre>
+        
+        <h2>Exercícios</h2>
+        <div class="exercicios">
+          <p>
+            1) Escreva uma página HTML de única coluna contendo imagens e um texto longo. 
+            Também elabore uma folha de estilo para gerar uma versão de impressão para a página. Utilize 
+            um layout fixo destinado a uma página de papel A4 (largura de 210mm) e margens superior, 
+            direita, inferior e esquerda respectivamente iguais a 6mm, 7mm, 6mm e 17mm.
+          </p>
+          <p>
+            2) Escreva o código HTML para a página ilustrada na 
+            <a href="layout_css_parte_1/exercicio2a.png">figura 1</a> e na 
+            <a href="layout_css_parte_1/exercicio2b.png">figura 2</a>. 
+            Utilize um layout flexível com largura de página igual a 95% e cujas linhas de texto possuam, 
+            respectivamente, 55 e 100 como quantidades mínima e máxima de caracteres. 
+            Note que a área de conteúdo não encosta na borda da janela, mesmo quando a barra 
+            de rolagem horizontal é exibida.
+          </p>
+        </div>
+        
+        <h2 class="referencias">Referências</h2>
+        <ul>
+          <li class="referencia">
+            SILVA, Maurício Samy. <em class="referencia">Construindo sites com CSS e (X)HTML: sites controlados 
+            por folhas de estilo em cascata</em>. São Paulo: Novatec, 2008.
+          </li>
+          <li class="referencia">
+            CASA, Josefina. <em class="referencia">Como criar o blog post perfeito: parte 2. Mais segredos 
+            incríveis da ciência que não falharão</em>. Postcron. Disponível em <a href="http://postcron.com/pt/blog/como-criar-o-blog-post-perfeito-parte-2">&lt;http://postcron.com/pt/blog/como-criar-o-blog-post-perfeito-parte-2/></a>. 
+            Acesso em 12 de agosto de 2014.
+          </li>
+          <li class="referencia">
+            CARVALHO, Vitor. <em class="referencia">Comprimento das linhas de texto</em>. Disponível em 
+            <a href="http://vitorwebdesign.blogspot.com.br/2009/10/comprimento-das-linhas-de-texto.html">&lt;http://vitorwebdesign.blogspot.com.br/2009/10/comprimento-das-linhas-de-texto.html></a>. 
+            Acesso em 12 de agosto de 2014.
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+  </body>
+</html>

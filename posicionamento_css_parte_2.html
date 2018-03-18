@@ -1,0 +1,218 @@
+﻿ <!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="keywords" content="XHTML,HTML,CSS">
+    <meta name="author" content="Alexandre Gomes de Lima">
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="estilos/aulas.css">
+    <title>IFRN/DIATINF/Design Web: </title>
+  </head>
+  <body>
+    <div id="tudo">
+      <header id="cabecalho">
+        <img src="imagens/logo_ifrn.png" alt="IFRN" id="logoifrn">
+        <h1 class="cabecalho">
+          Diretoria Acadêmica de Gestão e Tecnologia da Informação
+        </h1>
+        <h2 class="cabecalho">
+          Disciplina de Design Web e Arquitetura da Informação
+        </h2>
+      </header>
+      
+      <article id="conteudo">
+        <h1>Posicionamento CSS - parte 2</h1>
+        <p>
+          Nesta aula iremos conhecer a propriedade <span class="html">position</span>, a qual nos 
+          permite um amplo controle do posionamento dos elementos em uma página web. Os valores 
+          suportados são <span class="html">static</span> (posicionamento estático), 
+          <span class="html">relative</span> (posicionamento relativo), <span class="html">absolute</span> 
+          (posicionamento absoluto), <span class="html">fixed</span> 
+          (posicionamento fixo) e <span class="html">inherit</span>. Também serão apresentadas 
+          as propriedades <span class="html">top</span>, <span class="html">bottom</span>, 
+          <span class="html">left</span> e <span class="html">right</span>, as quais são 
+          sempre utilizadas em conjunto com <span class="html">position</span>.
+        </p>
+        
+        <section>
+          <h2>Posicionamento estático</h2>
+          <p>
+            É o esquema de posicionamento padrão no qual os elementos de bloco são posicionados 
+            na orientação vertical e os elementos de linha são posicionados na orientação horizontal. 
+            Neste esquema, as propriedades <span class="html">top</span>, <span class="html">bottom</span>, 
+          <span class="html">left</span> e <span class="html">right</span> não possuem qualquer efeito.
+          </p>
+        </section>
+        
+        <section>
+          <h2>Posicionamento relativo</h2>
+          <p>
+            Este esquema desloca o elemento com base no canto superior esquerdo da sua posição original, sendo que 
+            o espaço original do elemento é preservado. Deve ser utilizado em conjunto com as propriedades 
+            <span class="html">top</span>, <span class="html">bottom</span>, 
+          <span class="html">left</span> e <span class="html">right</span> para que haja algum efeito.
+          </p>
+          <pre class="html">
+        
+  div{
+    border: solid black 1px;
+    margin-bottom: 5px;
+  }
+  #dois{
+    top: 25px;
+    left: 25px;
+    position: relative;
+  }
+  
+  &lt;div>&lt;p>DIV 1&lt;/p>&lt;/div>
+  &lt;div id="dois">&lt;p>DIV 2&lt;/p>&lt;/div>
+  &lt;div>&lt;p>DIV 3&lt;/p>&lt;/div>
+          </pre>
+        
+          <figure>
+            <img src="posicionamento_css_parte_2/exemplo01.png" 
+                 alt="Exemplo de uso de posicionamento relativo">
+          </figure>
+          
+          <p>
+            A figura a seguir ilustra o exemplo anterior mas com a posição original do DIV 2 
+            desenhada na cor vermelha.
+          </p>
+          <figure>
+            <img src="posicionamento_css_parte_2/exemplo01B.png" 
+                 alt="Exemplo de uso de posicionamento relativo com ilustração da posição original">
+          </figure>
+          
+          <p>
+            Convém lembrar que o posicionamento relativo também é aplicável aos elementos de linha.
+          </p>
+        </section>
+        
+        <section>
+          <h2>Posicionamento absoluto</h2>
+          <p>
+            O posicionamento absoluto desloca o elemento com base no canto superior esquerdo do seu 
+            ancestral mais próximo que não esteja posicionado de forma estática.
+            Caso esta condição não seja atendida, o elemento é deslocado em relação ao canto superior 
+            esquerdo da janela do navegador web. O espaço original do elemento não é preservado.
+          </p>
+          <pre class="html">
+  div{
+      border: solid black 1px;
+      margin-bottom: 10px;
+      padding: 10px;
+      height: 100px;
+    }
+    #b{
+      position: relative;
+    }
+    #c{
+      position: absolute;
+      top: 25px;
+      left: 60px;
+      height: 50px;
+    }
+    
+  &lt;div>&lt;/div>
+  &lt;div id="b">
+    &lt;div id="c">C&lt;/div>
+  &lt;/div>
+          </pre>
+          
+          <figure>
+            <img src="posicionamento_css_parte_2/exemplo02.png" 
+                 alt="Exemplo de uso de posicionamento absoluto">
+          </figure>
+        </section>
+        
+        <section>
+          <h2>Posicionamento fixo</h2>
+          <p>
+            Neste esquema o elemento permance fixo em relação à janela do navegador. Isto significa que 
+            mesmo que a página seja rolada, o elemento permance na mesma posição. Para verificar, 
+            experimente o exemplo a seguir.
+          </p>
+          <pre class="html">
+  div{
+    border: solid black 1px;
+    margin-bottom: 10px;
+  }
+  #fixo{
+    background-color: pink;
+    position: fixed;
+  }
+  #texto{
+    width: 120%;
+    font-size: 300%;
+  }
+  
+  &lt;div id="fixo">&lt;p>DIV com posicionamento fixo&lt;/p>&lt;/div>
+  &lt;div id="texto">
+    &lt;pre>
+      a
+      b
+      c
+      d
+      e
+      f
+      g
+      h
+      i
+      j
+      l
+      m
+      n
+      o
+      p
+      q
+      r
+      s
+      t
+      u
+      v
+      x
+      z
+    &lt;/pre>
+  &lt;/div>
+          </pre>
+          
+          <figure>
+            <img src="posicionamento_css_parte_2/exemplo03.png" 
+                 alt="Exemplo de uso de posicionamento fixo">
+          </figure>
+          
+        </section>
+        
+        <section>
+          <h2>Exercícios</h2>
+          <div class="exercicios">
+            <p>
+              1) Crie uma página HTML com um layout semelhante ao apresentado na figura abaixo. Utilize 
+              <span class="html">div</span>s para definir as três áreas da página e a propriedade 
+              <span class="html">position</span> para realizar o posicionamento destas áreas 
+              (OBS: não utilize a propriedade <span class="html">float</span>.
+            </p>
+            <figure>
+              <img src="posicionamento_css_parte_2/exercicio01.png" 
+                   alt="Layout a ser obtido no exercício 1.">
+            </figure>
+          </div>
+        </section>
+        
+        <section>
+          <h2 class="referencias">Referências</h2>
+          <ul>
+            <li class="referencia">
+              SILVA, Maurício Samy. <em class="referencia">Construindo sites com CSS e (X)HTML: sites controlados 
+              por folhas de estilo em cascata</em>. São Paulo: Novatec, 2008.
+            </li>
+            <li class="referencia">
+              W3Schools. <em class="referencia">CSS Layout: the position property</em>. 
+              Disponível <a href="https://www.w3schools.com/css/css_positioning.asp">&lt;https://www.w3schools.com/css/css_positioning.asp></a>.
+            </li>
+          </ul>
+        </section>
+      </article>
+      
+    </div>
+  </body>
+</html>

@@ -1,0 +1,334 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="keywords" content="HTML,CSS" />
+    <meta name="author" content="Alexandre Gomes de Lima" />
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="estilos/aulas.css" />
+    <title>IFRN/DIATINF/Design Web: CSS parte 2</title>
+  </head>
+  <body>
+    <div id="tudo">
+      <div id="cabecalho">
+        <img src="imagens/logo_ifrn.png" alt="IFRN" id="logoifrn" />
+        <h1 class="cabecalho">
+          Diretoria Acadêmica de Gestão e Tecnologia da Informação
+        </h1>
+        <h2 class="cabecalho">
+          Disciplina de Design Web e Arquitetura da Informação
+        </h2>
+      </div>
+      <div id="conteudo">
+        <h1>Introdução a CSS - parte 2</h1>
+        <p>
+        Na aula passada fomos apresentados às folhas de estilos e vimos três formas de como aplicá-las 
+        nas páginas web (inline, internas e externas). Nesta aula iremos conhecer mais informações a 
+        respeito de como os estilos são aplicados aos elementos HTML, como também vamos conhecer 
+        melhor os seletores CSS.
+        </p>
+        <h2>Efeito cascata e herança</h2>
+        <p>
+        Já sabemos que o autor de uma página web pode criar estilos de formatação para serem aplicados 
+        aos elementos HTML. No entanto, ao visualizarmos uma página no navegador, todos os 
+        seus elementos recebem uma formatação mesmo que o autor não tenha definido quaisquer estilos. 
+        Por exemplo, veja código HTML a seguir e a sua respectiva visualização em um navegador:
+        </p>
+
+        <pre class="html">
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;Exemplo 1&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;h1&gt;Lorem ipsum&lt;/h1&gt;
+        &lt;p&gt;
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+          nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis 
+          aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
+          nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
+          officia deserunt mollit anim id est laborum.
+        &lt;/p&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+        </pre>
+
+        <img src="css-parte_2/exemplo01.png" alt="Visualização de página sem estilos" />
+
+        <p>
+        Isto acontece porque o navegador possui uma folha de estilo própria que ele utiliza para aplicar 
+        uma formatação padrão. No entanto, apenas os elementos que não possuem estilos definidos pelo autor 
+        da página receberão a formatação padrão do navegador. Ou seja, <strong>os estilos definidos pelo 
+        autor possuem prioridade em relação aos estilos do navegador</strong>.
+        </p>
+        <p>
+        Entre os estilos definidos pelo autor, é adotada a seguinte ordem de prioridade:
+        </p>
+        <ul class="semmarcador">
+          <li>1º estilos inline.</li>
+          <li>2º folhas de estilo internas.</li>
+          <li>3º folhas de estilo externas.</li>
+        </ul>
+        <p>
+        Esta ordem significa que os estilos inline possuem prioridade sobre as outras 
+        formas de estilo e que os estilos internos precedem os estilos externos. 
+        Em situações de conflito, o estilo a ser adotado será o de maior prioridade.
+        </p>
+        <p>
+        Vamos observar a precedência de estilos na prática. No arquivo 
+        <a href="css-parte_2/exemplo01.html">exemplo01.html</a>, adicione os estilos 
+        presentes no código abaixo. Em seguida, abra o arquivo no navegador 
+        e repare o prevalecimento do estilo inline.
+        </p>
+        
+        <pre class="html">
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;Exemplo 1&lt;/title&gt;
+        <b>&lt;style type="text/css">
+          p { color: blue }
+        &lt;/style></b>
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;h1&gt;Lorem ipsum&lt;/h1&gt;
+        &lt;p <b>style="color: green"</b>>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+          nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis 
+          aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
+          nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
+          officia deserunt mollit anim id est laborum.
+        &lt;/p&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+        </pre>
+        
+        <p>
+        O aninhamento das tags estabelece um relacionamento do tipo pai e filho (hieraquia) entre os 
+        elementos HTML. Assim, no exemplo anterior <span class="html">html</span> é pai de
+        <span class="html">body</span> e ancestral de <span class="html">p</span>. Já a tag 
+        <span class="html">body</span> é filha (e também descendente) de <span class="html">html</span> 
+        e pai (e também ancestral) de <span class="html">p</span>. A partir dessa hierarquia surge 
+        o conceito de herança, fazendo com que os elementos filhos aproveitem os estilos de seus 
+        ancestrais. Os estilos herdados possuem prioridade menor do que os estilos definidos para 
+        o próprio elemento.
+        </p>
+        <p>
+        Vamos verificar esse efeito na prática: em <a href="css-parte_2/exemplo01.html">exemplo01.html</a>, 
+        adicione o estilo <span class="html">body { color: red }</span>. Recarregue a página e 
+        observe que o texto em <span class="html">h1</span> foi formatado com a cor vermelha, 
+        enquanto que o texto em <span class="html">p</span> continuou verde, prevalecendo 
+        o estilo do elemento sobre o estilo herdado.
+        </p>
+        
+        <img src="css-parte_2/heranca.png" alt="Visualização de estilo herdado e estilo inline" />
+        
+        <p>
+          Vale ainda lembrar que somente algumas propriedades, tais como <span class="html">color</span> e 
+          <span class="html">font-family</span>, são herdadas.
+        </p>
+        
+        <p>
+          Esta lógica de propagação de estilos é denominada efeito cascata. Daí, a 
+          presença do termo <em>cascade</em> na sigla CSS.
+        </p>
+        
+        <h2>Seletores</h2>
+        <p>
+          Regras CSS formam as folhas de estilo. Uma regra CSS é formada por um conjunto de seletores e 
+          uma ou mais propriedades CSS com seus respectivos valores. Por exemplo, no seguinte código
+          <span class="html">p</span> é o seletor, <span class="html">color</span> é a propriedade 
+          CSS e <span class="html">blue</span> é o valor desta propriedade.
+        </p>
+        
+        <pre class="html">
+    p { color: blue }
+        </pre>
+        
+        <p>
+          O seletor tem como função especificar os elementos HTML que serão estilizados de acordo com 
+          a regra CSS. No exemplo anterior, o seletor indica que todas as tags <span class="html">p</span> 
+          serão estilizadas com cor de fonte azul.
+        </p>
+        
+        <p>
+          Uma regra CSS pode conter múltiplos seletores. Vírgulas são utilizadas para separar os seletores. 
+          O próximo exemplo indica que todas as tags <span class="html">p</span>, 
+          <span class="html">h1</span> e <span class="html">code</span> serão estilizadas com cor de fonte azul.
+        </p>
+        
+        <pre class="html">
+    p, h1, code { color: blue }
+        </pre>
+        
+        <p>
+          Um tipo de seletor bastante poderoso é o seletor de classe. Uma classe representa um grupo de 
+          elementos HTML ligados pelo estilo. A classe de um elemento HTML é definida pelo atributo 
+          <span class="html">class</span>. Quando definimos uma regra CSS com seletor de classe, os 
+          estilos desta regra serão aplicados a todos os elementos HTML marcados com a classe indicada 
+          no seletor.
+        </p>
+        <p>
+          No exemplo a seguir, o cabeçalho e o primeiro parágrafo foram marcados com a classe 
+          <span class="html">xx</span>, o segundo parágrafo foi marcado com a classe 
+          <span class="html">yy</span> e há uma regra CSS para cada classe. 
+          A figura mostra que cada elemento recebeu um estilo de acordo com sua classe. 
+          Note que nomes de classes devem ser precedidos com um ponto ao serem referenciados por 
+          seletores CSS.
+        </p>
+        
+        <pre class="html">
+    &lt;html>
+      &lt;head>
+          &lt;style type="text/css">
+            <b>.xx</b> {
+              font-family: serif;
+              background-color: #66CCFF;
+            }
+            <b>.yy</b> {
+              font-family: sans-serif;
+              background-color: #99FF66;
+            }
+          &lt;/style>
+      &lt;/head>
+      &lt;body>
+        &lt;h1 <b>class="xx"</b>>Cabeçalho&lt;/h1>
+        &lt;p <b>class="xx"</b>>Parágrafo classe xx&lt;/p>
+        &lt;p <b>class="yy"</b>>Parágrafo classe yy&lt;/p>
+      &lt;/body>
+    &lt;/html>
+        </pre>
+        <img src="css-parte_2/exemplo_classes_01.png" alt="Visualização do exemplo com classes" />
+        
+        <p>
+          Também é possível definir regras baseadas no elemento HTML e na classe. No exemplo a seguir, 
+          a regra <span class="html">p.xx</span> será aplicada apenas aos elementos <span class="html">p</span> 
+          que estejam marcados com a classe <span class="html">xx</span>. 
+        </p>
+        
+        <pre class="html">
+    &lt;html>
+      &lt;head>
+          &lt;style type="text/css">
+            p {
+              font-family: serif;
+              background-color: #66CCFF;
+            }
+            <b>p.xx</b> {
+              font-family: sans-serif;
+              background-color: #99FF66;
+            }
+          &lt;/style>
+      &lt;/head>
+      &lt;body>
+        &lt;p>Parágrafo sem classe&lt;/p>
+        &lt;p class="xx">Parágrafo classe xx&lt;/p>
+      &lt;/body>
+    &lt;/html>
+        </pre>
+        <img src="css-parte_2/exemplo_classes_02.png" alt="Visualização do exemplo com seletor baseado em elemento e classe" />
+        
+        <p>
+          Podemos utilizar o atributo <span class="html">id</span> para definir um identificador 
+          a uma tag específica. Este identificador deve ser único no documento HTML. Seletores CSS 
+          podem ser baseados em <span class="html">id</span>, bastando apenas preceder o identificador com o caractere 
+          <strong>#</strong>.
+        </p>
+        
+        <pre class="html">
+    &lt;html>
+      &lt;head>
+          &lt;style type="text/css">
+            p {
+              font-family: serif;
+              background-color: cyan;
+            }
+            <b>#segundo</b> {
+              font-family: sans-serif;
+              background-color: pink;
+              font-size: 18pt;
+            }
+          &lt;/style>
+      &lt;/head>
+      &lt;body>
+        &lt;p>Primeiro parágrafo&lt;/p>
+        &lt;p <b>id="segundo"</b>>Segundo parágrafo&lt;/p>
+        &lt;p>Terceiro parágrafo&lt;/p>
+      &lt;/body>
+    &lt;/html>
+        </pre>
+        <img src="css-parte_2/exemplo_classes_03.png" alt="Visualização do exemplo com seletor baseado em id" />
+        
+        <p>
+          Note que o efeito cascata prioriza os estilos mais específicos. Assim, seletores baseados em 
+          <span class="html">id</span> possuem 
+          prioridade sobre os seletores baseados em classes. Estes, por sua vez, são mais específicos que os 
+          seletores baseados em tags.
+        </p>
+        
+        <h2>Exercícios</h2>
+        <p>
+          1) Aplique estilos na página <a href="css-parte_2/exercicio01.html">exercicio01.html</a>
+          para deixá-la semelhante à figura abaixo. 
+          Use estilos baseados em classe ou em <span class="html">id</span> para aplicar formatação 
+          específica a cada parágrafo.
+        </p>
+        <img src="css-parte_2/exercicio01.png" alt="Resultado final" />
+        
+        <p>
+          2) A partir do código HTML abaixo, responda:
+        </p>
+        <ol class="opcoes_exercicio">
+          <li>Qual será cor do texto no parágrafo sobre a balaiada?</li>
+          <li>Qual será cor do texto no parágrafo sobre a sabinada?</li>
+          <li>Qual será cor do texto no parágrafo sobre a guerra dos farrapos?</li>
+          <li>Qual será cor do texto no parágrafo sobre a cabanagem?</li>
+          <li>Qual será cor do texto no parágrafo com a fonte das informações?</li>
+        </ol>
+        
+        <pre class="html">
+    &lt;html>
+      &lt;head>
+          &lt;style type="text/css">
+            body { color: red } 
+            p.yyy { color: blue }
+            #xxx { color: green }
+          &lt;/style>
+      &lt;/head>
+      &lt;body>
+        &lt;p>Balaiada foi uma revolta ocorrida no Maranhão entre os anos de 1838 e 1840.&lt;/p>
+        &lt;p>
+          Sabinada foi uma revolta autonomista à época do Brasil Império. Ocorreu entre 6 de 
+          novembro de 1837 e 16 de março de 1838, na então Província da Bahia.
+        &lt;/p>
+        &lt;p class="yyy">
+          Guerra dos Farrapos ou Revolução Farroupilha são os nomes pelos quais ficou conhecida 
+          a revolução ou guerra regional, de caráter republicano, contra o governo imperial do 
+          Brasil, na então província de São Pedro do Rio Grande do Sul, e que resultou na 
+          declaração de independência da província como estado republicano, dando origem à 
+          República Rio-Grandense. Estendeu-se de 20 de setembro de 1835 a 1 de março de 1845.
+        &lt;/p>
+        &lt;p id="xxx">
+          Cabanagem foi uma revolta social ocorrida no Império do Brasil, na então província 
+          do Grão-Pará, estendendo-se de janeiro de 1835 a 1840, durante o período regencial 
+          brasileiro. Marcado por um cenário de pobreza extrema, fome e doenças, o conflito existiu 
+          muito devido à irrelevância política à qual a província foi relegada após a Independência 
+          do Brasil. Dado o seu saldo de mortos exorbitante e a chacina de povos promovida pela 
+          coroa, a Cabanagem é um dos maiores conflitos já ocorridos na história do país.
+        &lt;/p>
+        &lt;p style="color: black">Fonte: Wikipedia&lt;/p>
+      &lt;/body>
+    &lt;/html>
+        </pre>
+        
+        <h2 class="referencias">Referências</h2>
+        <ul>
+          <li class="referencia">
+            SILVA, Maurício Samy. <em class="referencia">Construindo sites com CSS e (X)HTML: sites controlados 
+          por folhas de estilo em cascata</em>. São Paulo: Novatec, 2008.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

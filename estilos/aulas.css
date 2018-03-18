@@ -1,0 +1,116 @@
+#cabecalho{
+  text-align: center;
+}
+#cabecalho img{
+  border-style: none;
+}
+#cabecalho h1,h2{
+  margin: 0.2em;
+}
+h1.cabecalho{
+  font-family: "Book Antiqua", Palatino, serif;
+  font-size: 20pt;
+  text-align: center;
+}
+h2.cabecalho{
+  font-family: "Book Antiqua", Palatino, serif;
+  font-size: 18pt;
+  text-align: center;
+}
+#tudo{
+  text-align: left;
+  width: 80%;
+  padding: 2em;
+  margin: 0 auto;
+  background-color: #FFFFE0;
+}
+body{
+  margin-left: 3%;
+  margin-right: 3%;
+  background-image: url(background.png);
+  text-align: center; /* Para IE 5.x */
+}
+#conteudo h2{
+  border-bottom: 1px solid #000;
+  font-family: "Book Antiqua", Palatino, serif;
+  margin-top: 1em;
+}
+h1{
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+#conteudo h3{
+  font-family: Arial, sans-serif;
+}
+p{
+  font-family: sans-serif;
+  text-align: justify;
+  text-indent: 2em;
+  line-height: 1.3;
+}
+p.lembrete{
+  background-color: pink;
+  border: 3px dotted black;
+  padding: 1em;
+  margin-left: 10%;
+  margin-right: 15%;
+  text-indent: 0;
+  font-size: 85%;
+}
+ul{
+  font-family: sans-serif;
+}
+ul.semmarcador li{
+  list-style-type: none;
+}
+table{
+  border-collapse: collapse;
+  border: 2px solid black;
+  margin: auto;
+}
+th{
+  background-color: white;
+}
+td, th{
+  font-family: sans-serif;
+  border: 1px solid black;
+  padding: 5px;
+}
+td.centralizada{
+ text-align: center; 
+}
+pre.html{
+  border: 1px solid black;
+  background-color: #CDDEDE;
+  font-family: "Inconsolata", "Courier New", Courier, monospace;
+  white-space: pre-wrap;
+  padding-top: 1em;
+}
+img{
+  border: 1px solid black;
+}
+span.html{
+  font-family: "Inconsolata", "Courier New", Courier, monospace;
+  font-weight: bold;
+  color: blue;
+}
+span.arquivo{
+  color: blue;
+}
+ol.opcoes_exercicio{
+  list-style-type: lower-alpha;
+  font-family: sans-serif;
+  text-align: justify;
+  margin-left: 2em;
+}
+ul.opcoes_exercicio{
+  margin-left: 2em;
+}
+div.exercicios p{
+  text-indent: 0em;
+}
+figure > img{ /*centraliza imagens dentro de um figure*/
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,16 @@
+Os elementos anteriores ao elemento estilizado com float não serão afetados. Os elementos seguintes (com float normal) irão fluir por ele, começando pela posição que o elemento flutuado ocuparia no fluxo normal.
+->Propriedade float
+  *valor 'normal': os blocos são empilhados. O fluxo é vertical, de cima para baixo. A largura padrão (width) é 100%. Insere uma 'quebra de linha' à direita do bloco. Este é o valor padrão.
+  *valor 'left': o fluxo é horizontal, da esquerda para a direita. O bloco é posicionado na esquerda e segue a 'fila' dos blocos adjacentes com esse valor de float. A largura padrão é 'auto' (calculada com base no conteúdo). Caso atinja a extremidade direita da página, o fluxo continua na linha seguinte.
+  *valor 'right': o fluxo é horizontal, da direita para a esquerda. O bloco é posicionado na direita e segue a 'fila' dos blocos adjacentes com esse valor de float. Caso atinja a extremidade esquerda da página, o fluxo continua na linha seguinte.
+
+->Propriedade clear: impede que outros elementos flutuem ao redor de um elemento que está no fluxo normal. Ao impedir a flutuação ao seu redor, o elemento estilizado com clear é deslocado para abaixo do elemento flutuante.
+  *Valor 'left': impede o flutuamento à esquerda.
+  *Valor 'right': impede o flutuamento à direita.
+  *Valor 'both': impede o flutuamento em qualquer um dos lados.
+
+Links:
+  http://www.w3schools.com/css/css_float.asp
+  http://www.richardbarros.com.br/blog/css/css-truques-para-dominar-a-propriedade-float
+  http://desenvolvimentoparaweb.com/css/css-float-consideracoes-dicas-e-macetes-para-bons-layouts-na-web/
+  http://pt-br.html.net/tutorials/css/lesson13.php

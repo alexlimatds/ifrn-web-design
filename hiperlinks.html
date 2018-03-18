@@ -1,0 +1,191 @@
+﻿ <!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="keywords" content="HTML,CSS">
+    <meta name="author" content="Alexandre Gomes de Lima">
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="estilos/aulas.css">
+    <title>IFRN/DIATINF/Design Web: Hiperlinks</title>
+  </head>
+  <body>
+    <div id="tudo">
+      <header id="cabecalho">
+        <img src="imagens/logo_ifrn.png" alt="IFRN" id="logoifrn">
+        <h1 class="cabecalho">
+          Diretoria Acadêmica de Gestão e Tecnologia da Informação
+        </h1>
+        <h2 class="cabecalho">
+          Disciplina de Design Web e Arquitetura da Informação
+        </h2>
+      </header>
+      
+      <article id="conteudo">
+        <h1>Hiperlinks</h1>
+        <p>
+          Os hiperlinks, ou simplesmente links, representam um dos recursos fundamentais da web: 
+          a capacidade de conectar documentos. Nesta aula iremos conhecer a tag <span class="html">a</span> 
+          e aprender como utilizá-la para criar diversos tipos de links. Também veremos os conceitos de 
+          âncoras, caminhos relativos e caminhos absolutos. Estes últimos são particularmente importantes 
+          quando criamos links locais, ou seja, links para documentos do nosso próprio website.
+        </p>
+        
+        <section>
+          <h2>Links Externos</h2>
+          <p>
+            Links externos são links para recursos (páginas web ou arquivos de qualquer tipo) que não pertencem ao 
+            nosso website. Estes recursos externos são referenciados através de uma URL (endereço da internet). 
+            Assim, para criar um link externo utilizanos a tag <span class="html">a</span> em conjunto com o 
+            atributo <span class="html">href</span>. Usamos este atributo para informar a URL do recurso 
+            desejado. Veja o exemplo a seguir que cria um link para o portal do IFRN. Repare que a área 
+            clicável do hiperlink fica restrita ao texto utilizado como conteúdo da tag <span class="html">a</span>.
+          </p>
+          <pre class="html">
+    <strong>&lt;a href="http://portal.ifrn.edu.br"&gt;IFRN&lt;/a&gt;</strong>
+          </pre>
+          <figure>
+            <img src="hiperlinks/figura01.png" 
+                 alt="Página com hiperlink para o portal do IFRN">
+          </figure>
+          
+          <p>
+            Além de texto, também é possível utilizar imagens em conjunto com hiperlinks. Para tal, basta 
+            inserir uma tag <span class="html">img</span> como conteúdo da tag <span class="html">a</span>.
+          </p>
+          <pre class="html">
+    <strong>&lt;a href="http://portal.ifrn.edu.br"&gt;
+      &lt;img src="logo_ifrn.png"&gt;
+    &lt;/a&gt;</strong>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>Links Locais</h2>
+          <p>
+            Dizemos que um link é interno quanto ele faz referência a um recurso do seu próprio website. 
+            Neste caso, utilizamos um nome de arquivo no lugar de uma URL para indicar a página alvo do link. 
+            Vamos começar com um exemplo simples. Considere as duas páginas a seguir, ambas localizadas no 
+            mesmo diretório (pasta).
+          </p>
+          <pre class="html">
+    &lt;!-- pagina1.html --&gt;
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+      &lt;meta charset="UTF-8"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;a href=<strong>"pagina2.html"</strong>&gt;Página 2&lt;/a&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+          </pre>
+          
+          <pre class="html">
+    &lt;!-- pagina2.html --&gt;
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+      &lt;meta charset="UTF-8"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;a href=<strong>"pagina1.html"</strong>&gt;Página 1&lt;/a&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+          </pre>
+          
+          <p>
+            Repare que, no exemplo anterior, somente foi preciso utilizar o nome do arquivo da página alvo como 
+            valor do atributo <span class="html">href</span>. No entanto, se as páginas se encontrarem em pastas 
+            distintas, teremos que utilizar o nome do arquivo precedido de seu caminho. Para verificar na prática. 
+            vamos modificar nosso 
+            exemplo da seguinte forma: na pasta atual dos arquivos <strong>pagina1.html</strong> e <strong>pagina2.html</strong>, 
+            crie uma pasta chamada <strong>sub</strong> e mova <strong>pagina2.html</strong> para esta nova pasta. 
+            Em seguida, recarregue e <strong>pagina1.html</strong>, acesse o link e veja que este ficou quebrado 
+            (a página não é encontrada).
+          </p>
+          <p>
+            Agora, atualize <strong>pagina1.html</strong> da maneira a seguir e confira o resultado das modificações.
+          </p>
+          <pre class="html">
+    &lt;!-- pagina1.html --&gt;
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+      &lt;meta charset="UTF-8"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;a href=<strong>"sub/pagina2.html"</strong>&gt;Página 2&lt;/a&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+          </pre>
+          
+          <p>
+            Verifique que em <strong>pagina2.html</strong> o link está quebrado pois <strong>pagina1.html</strong> 
+            não está no mesmo diretório que <strong>pagina2.html</strong>. Analisando de forma mais precisa, 
+            verificamos que <strong>pagina2.html</strong> está na pasta <strong>sub</strong> enquanto que 
+            <strong>pagina1.html</strong> está em uma pasta acima. Neste caso, no link de <strong>pagina2.html</strong> 
+            temos que preceder o nome do arquivo alvo com <strong>../</strong>. Isto indica que o navegador deve 
+            procurar o arquivo em uma pasta acima da qual <strong>pagina2.html</strong> se encontra. Verifique 
+            como <strong>pagina2.html</strong> deve ser modificada:
+          </p>
+          <pre class="html">
+    &lt;!-- pagina2.html --&gt;
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+      &lt;meta charset="UTF-8"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;a href=<strong>"../pagina1.html"</strong>&gt;Página 1&lt;/a&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+          </pre>
+          
+          <p>
+            ATENÇÃO: não utilize caminhos absolutos, ou seja, caminhos que indicam a localização 
+            exata do arquivo no disco rígido como <strong>C:\aluno\documentos\site\pagina1.html</strong>. 
+            Links com caminhos absolutos somente funcionam no próprio computador em 
+            que as páginas foram criadas. Os caminhos de arquivos utilizados no exemplo são chamados de 
+            caminhos relativos, pois são sempre baseados na localização da própria página do hiperlink. 
+            Caminhos relativos garantem que os links do seu website fucionarão corretamente em qualquer 
+            computador.
+          </p>
+        </section>
+        
+        <section>
+          <h2>Exercícios</h2>
+          <p>
+            1) Crie um pequeno site contendo três páginas descritas a seguir:
+          </p>
+          <ul class="opcoes_exercicio">
+            <li>
+              <strong>index.html</strong>: deve conter um cabeçalho com uma mensagem de boas vindas e 
+              com links para as outras duas páginas do site.
+            </li>
+            <li>
+              <strong>fotos.html</strong>: deve conter um cabeçalho, duas ou mais imagens e um link que permita 
+              ao usuário voltar para <strong>index.html</strong>. Cada imagem deve possuir um link 
+              com uma página da internet relacionada à imagem.
+            </li>
+            <li>
+              <strong>contato.html</strong>: deve conter um cabeçalho e um link que permita 
+              ao usuário voltar para <strong>index.html</strong>.
+            </li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2 class="referencias">Referências</h2>
+          <ul>
+            <li class="referencia">
+              W3Schools. <em class="referencia">HTML Links</em>. Disponível em &lt;<a href="https://www.w3schools.com/html/html_attributes.asp">https://www.w3schools.com/html/html_links.asp</a>&gt;.
+            </li>
+            <li class="referencia">
+              BEZERRA, Weskley. <em class="referencia">URL</em>. Notas de aula.
+            </li>
+          </ul>
+        </section>
+      </article>
+      
+    </div>
+  </body>
+</html>

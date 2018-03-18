@@ -1,0 +1,376 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="keywords" content="HTML,CSS" />
+    <meta name="author" content="Alexandre Gomes de Lima" />
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="estilos/aulas.css" />
+    <title>IFRN/DIATINF/Design Web: CSS parte 3</title>
+  </head>
+  <body>
+    <div id="tudo">
+      <header id="cabecalho">
+        <img src="imagens/logo_ifrn.png" alt="Logotipo do IFRN" id="logoifrn" />
+        <h1 class="cabecalho">
+          Diretoria Acadêmica de Gestão e Tecnologia da Informação
+        </h1>
+        <h2 class="cabecalho">
+          Disciplina de Design Web e Arquitetura da Informação
+        </h2>
+      </header>
+      
+      <article id="conteudo">
+        <h1>Introdução a CSS - parte 3</h1>
+        <p>
+        Nesta aula serão apresentados o seletor descendente, o seletor filho, o seletor atributo, 
+        os pseudo-seletores e as pseudoclasses. Também reforça o conceito de árvore de elementos. 
+        O conhecimento destes seletores nos permitirá a criação de folhas de estilos mais ricas 
+        e flexíveis.
+        </p>
+        
+        <h2>Árvore do documento</h2>
+        <p>
+        Antes de apresentarmos o seletor descendente e o seletor filho, vamos rever o conceito 
+        de árvore de documento para uma melhor compreensão destes seletores. A <em>árvore de 
+        documento</em> é uma estrutura hierárquica composta pelos elementos HTML presentes no 
+        documento. A hierarquia vem dos relacionamentos do tipo pai e filho que se formam entre 
+        os elementos da árvore.
+        Tome como exemplo o trecho HTML abaixo seguido da sua árvore de documento:
+        </p>
+        
+        <pre class="html">
+  ...
+  &lt;body>
+    &lt;div id="topo">
+      &lt;h1>Empresa&lt;/h1>
+      &lt;ul>
+        &lt;li>&lt;a href="#">Link 1&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#">Link 2&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#">Link 3&lt;/a>&lt;/li>
+      &lt;/ul>
+    &lt;/div>
+    &lt;div id="principal">
+      &lt;h2>Título&lt;/h2>
+      &lt;p>Lorem &lt;em>ipsum&lt;/em>...&lt;/p>
+      &lt;h2>Título&lt;/h2>
+      &lt;blockquote>&lt;p>...consectetur adipisicing...&lt;/p>&lt;/blockquote>
+    &lt;/div>
+  &lt;/body>
+        </pre>
+        <img style="width: 60%" src="css-parte_3/arvore.png" alt="Árvore do documento" />
+        
+        <p>Seguem alguns relacionamentos determinados pela árvore de exemplo:</p>
+        <ul>
+          <li>
+            Elemento <span class="html">body</span>: é pai dos dois elementos <span class="html">div</span> e 
+            ancestral de todos os elementos.
+          </li>  
+          <li>
+            Elemento <span class="html">div</span> (topo): é filho e descendente de <span class="html">body</span>. 
+            É pai de <span class="html">h1</span> e de <span class="html">ul</span>. É ancestral dos três 
+            <span class="html">li</span> e dos três <span class="html">a</span>.
+          </li>
+          <li>
+            Elemento <span class="html">ul</span>: é pai dos três elementos <span class="html">li</span> e 
+            ancestral dos três elementos <span class="html">a</span>. É filho de <span class="html">div</span> 
+            (topo) e descendente de <span class="html">body</span>.
+          </li>
+        </ul>
+        
+        <h2>Seletor descendente e seletor filho</h2>
+        <p>
+        O seletor descendente seleciona um conjunto de elementos que se enquadram em determinada
+        hierarquia de descendência. Caracteres de espaço em branco são utilizados para 
+        indicar a hierarquia da descendência. Por exemplo, a regra CSS 
+        a seguir formata a cor do texto de todos os elementos <span class="html">p</span> descendentes de 
+        algum elemento <span class="html">div</span>.
+        </p>
+        <pre class="html">
+  div p{ color: red }
+        </pre>
+        
+        <p>
+        Quando aplicada ao documento anterior, a regra CSS do útimo exemplo formata os  
+        dois elementos <span class="html">p</span> presentes no documento já que ambos são 
+        ancestrais de algum <span class="html">div</span>:
+        </p>
+        <img src="css-parte_3/exemplo1.png" alt="Visualização da regra CSS aplicada ao documento" />
+        
+        <p>
+        Já no próximo exemplo, a regra CSS aplica formatação aos elementos 
+        <span class="html">p</span> descendentes de <span class="html">blockquote</span> e que por 
+        sua vez devem ser descendentes de algum <span class="html">div</span>. Repare que, neste caso, apenas 
+        o segundo parágrafo foi formatado com base na regra CSS.
+        </p>
+        <pre class="html">
+  div blockquote p{ color: red }
+        </pre>
+        <img src="css-parte_3/exemplo2.png" alt="Visualização da regra CSS aplicada ao documento" />
+        
+        <p>
+        O seletor filho é semelhante ao seletor descedente, mas tem efeito apenas sobre elementos filhos.  
+        O símbolo <em>maior que</em> é utilizado para indicar a relação pai-e-filho. O seguinte exemplo 
+        aplica formatação aos elementos <span class="html">p</span> filhos de algum elemento 
+        <span class="html">div</span>. Repare que, para o documento anterior, apenas um 
+        dos elementos <span class="html">p</span> recebe a formatação (o elemento <span class="html">
+        p</span> filho de <span class="html">blockquote</span> não se enquadra no seletor e portanto 
+        não é formatado).
+        </p>
+        <pre class="html">
+  div > p{ color: red }
+        </pre>
+        <img src="css-parte_3/exemplo3.png" alt="Visualização da regra CSS aplicada ao documento" />
+        
+        <h2>Pseudoclasses</h2>
+        <p>
+        Permite a criação de seletores que fogem da hierarquia determinada pela árvore 
+        de elementos, proporcionando a definição de regras CSS mais ricas.
+        Podem ocupar qualquer posição no seletor.
+        </p>
+        
+        <h3>:first-child</h3>
+        <p>
+        Refere-se ao elemento que é o primeiro filho de determinado elemento. Por exemplo, a regra  
+        a seguir aplica o estilo aos parágrafos descendentes do elemento com id x e que também sejam 
+        primeiro-filho de algum elemento.
+        </p>
+        <pre class="html">
+  #x p:first-child{ color: red }
+        </pre>
+        
+        <p>
+        Quando aplicada ao HTML a seguir, são formatados apenas os parágrafos com o 
+        texto <em>Um</em> e <em>A</em>.
+        </p>
+        <pre class="html">
+  &lt;div id="x">
+    &lt;p>Um&lt;/p>
+    &lt;p>Dois&lt;/p>
+    &lt;div>
+      &lt;p>A&lt;/p>
+      &lt;p>B&lt;/p>
+    &lt;/div>
+  &lt;/div>
+        </pre>
+        
+        <p>
+        Caso esta mesma regra fosse aplicada ao próximo código HTML, nenhum elemento receberia a 
+        formatação do estilo pois o primeiro filho da <span class="html">div</span> não 
+        é um parágrafo.
+        </p>
+        <pre class="html">
+  &lt;div id="x">
+    &lt;h1>Um&lt;/h1>
+    &lt;p>Dois&lt;/p>
+  &lt;/div>
+        </pre>
+        
+        <h3>:link e :visited</h3>
+        <p>
+        Estas pseudoclasses são utilizadas para estilização de links não-visitados 
+        (<span class="html">:link</span>) e links visitados (<span class="html">:visited</span>).
+        </p>
+        <p>
+        São pseudoclasses aplicáveis apenas ao elemento <span class="html">a</span> e que 
+        contenham o atributo <span class="html">href</span>, ou seja, apenas links externos. 
+        Desta forma, o elemento <span class="html">a</span> pode ser omitido ao utilizar 
+        uma destas pseudoclasses. As duas regras CSS a seguir são equivalentes e produzem 
+        o mesmo efeito:
+        </p>
+        <pre class="html">
+  a:link{ color: red }
+  :link{ color: red }
+        </pre>
+        
+        <p>Como as pseudoclasses podem ocupar qualquer posição de um seletor, as regras 
+        a seguir são válidas e equivalentes:
+        </p>
+        <pre class="html">
+  a.externo:link{ color: red }
+  .externo:link{ color: red }
+  a:link.externo{ color: red }
+  :link.externo{ color: red }
+        </pre>
+        
+        <h3>:hover, :active e :focus</h3>
+        <p>
+        São pseudoclasses dinâmicas baseadas na interação do usuário com o elemento. 
+        </p>
+        <ul>
+          <li>
+          <span class="html">:hover</span> refere-se ao momento em que o ponteiro do mouse aponta 
+          para o elemento.
+          </li>
+          <li>
+          <span class="html">:active</span> refere-se ao momento em que o ponteiro do mouse 
+          ativa (clica) o elemento.
+          </li>
+          <li>
+          <span class="html">:focus</span> refere-se ao momento em que o elemento recebe o foco. 
+          Note que nem todos os elemento em uma página HTML são capazes de receber foco.
+          </li>
+        </ul>
+        <p>
+        O código a seguir ilustra o uso destas três pseudoclasses. Utilize-o para criar uma página 
+        web e observe os resultados. Utilize a tecla TAB para mudar o foco dos elementos.
+        </p>
+        <pre class="html">
+  &lt;html>
+    &lt;head>
+      &lt;style type="text/css">
+        #t1:hover{ background-color: pink }
+        #t2:active{ font-style: italic }
+        #l1:focus{ border: solid red 5px }
+      &lt;/style>
+    &lt;/head>
+    &lt;body>
+      &lt;h1 id="t1">Título 1&lt;/h1>
+      &lt;h1 id="t2">Título 2&lt;/h1>
+      &lt;p>&lt;a id="l1" href="#">Link 1&lt;/a>&lt;/p>
+      &lt;p>&lt;a href="#">Link 2&lt;/a>&lt;/p>
+    &lt;/body>
+  &lt;/html>
+        </pre>
+        
+        <h2>Pseudo-elementos</h2>
+        <p>
+        Assim como as pseudoclasses, os pseudo-elementos possibilitam a definição de 
+        seletores com elementos que não estão presentes na árvore de elementos, 
+        enriquecendo as regras CSS. Diferentemente das pseudoclasses, os pseudo-
+        elementos devem ser declarados no final do seletor.
+        </p>
+        
+        <ul>
+          <li>
+          <span class="html">:first-line</span> - 
+          permite a estilização da primeira linha do texto contido em elementos em nível 
+          de bloco, elementos inline, rótulos de tabela e células de tabela.
+          </li>
+    
+          <li>
+          <span class="html">:first-letter</span> - 
+          permite a estilização da primeira letra do texto contido em um elemento em 
+          nível de bloco. Para que seja aplicado, não poderá haver conteúdo antes do 
+          início do texto. Este é um efeito tipográfico conhecido como capitalização 
+          inicial.
+          </li>
+          
+          <li><span class="html">:before</span> e <span class="html">:after</span> - 
+          permitem, junto com a propriedade <span class="html">content</span>, a inserção 
+          de conteúdo antes (before) ou após (after) o elemento alvo do seletor.
+          </li>
+        </ul>
+        
+        <p>O exemplo a seguir ilustra o uso destes pseudo-elementos</p>
+        <pre class="html">
+  &lt;html>
+    &lt;head>
+      &lt;style type="text/css">
+        body:before{ content: "INÍCIO" }
+        body:after{ content: "FIM" }
+        p{ width: 300px }
+        #p1:first-line{ 
+          font-style: italic;
+          font-size: 200%;
+        }
+        #p2:first-letter{
+          font-size: 200%;
+          background-color: pink;
+        }
+      &lt;/style>
+    &lt;/head>
+    &lt;body>
+      &lt;p id="p1">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      &lt;/p>
+      &lt;p id="p2">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      &lt;/p>
+    &lt;/body>
+  &lt;/html>
+        </pre>
+        <img src="css-parte_3/exemplo4.png" alt="Visualização da regra CSS aplicada ao documento" />
+        
+        <h2>Seletor atributo</h2>
+        <p>
+        Faz com que a seleção de elementos seja restrita pela presença de um atributo. 
+        Colchetes são utilizados para definir o atributo que deve estar presente. A 
+        regra CSS no próximo exemplo aplica o estilo a todos os elementos <span class="html">p
+        </span> que contenham o atributo <span class="html">lang</span>.
+        </p>
+        <pre class="html">
+  p[lang] { color: red }
+  
+  &lt;p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&lt;/p>
+  &lt;p lang="eng">The quick brown fox jumps over the lazy dog.&lt;/p>
+        </pre>
+        <img src="css-parte_3/exemplo5.png" alt="Visualização da regra CSS aplicada ao documento" />
+        
+        <p>
+        Também é possível limitar a seleção com base no valor do atributo. O próximo 
+        exemplo aplica o estilo apenas aos elementos <span class="html">p</span> cujo 
+        valor do atributo <span class="html">lang</span> seja igual a <em>en</em>.
+        </p>
+        <pre class="html">
+  p[lang=en] { color: red }
+  
+  &lt;p lang="la">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&lt;/p>
+  &lt;p lang="en">The quick brown fox jumps over the lazy dog.&lt;/p>
+        </pre>
+        <img src="css-parte_3/exemplo5.png" alt="Visualização da regra CSS aplicada ao documento" />
+        
+        <h2>Exercícios</h2>
+        <div class="exercicios">
+          <p>1) Desenhe a árvore de elementos para o seguinte código HTML:</p>
+          <pre class="html">
+  &lt;body>
+    &lt;div id="principal">
+      &lt;h1>DIATINF&lt;/h1>
+      &lt;h2>Cursos Técnicos&lt;/h2>
+      &lt;ul>
+        &lt;li>&lt;a href="ti.html">Informática&lt;/a>&lt;/li>
+        &lt;li>Informática para Internet&lt;/li>
+        &lt;li>Manutenção e Suporte em Informática&lt;/li>
+        &lt;li>Administração&lt;/li>
+      &lt;/ul>
+    &lt;/div>
+    &lt;div id="contato">
+      &lt;p>E-mail: diatinf@ifrn.edu.br&lt;/p>
+      &lt;p>Fone: 4005-2637&lt;/p>
+    &lt;/div>
+  &lt;/body>
+          </pre>
+          
+          <p>2) Descreva o conjunto de elementos selecionados por cada um dos seletores a seguir:</p>
+            <ol style="list-style-type: lower-alpha">
+              <li><span class="html">.noticia p</span></li>
+              <li><span class="html">#menu > ul</span></li>
+              <li><span class="html">div.corpo a</span></li>
+              <li><span class="html">img.mapa:hover</span></li>
+            </ol>
+          
+          <p>
+            3) Aplique estilos para deixar o arquivo 
+            <a href="css-parte_3/exercicio3.html">exercicio3.html</a> semelhante 
+            à figura abaixo. ATENÇÃO: não modifique as tags HTML. Apenas crescente 
+            regras CSS à folha de estilo incorporada já presente no documento.
+          </p>
+          <img src="css-parte_3/exercicio3.png" />
+        </div>
+        
+        <h2 class="referencias">Referências</h2>
+        <ul>
+          <li class="referencia">
+            SILVA, Maurício Samy. <em class="referencia">Construindo sites com CSS e (X)HTML: sites controlados 
+          por folhas de estilo em cascata</em>. São Paulo: Novatec, 2008.
+          </li>
+        </ul>
+      </article>
+      
+    </div>
+  </body>
+</html>

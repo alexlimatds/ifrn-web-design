@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="keywords" content="HTML,CSS" />
+    <meta name="author" content="Alexandre Gomes de Lima" />
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="estilos/aulas.css" />
+    <title>IFRN/DIATINF/Design Web: elementos de bloco e de linha</title>
+  </head>
+  <body>
+    <div id="tudo">
+      <div id="cabecalho">
+        <img src="imagens/logo_ifrn.png" alt="IFRN" id="logoifrn" />
+        <h1 class="cabecalho">
+          Diretoria Acadêmica de Gestão e Tecnologia da Informação
+        </h1>
+        <h2 class="cabecalho">
+          Disciplina de Design Web e Arquitetura da Informação
+        </h2>
+      </div>
+      <div id="conteudo">
+        <h1>Elementos em nível de bloco e em nível linha</h1>
+        <p>
+        Esta aula apresenta o conceito de blocos de conteúdo e introduz as 
+        propriedades de estilização de blocos. Também passaremos a conhecer 
+        as tags <span class="html">div</span> e <span class="html">span</span>, as 
+        quais nos permitirão a construção de páginas HTML mais elaboradas.
+        </p>
+        
+        <h2>Elementos de bloco e de linha</h2>
+        <p>
+        O modelo de formatação CSS organiza o conteúdo de uma página HTML em blocos 
+        de conteúdo. Estes blocos são criados por elementos específicos denominados 
+        <strong>elementos em nível de bloco</strong> tais como <span class="html">p</span> e 
+        <span class="html">h1</span>. Já os elementos que não criam blocos de conteúdo, como 
+        <span class="html">a</span> e <span class="html">img</span>, são chamados de 
+        <strong>elementos em nível de linha</strong>. Visualmente, estes dois tipos de 
+        elementos definem uma caixa que envolve o conteúdo do elemento. Observe o 
+        exemplo a seguir:
+        </p>
+        
+        <pre class="html">
+  p{ background-color: pink; }
+  a{ background-color: yellow; }
+  
+  &lt;p>
+    Visite nosso &lt;a href="http://www.site.com">site&lt;/a> para obter mais informações.
+  &lt;/p>
+        </pre>
+        <img src="elementos_bloco_e_linha/exemplo01.png" alt="Visualização do exemplo 1" />
+        
+        <p>
+        Um elemento de linha segue o fluxo de apresentação da linha em que se encontra inserido. 
+        Já um elemento de bloco interrompe este fluxo, forçando a quebra de linha. Este comportamento 
+        pode ser visualizado no próximo exemplo. Repare que o elemento de bloco 
+        <span class="html">ul</span> força a quebra de linha e encerra o bloco de conteúdo do 
+        elemento <span class="html">p</span>.
+        </p>
+        <pre class="html">
+  p{ background-color: pink; }
+  a{ background-color: yellow; }
+  ul{ background-color: aqua; }
+  
+  &lt;p>
+    Lorem ipsum dolor sit amet, &lt;a href="http://www.site.com">LINK&lt;/a>
+    consectetur adipisicing elit, sed do eiusmod tempor incididunt 
+    ut labore et dolore magna aliqua. 
+    &lt;ul>
+      &lt;li>Ut enim ad minim veniam&lt;/li>
+      &lt;li>quis nostrud exercitation&lt;/li>
+      &lt;li>ullamco laboris nisi ut aliquip&lt;/li>
+    &lt;/ul>
+    ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+    in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  &lt;/p>
+        </pre>
+        <img src="elementos_bloco_e_linha/exemplo02.png" alt="Visualização do exemplo 2" />
+        
+        <p>
+        Cada elemento visual em uma página HTML define uma caixa que o envolve, 
+        a qual segue o modelo ilustrado na figura abaixo:
+        </p>
+        <img src="elementos_bloco_e_linha/modelo_caixa.png" alt="Modelo de caixa CSS" />
+        <p>
+        As margens (<span class="html">margin</span>) definem a separação entre caixas 
+        adjacentes e são sempre transparentes.
+        A borda é um contorno que possui as propriedades espessura (<span class="html">border-width</span>), 
+        cor (<span class="html">border-color</span>) e estilo (<span class="html">border-style</span>).
+        A propriedade <span class="html">padding</span> define o espaçamento entre a área de conteúdo e 
+        a borda e, assim como a margem, é sempre transparente.
+        O exemplo abaixo ilustra a estilização destas quatro propriedades.
+        </p>
+        
+        <pre class="html">
+  body{ background-color: aqua; }
+  p{
+    <b>margin: 15px;
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
+    padding: 30px;</b>
+    background-color: pink;
+  }
+  
+  &lt;body>
+    &lt;p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    &lt;/p>
+    &lt;p>
+      Ut enim ad minim veniam, quis nostrud exercitation 
+      ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    &lt;/p>
+  &lt;/body>
+        </pre>
+        <img src="elementos_bloco_e_linha/exemplo03.png" alt="Visualização do exemplo 3" />
+        
+        <p>
+        Para cada uma das propriedades de caixa apresentadas, existem mais quatro propriedades 
+        para estilização específica por dimensão. Por exemplo, para a margem temos 
+        <span class="html">margin-top</span>, <span class="html">margin-bottom</span>, 
+        <span class="html">margin-left</span> e <span class="html">margin-right</span>. 
+        Veja o próximo exemplo:
+        </p>
+        
+        <pre class="html">
+  body{ background-color: aqua; }
+  p{
+    <b>margin-top: 50px;
+    margin-left: 30%;
+    border-top-width: 3px;
+    border-top-style: dotted;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;</b>
+    background-color: pink;
+  }
+  
+  &lt;body>
+    &lt;p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    &lt;/p>
+  &lt;/body>
+        </pre>
+        <img src="elementos_bloco_e_linha/exemplo04.png" alt="Visualização do exemplo 4" />
+        
+        <p>
+        Também é possível a utilização da forma abreviada para estilização das quatro 
+        dimensões. Basta declarar a propriedade em questão e utilizar espaço para separar 
+        os valores. A ordem seguida é top, right, bottom e left (sentido horário començando 
+        em top).
+        </p>
+        
+        <pre class="html">
+  body{ background-color: aqua; }
+  p{
+    <b>margin: 20px 3px 0px 20px;
+    border-width: 1px 3px 6px 12px;
+    border-style: solid dashed dotted double;</b>
+    background-color: pink;
+  }
+  
+  &lt;p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+  &lt;/p>
+        </pre>
+        <img src="elementos_bloco_e_linha/exemplo05.png" alt="Visualização do exemplo 5" />
+        
+        <h2>Elementos div e span</h2>
+        <p>
+        A tag <span class="html">div</span> é um elemento em nível de bloco que não possui 
+        significado (semântica) específico. Possui a capacidade de agrupar elementos tanto em nível 
+        nível de linha quanto em nível de bloco. Uma <span class="html">div</span> pode, assim, 
+        incluir outras <span class="html">div</span>s. 
+        Sua principal finalidade é a divisão lógica do conteúdo presente no documento HTML. 
+        Um uso bastante comum de <span class="html">div</span> 
+        é na definição de regiões como cabeçalho, menu e rodapé:
+        </p>
+        <pre class="html">
+  #cabecalho{
+    font-size: 18px;
+    border-bottom-style: double;
+    border-bottom-width: 4px;
+    border-bottom-color: black;
+  }
+  #conteudo{
+    font-size: 16px;
+    margin-top: 10px 5px 10px 5px;
+    background-color: pink;
+  }
+  #rodape{
+    font-size: 12px;
+    border-top-style: double;
+    border-top-width: 4px;
+    border-top-color: black;
+  }
+  
+  &lt;body>
+    <b>&lt;div id="cabecalho">
+      &lt;h1>DIATINF&lt;/h1>
+    &lt;/div>
+    &lt;div id="conteudo">
+      &lt;p>
+        A Diretoria Acadêmica de Gestão e Tecnologia da Informação (DIATINF) 
+        oferta cursos técnicos integrados e cursos superiores de tecnologias. 
+        A DIATINF também organiza os procedimentos administrativos que envolvam 
+        alunos e professores, como registro acadêmico, elaboração de horários e 
+        coordenação das aulas nos laboratórios.
+      &lt;/p>
+    &lt;/div>
+    &lt;div id="rodape">
+      &lt;p>
+        IFRN - Campus Natal Central &lt;br/>
+        Av. Sen Salgado Filho, 1559, Tirol. Natal - RN
+      &lt;/p>
+    &lt;/div></b>
+  &lt;/body>
+        </pre>
+        <img src="elementos_bloco_e_linha/exemplo06.png" alt="Visualização do exemplo 6" />
+        
+        <p>
+        A tag <span class="html">span</span> é um elemento em nível de linha cuja 
+        principal finalidade é aplicar formatação específica a determinados trechos 
+        do documento HTML. Veja o exemplo abaixo:
+        </p>
+        <pre class="html">
+  .codigo{
+    font-family: monospace;
+  }
+  .valor{
+    font-family: Arial;
+    font-style: italic;
+  }
+  .obs{
+    font-weight: bold;
+    color: red;
+  }
+  
+  &lt;p>
+    A propriedade <b>&lt;span class="codigo">border-style&lt;/span></b> também aceita os valores 
+    <b>&lt;span class="valor">groove&lt;/span></b>, <b>&lt;span class="valor">ridge&lt;/span></b>, 
+    <b>&lt;span class="valor">inset&lt;/span></b> e <b>&lt;span class="valor">outset&lt;/span></b>.
+    &lt;br/>
+    <b>&lt;span class="obs">ATENÇÃO: &lt;/span></b> o IE 6 não segue o comportamento padrão 
+    para estas opções de borda.
+  &lt;/p>
+        </pre>
+        <img src="elementos_bloco_e_linha/exemplo07.png" alt="Visualização do exemplo 7" />
+        
+        <h2>Exercícios</h2>
+        <p>
+          1) Escreva o código HTML para gerar a página a seguir. Utilize tags <span class="html">h1</span>, 
+          <span class="html">h2</span> e <span class="html">h3</span> e as regras 
+          <span class="html">margin:0px</span>, <span class="html">border-width:10px</span> e 
+          <span class="html">padding:10px</span>.
+        </p>
+        <img src="elementos_bloco_e_linha/exercicio01.png" alt="Visualização do exercício 1" />
+        
+        <p>
+          2) Escreva o código HTML para gerar a página a seguir. Utilize tags <span class="html">div</span> 
+          para realizar as divisões da página.
+        </p>
+        <img src="elementos_bloco_e_linha/exercicio02.png" alt="Visualização do exercício 2" />
+        
+        <p>
+          3) Escreva o código HTML para gerar a página a seguir. Utilize tags <span class="html">span</span> 
+          para aplicar formatação diferenciada aos acordes da música.
+        </p>
+        <img 
+          src="elementos_bloco_e_linha/exercicio03.png" 
+          alt="Visualização do exercício 3" 
+          longdesc="http://www.cifraclub.com.br/clara-nunes/canto-das-tres-racas/"
+        />
+        <p style="font-size: small; font-style: italic">Fonte: www.cifraclub.com.br</p>
+        
+        <p>
+        4) Escreva o código HTML para gerar a página a seguir. Utilize tags <span class="html">span</span> 
+          para aplicar formatação diferenciada nos trechos apontados pelas setas.
+        </p>
+        <img 
+          src="elementos_bloco_e_linha/exercicio04.png" 
+          alt="Visualização do exercício 4" 
+        />
+        
+        <h2 class="referencias">Referências</h2>
+        <ul>
+          <li class="referencia">
+            SILVA, Maurício Samy. <em class="referencia">Construindo sites com CSS e (X)HTML: sites controlados 
+          por folhas de estilo em cascata</em>. São Paulo: Novatec, 2008.
+          </li>
+          <li>
+            MACEDO, Marcelo da Silva. <em class="referencia">Construindo sites adotando padrões 
+            Web</em>. Rio de Janeiro: Ciência Moderna, 2004.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

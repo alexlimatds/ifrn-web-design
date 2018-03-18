@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="keywords" content="HTML,CSS" />
+    <meta name="author" content="Alexandre Gomes de Lima" />
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="estilos/aulas.css" />
+    <title>IFRN/DIATINF/Design Web: Unidades de Medida</title>
+  </head>
+  <body>
+    <div id="tudo">
+      <div id="cabecalho">
+        <img src="imagens/logo_ifrn.png" alt="IFRN" id="logoifrn" />
+        <h1 class="cabecalho">
+          Diretoria Acadêmica de Gestão e Tecnologia da Informação
+        </h1>
+        <h2 class="cabecalho">
+          Disciplina de Design Web e Arquitetura da Informação
+        </h2>
+      </div>
+      
+      <div id="conteudo">
+        <h1>Unidades de medida CSS</h1>
+        <p>
+        Diversas propriedades CSS, tais como <span class="html">border-width</span>, 
+        <span class="html">width</span> e <span class="html">margin</span>, 
+        dependem de uma medida de comprimento para 
+        funcionar adequadamente. Em CSS, medidas de comprimento são expressas por 
+        um número real seguido da abreviação da unidade de comprimento adotada 
+        (e.g., 10px, 15cm). 
+        As unidades de medida são classificadas como medidas absolutas ou 
+        medidas relativas. Nesta aula, iremos conhecer melhor as unidades de 
+        medida suportada pela CSS.
+        </p>
+        
+        <h2>Unidades absolutas</h2>
+        <p>
+        Unidades absolutas expressam uma medida mensurada com base em uma escala absoluta, 
+        ou seja, com base em um padrão de referência fixo. Uma medida expressa em unidade 
+        absoluta sempre deverá ser renderizada da mesma forma, independente da mídia de 
+        apresentação ou dispositivo. Se um elemento de bloco é estilizado com uma largura 
+        igual a 30cm, o elemento será renderizado com esta largura no navegador de 
+        um computador ou no navegador de um smartphone. No geral, unidades absolutas devem 
+        ser evitadas na estilização de documentos que devem ser renderizadas em um navegador web 
+        pois o autor não tem como saber as configurações (resolução, tamanho, etc) do 
+        dispositivo de visualização do usuário (a não ser através de recursos de programação 
+        como JavaScript). 
+        O uso de unidades absolutas é recomendado quando se conhece de antemão as características 
+        da mídia de destino do documento como, por exemplo, uma versão da página para impressão 
+        em papel.
+        </p>
+        <p>
+        As unidades de medida absolutas disponíves na CSS são <span class="html">in</span> (polegada), 
+        <span class="html">cm</span> (centímetro), <span class="html">mm</span> (milímetro), 
+        <span class="html">pt</span> (ponto) e <span class="html">pc</span> (pica). Destas, 
+        a mais utilizada é a unidade <span class="html">pt</span>, a qual tem origem na 
+        tipografia, sendo que 1pt é igual a 1/72in.
+        </p>
+        
+        <h2>Unidades relativas</h2>
+        <p>
+        Unidades relativas expressam uma medida com base em um valor de referência 
+        previamente definido. Este valor de referência geralmente é dinâmico, podendo 
+        ser alterado em determinadas situações dependendo do dispositivo ou mídia de 
+        visualização. Tome como exemplo a largura da página web. Em um computador, esta 
+        medida varia de acordo com as dimensões da janela do navegador bem como da 
+        resolução do monitor de vídeo. As unidades relativas são apropriadas ao 
+        desenvolvimento web por permitirem que os elementos HTML se ajustem de acordo 
+        com as características da mídia de visualização em que o documento é renderizado. 
+        Assim, na maior parte dos casos devemos utilizar unidades relativas ao invés de 
+        unidades absolutas.
+        </p>
+        <p>
+        As unidades de medida relativas disponíveis na CSS são <span class="html">em</span>, 
+        <span class="html">ex</span>, <span class="html">px</span> (pixel) e 
+        <span class="html">%</span> (porcentagem).
+        </p>
+        
+        <h3>em</h3>
+        <p>
+        A unidade de medida <span class="html">em</span> é calculada com base na altura 
+        do tamanho de fonte adotado para o elemento em questão. Sendo assim, o valor absoluto 
+        de 1em varia de acordo com a propriedade <span class="html">font-size</span> do 
+        elemento. No exemplo abaixo, é possível ver como a margem esquerda medindo 1em varia a 
+        cada parágrafo.
+        </p>
+        
+        <pre class="html">
+  p{ 
+    margin-left: <b>1em</b>;
+    background-color: pink;
+   }
+  #p1{ font-size: 25px; }
+  #p2{ font-size: 35px; }
+  #p3{ font-size: 50px; }
+  
+  &lt;p id="p1">Parágrafo 1.&lt;/p>
+  &lt;p id="p2">Parágrafo 2.&lt;/p>
+  &lt;p id="p3">Parágrafo 3.&lt;/p>
+        </pre>
+        <img src="unidades_de_medida/exemplo1.png" alt="visualização do exemplo 1" />
+        
+        <h3>ex</h3>
+        <p>
+        As medidas em ex são calculadas com base na altura da letra x minúscula do elemento 
+        em questão. Normalmente esta unidade não é utilizada pelos desenvolvedores pois a 
+        maioria dos navegadores não a implementa corretamente.
+        </p>
+        
+        <h3>px</h3>
+        <p>
+        As medidas em px são calculadas com base na resolução do dipositivo no qual 
+        o documento é apresentado (e.g., monitor de vídeo, tela do smartphone). Apesar do pixel 
+        ser uma unidade relativa, pois o tamanho absoluto de 1px varia de acordo 
+        as características do dispositivo de apresentação, medidas em px são fixas em 
+        relação à mídia de apresentação. Assim como as unidades absolutas, o uso da unidade 
+        pixel é mais apropriado em situações em que o autor do documento possui 
+        conhecimento preciso a respeito da mídia de apresentação.
+        </p>
+        
+        <h3>porcentagem</h3>
+        <p>
+        As medidas em porcentagem são calculadas a partir de um valor padrão ou de um valor 
+        herdado. O valor a ser utilizado como referência depende da propriedade CSS. No geral, 
+        este valor é determinado por alguma propriedade CSS do elemento ou pelo contexto geral 
+        de formatação. As medidas em procentagem são muito utilizadas para criação de páginas 
+        capazes de se adequar a diversas mídias de apresentação.
+        </p>
+        <p>
+        O exemplo a seguir ilustra o uso da unidade porcentagem em duas situações: no tamanho de fonte 
+        e na largura do parágrafo. No caso da largura do parágrafo, o valor é calculado a partir 
+        da largura total da janela da página. Já o tamanho de fonte é determinado a partir 
+        do valor 50px, isto é, do tamanho de fonte herdado pelo elemento <span class="html">span</span>.
+        </p>
+        
+        <pre class="html">
+  p{ 
+    <b>width: 50%;</b>
+    font-size: 50px;
+   }
+  span{
+    <b>font-size: 50%;</b>
+  }
+  
+  &lt;p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing 
+  elit, &lt;span>sed do eiusmod &lt;/span> tempor incididunt 
+  ut labore et dolore magna aliqua.
+  &lt;/p>
+        </pre>
+        <img src="unidades_de_medida/exemplo2.png" alt="visualização do exemplo 2" />
+        
+        <div class="exercicios">
+        <h3>Exercícios</h3>
+        <p>
+        1) Crie uma página contendo duas <span class="html">div</span>s. Usando estilos, formate uma 
+        <span class="html">div</span> com uma largura (propriedade <span class="html">width</span>) de 
+        100% e a outra <span class="html">div</span> com uma largura de 300px. Durante a visualização 
+        da página, redimensione a janela do navegador e observe o comportamento de cada 
+        <span class="html">div</span>. Será necessário definir bordas ou cores de background para 
+        que os limites das <span class="html">div</span> sejam visualizados. Também será necessário 
+        que as <span class="html">div</span>s possuam conteúdo.
+        </p>
+        <p>
+        2) Use <span class="html">div</span>s e medidas em porcentagem para criar uma 
+        página como a das figuras abaixo. Note que o alinhamento entre as áreas deve ser 
+        mantido mesmo ao redimensionar a janela do navegador.
+        </p>
+        <img src="unidades_de_medida/exercicio2-1.png" alt="visualização do resultado" />
+        <img src="unidades_de_medida/exercicio2-2.png" alt="visualização do resultado" />
+        
+        <p>
+        3) Por padrão, navegadores web renderizam imagens com as suas dimensões reais em pixels. 
+        No entanto, podemos utilizar as propriedades <span class="html">width</span> e 
+        <span class="html">height</span> para alterar o tamanho em que uma imagem é renderizada. 
+        Caso seja utilizada apenas uma destas duas propriedades, a outra dimensão será ajustada 
+        automaticamente de forma a preservar as proporções da imagem. Ao utilizar medidas em 
+        porcentagem, as dimensões da imagem serão determinadas a partir do elemento de bloco que 
+        contém a imagem. Experimente este resultado na prática criando uma página com três 
+        <span class="html">div</span>s e inserindo a mesma imagem em cada <span class="html">div</span>.
+        Utilize estilos para definir larguras diferentes para cada <span class="html">div</span>
+        e 100% de largura para o elemento <span class="html">img</span>.
+        </p>
+        
+        <p>
+        4) Efeito de lupa: crie uma página cotendo quatro imagens e estilos para aumentar o 
+        tamanho da imagem apontada pelo ponteiro do mouse.
+        </p>
+        
+        <h2 class="referencias">Referências</h2>
+        <ul>
+          <li class="referencia">
+            MACEDO, Marcelo da Silva. <em class="referencia">Contruindo sites adotando padrões web</em>. 
+            Rio de Janeiro: Ciência Moderna, 2008.
+          </li>
+          <li class="referencia">
+            SILVA, Maurício Samy. <em class="referencia">Construindo sites com CSS e (X)HTML: sites controlados 
+          por folhas de estilo em cascata</em>. São Paulo: Novatec, 2008.
+          </li>
+        </ul>
+        </div>
+      </div>
+      
+    </div>
+  </body>
+</html>

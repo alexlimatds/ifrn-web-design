@@ -1,0 +1,360 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="keywords" content="HTML,CSS">
+    <meta name="author" content="Alexandre Gomes de Lima">
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="estilos/aulas.css">
+    <title>IFRN/DIATINF/Design Web: Introdução a HTML</title>
+  </head>
+  <body>
+    <div id="tudo">
+      <header id="cabecalho">
+        <img src="imagens/logo_ifrn.png" alt="IFRN" id="logoifrn">
+        <h1 class="cabecalho">
+          Diretoria Acadêmica de Gestão e Tecnologia da Informação
+        </h1>
+        <h2 class="cabecalho">
+          Disciplina de Design Web e Arquitetura da Informação
+        </h2>
+      </header>
+      
+      <article id="conteudo">
+        <h1>Introdução à HTML</h1>
+        
+        <section>
+          <p>
+            A <strong>World Wide Web</strong>, ou simplesmente <strong>Web</strong>, é um serviço da 
+            internet que disponibiliza conteúdo e serviços através de páginas web. Estas páginas são 
+            normalmente acessadas com um software chamado de navegador, ou browser, tais como Internet 
+            Explorer, Mozilla Firefox e Google Chrome.
+          </p>
+          <p>
+            Falando de forma mais precisa, uma página web 
+            é na verdade um documento HTML (Hyper Text Markup Language), o qual não passa de um documento 
+            de texto cujo conteúdo está 
+            estruturado em tags (marcações). O navegador utiliza estas tags para reconhecer o tipo 
+            de cada conteúdo (e.g., parágrafo, tabela, imagem, etc) e então gerar uma visualização 
+            adequada para o usuário. Assim, para que possamos criar páginas web é preciso conhecer 
+            as tags definidas pela HTML.
+          </p>
+          <p>
+            Uma tag é definida em conjunto com os caracteres <span class="html">&lt;</span> (menor) e 
+            <span class="html">&gt;</span> (maior) e normalmente possui 
+            uma abertura (e.g., <span class="html">&lt;p&gt;</span>) e um fechamento (e.g., <span class="html">&lt;/p&gt;</span>). 
+            No exemplo a seguir estão presentes duas tags (<span class="html">h1</span> e 
+            <span class="html">p</span>). A primeira define um texto de cabeçalho, enquanto que a segunda define um 
+            texto de parágrafo.
+          </p>
+          <pre class="html">
+  &lt;h1&gt;O IFRN&lt;/h1&gt;
+  &lt;p&gt;
+    O IFRN oferece cursos de nível técnico, tecnológico e pós-graduação em diversas áreas do conhecimento e 
+    está presente em todas as regiões do Rio Grande do Norte através dos seus 21 campi.
+  &lt;/p&gt;
+          </pre>
+          <p>
+            Na maioria dos navegadores, é possível ver o código HTML de uma página web clicando com o botão 
+            direito do mouse sobre a página e selecionando a opção <strong>Ver código-fonte</strong>.
+
+          </p>
+        </section>
+        
+        <section>
+          <h2 class="referencias">Estrutura básica de um documento HTML</h2>
+          <p>
+            O trecho a seguir exibe a estrutura básica de um documento HTML.
+          </p>
+          <pre class="html">
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+
+  &lt;/head&gt;
+  &lt;body&gt;
+
+  &lt;/body&gt;
+  &lt;/html&gt;
+          </pre>
+          <p>
+            A tag <span class="html">html</span> define um documento HTML. A tag <span class="html">head</span> 
+            define a área de cabeçalho da página, a qual é utilizada para definir informações a respeito da 
+            página como seu autor, título e sistema de codificação de caracteres. 
+            A tag <span class="html">body</span> é utilizada para 
+            definir o conteúdo da página, ou seja, o que deve ser exibido na área principal do navegador.
+          </p>
+          <p>
+            Para entender melhor, vamos começar a por a mão na massa. Usando um editor simples de texto, como o bloco de 
+            notas, crie um arquivo e salve-o com a extensão <strong>html</strong>. Em seguida, digite ou copie e cole a 
+            estrutura básica apresentada anteriormente e salve o arquivo. Depois, abra o arquivo em um navegador e 
+            observe o resultado.
+          </p>
+          <p>
+            Para deixar página mais interessante, vamos acrescentar um título à página como indicado a seguir.
+          </p>
+          <pre class="html">
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+    <strong>&lt;title&gt;Minha Primeira Página&lt;/title&gt;</strong>
+  &lt;/head&gt;
+  &lt;body&gt;
+
+  &lt;/body&gt;
+  &lt;/html&gt;
+          </pre>
+          <p>
+            Após inserir a tag <span class="html">title</span>, recarregue a página no navegador (use o botão recarregar, 
+            ou tecle F5). Repare que o título é exibido na aba do navegador (veja a imagem a seguir).
+          </p>
+          <figure>
+            <img src="introducao/figura01.png" 
+                 alt="Imagem exibindo a barra de título do navegador">
+          </figure>
+          
+          <p>
+            Vamos agora inserir algum conteúdo na página. Atualize o seu arquivo com as novas tags indicadas 
+            a seguir, salve o arquivo e recarregue a página no navegador. Repare que o navegador utiliza difetentes
+            formatações para o texto de cada uma das tags utilizadas.
+          </p>
+          <pre class="html">
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Minha Primeira Página&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    <strong>&lt;h1&gt;IFRN&lt;/h1&gt;
+    &lt;p&gt;O IFRN está presente no RN através dos seus 21 campi.&lt;/p&gt;</strong>
+  &lt;/body&gt;
+  &lt;/html&gt;
+          </pre>
+          <figure>
+            <img src="introducao/figura02.png" 
+                 alt="Imagem exibindo a página com título e parágrafo">
+          </figure>
+        </section>
+        
+        <section>
+          <h2 class="referencias">Codificação de caracteres</h2>
+          <p>
+            Repare que nas imagens apresentadas, os caracteres acentuados não foram exibidos 
+            corretamente pelo navegador e que talvez esse mesmo problema tenha ocorrido no 
+            seu computador. Este problema ocorre quando o arquivo HTML usa uma codificação de 
+            caracteres e o navegador assume um esquema de codificação diferente. Para evitar 
+            este problema, podemos usar a tag <span class="html">meta</span> para dizer ao navegador 
+            qual é o esquema codificação do arquivo HTML (geralmente você pode utilizar seu editor 
+            de textos para descobrir o esquema de codificação). Os esquemas de codificação mais comuns 
+            são <strong>UTF-8</strong> e <strong>iso-8859-1</strong>. Veja a seguir a utilização da 
+            tag <span class="html">meta</span> e o respectivo resultado.
+          </p>
+          <pre class="html">
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Minha Primeira Página&lt;/title&gt;
+    <strong>&lt;meta charset="UTF-8"&gt;</strong>
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;IFRN&lt;/h1&gt;
+    &lt;p&gt;O IFRN está presente no RN através dos seus 21 campi.&lt;/p&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+          </pre>
+          <figure>
+            <img src="introducao/figura03.png" 
+                 alt="Exibição correta dos caracteres acentuados">
+          </figure>
+        </section>
+          
+        <section>
+          <h2 class="referencias">Cabeçalhos</h2>
+          <p>
+            Já vimos que a tag <span class="html">h1</span> representa um cabeçalho e que o 
+            navegador formata o seu texto em uma fonte de tamanho maior do que a utilizada 
+            no texto do parágrafo. Além de <span class="html">h1</span>, existem outras tags 
+            de cabeçalho: <span class="html">h2</span>, <span class="html">h3</span>, 
+            <span class="html">h4</span>, <span class="html">h5</span> e <span class="html">h6</span>. 
+            <span class="html">h1</span> representa o cabeçalho de nível mais alto, ou cabeçalho principal, 
+            <span class="html">h2</span> representa o cabaçalho de segundo nível e assim por diante. 
+            Por padrão, os navegadores aplicam uma formatação de forma a dar maior destaque aos cabeçalhos 
+            de nível mais alto e menor destaque para os níveis mais baixos. Veja, a seguir, o nosso 
+            exemplo com a adição de cabeçalhos de outro nível.
+          </p>
+          <pre class="html">
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Minha Primeira Página&lt;/title&gt;
+    &lt;meta charset="UTF-8"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;IFRN&lt;/h1&gt;
+    &lt;p&gt;O IFRN está presente no RN através dos seus 21 campi.&lt;/p&gt;
+    <strong>&lt;h2&gt;Campus Natal Central&lt;/h2&gt;
+    &lt;h3&gt;DIATINF&lt;/h3&gt;
+    &lt;h4&gt;Cursos Técnicos&lt;/h4&gt;
+    &lt;h5&gt;Informática para Internet&lt;/h5&gt;</strong>
+  &lt;/body&gt;
+  &lt;/html&gt;
+          </pre>
+          <figure>
+            <img src="introducao/figura04.png" 
+                 alt="Exibição de cabeçalhos h1, h2, h3, h4 e h5">
+          </figure>
+        </section>
+        
+        <section>
+          <h2 class="referencias">Tags órfãs e comentários</h2>
+          <p>
+            Agora, vamos acrescentar o parágrafo indicado a seguir.
+          </p>
+          <pre class="html">
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Minha Primeira Página&lt;/title&gt;
+    &lt;meta charset="UTF-8"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;IFRN&lt;/h1&gt;
+    &lt;p&gt;O IFRN está presente no RN através dos seus 21 campi.&lt;/p&gt;
+    &lt;h2&gt;Campus Natal Central&lt;/h2&gt;
+    &lt;h3&gt;DIATINF&lt;/h3&gt;
+    &lt;h4&gt;Cursos Técnicos&lt;/h4&gt;
+    &lt;h5&gt;Informática para Internet&lt;/h5&gt;
+    <strong>&lt;p&gt;
+      O Curso Técnico Integrado em Informática para Internet, presencial, tem 
+      como objetivo geral capacitar profissionais no desenvolvimento de programas 
+      de computador para Internet, seguindo as especificações e paradigmas da lógica 
+      de programação e das linguagens de programação.
+
+      O profissional concluinte do Curso Técnico Integrado em Informática para Internet 
+      oferecido pelo IFRN apresenta um perfil que o habilita a desempenhar atividades 
+      voltadas para design de websites, análise e desenvolvimento de sistemas para Internet, 
+      projeto de banco de dados, instalação e configuração de servidores de Internet.
+    &lt;/p&gt;</strong>
+  &lt;/body&gt;
+  &lt;/html&gt;
+          </pre>
+          <figure>
+            <img src="introducao/figura05.png" 
+                 alt="Página com novo parágrafo mas sem seguir as quebras de linhas presentes no código HTML">
+          </figure>
+          
+          <p>
+            Após atualizar o navegador, repare que o texto do novo parágrafo não segue 
+            as quebras de linha presentes no código HTML. Redimensione a janela do navegador e 
+            veja que a largura do parágrafo é ajustada de acordo a largura da janela.
+            Assim, podemos perceber que as quebras de linha inseridas no código HTML são 
+            ignoradas pelo navegador. No entanto, há situações em que realmente desejamos inserir 
+            uma quebra de linha e para isso devemos utilizar a tag <span class="html">br</span>. 
+            Veja, no próximo exemplo, que uma quebra de linha é inserida pelo navegador exatamente no 
+            ponto do texto correspondente à tag <span class="html">br</span>.
+          </p>
+          <pre class="html">
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Minha Primeira Página&lt;/title&gt;
+    &lt;meta charset="UTF-8"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;IFRN&lt;/h1&gt;
+    &lt;p&gt;O IFRN está presente no RN através dos seus 21 campi.&lt;/p&gt;
+    &lt;h2&gt;Campus Natal Central&lt;/h2&gt;
+    &lt;h3&gt;DIATINF&lt;/h3&gt;
+    &lt;h4&gt;Cursos Técnicos&lt;/h4&gt;
+    &lt;h5&gt;Informática para Internet&lt;/h5&gt;
+    &lt;p&gt;
+      O Curso Técnico Integrado em Informática para Internet, presencial, tem 
+      como objetivo geral capacitar profissionais no desenvolvimento de programas 
+      de computador para Internet, seguindo as especificações e paradigmas da lógica 
+      de programação e das linguagens de programação.
+      <strong>&lt;br&gt;</strong>
+      O profissional concluinte do Curso Técnico Integrado em Informática para Internet 
+      oferecido pelo IFRN apresenta um perfil que o habilita a desempenhar atividades 
+      voltadas para design de websites, análise e desenvolvimento de sistemas para Internet, 
+      projeto de banco de dados, instalação e configuração de servidores de Internet.
+    &lt;/p&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+          </pre>
+          <figure>
+            <img src="introducao/figura06.png" 
+                 alt="Página com novo parágrafo e uma quebra de linha de acordo com a tag br">
+          </figure>
+          
+          <p>
+            Repare que a tag <span class="html">br</span> não necessitou de um fechamento (i.e., <span class="html">&lt;/br&gt;</span>).  
+            Isto acontece porque <span class="html">br</span> é uma tag órfã, ou seja, é uma tag sem conteúdo e portanto não 
+            necessita de fechamento. Além de <span class="html">br</span>, existem outras tags órfãs como <span class="html">hr</span>, 
+            a qual define uma linha horizontal na página.
+          </p>
+          
+          <p>
+            Assim como nas linguagem de programação, o HTML também suporta a definição de comentários, os quais 
+            são ignorados pelo navegador e não são exibidos na visualização da página. Para inserir 
+            comentários, devemos utilizar as marcações <span class="html">&lt;!--</span> e <span class="html">--&gt;</span>. 
+            Veja no próximo exemplo que o texto definido como comentário não é exibido na visualização da página.
+          </p>
+          <pre class="html">
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Minha Primeira Página&lt;/title&gt;
+    &lt;meta charset="UTF-8"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;IFRN&lt;/h1&gt;
+    &lt;p&gt;O IFRN está presente no RN através dos seus 21 campi.&lt;/p&gt;
+    &lt;h2&gt;Campus Natal Central&lt;/h2&gt;
+    &lt;h3&gt;DIATINF&lt;/h3&gt;
+    &lt;h4&gt;Cursos Técnicos&lt;/h4&gt;
+    &lt;h5&gt;Informática para Internet&lt;/h5&gt;
+    <strong>&lt;!-- Este é um comentário --&gt;</strong>
+    &lt;p&gt;
+      O Curso Técnico Integrado em Informática para Internet, presencial, tem 
+      como objetivo geral capacitar profissionais no desenvolvimento de programas 
+      de computador para Internet, seguindo as especificações e paradigmas da lógica 
+      de programação e das linguagens de programação.
+      &lt;br&gt;
+      O profissional concluinte do Curso Técnico Integrado em Informática para Internet 
+      oferecido pelo IFRN apresenta um perfil que o habilita a desempenhar atividades 
+      voltadas para design de websites, análise e desenvolvimento de sistemas para Internet, 
+      projeto de banco de dados, instalação e configuração de servidores de Internet.
+    &lt;/p&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+          </pre>
+          <figure>
+            <img src="introducao/figura06.png" 
+                 alt="Visualização da página na qual é possível ver que os comentários não são renderizados pelo navegador">
+          </figure>
+        </section>
+        
+        <section>
+          <h2 class="referencias">Exercícios</h2>
+          <p>
+            1) Com as tags aprendidas hoje, escreva uma página HTML sobre seu bairro com as seguintes informações:
+          </p>
+          <ul class="opcoes_exercicio">
+            <li>O nome do bairro e suas informações básicas (localização, como chegar, quantidade de habitantes, etc).</li>
+            <li>Coisas boas e coisas ruins do bairro.</li>
+            <li>Atrações do bairro.</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2 class="referencias">Referências</h2>
+          <ul>
+            <li class="referencia">
+              BEZERRA, Weskley. <em class="referencia">Primeiros comandos HTML</em>.
+            </li>
+          </ul>
+        </section>
+      </article>
+      
+    </div>
+  </body>
+</html>

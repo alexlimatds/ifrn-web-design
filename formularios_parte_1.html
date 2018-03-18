@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+  <head>
+    <meta name="keywords" content="XHTML,HTML,CSS" />
+    <meta name="author" content="Alexandre Gomes de Lima" />
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="estilos/aulas.css" />
+    <title>IFRN/DIATINF/Design Web: Formulários - parte 1</title>
+  </head>
+  <body>
+    <div id="tudo">
+      <div id="cabecalho">
+        <img src="imagens/logo_ifrn.png" alt="IFRN" id="logoifrn" />
+        <h1 class="cabecalho">
+          Diretoria Acadêmica de Gestão e Tecnologia da Informação
+        </h1>
+        <h2 class="cabecalho">
+          Disciplina de Design Web e Arquitetura da Informação
+        </h2>
+      </div>
+      
+      <div id="conteudo">
+        <p style="text-align: center;">
+          <img src="imagens/em_construcao.png" alt="Em construção" style="border: 0; width: 75px" />
+        </p>
+        <h1>Formulários - parte 1</h1>
+        <p>
+        Formulários permitem a uma página web coletar dados informados pelo usuário. A interação 
+        entre o usuário e o formulário é realizada através de elementos denominados controles. 
+        Os dados coletados pelo formulário são submetidos a um programa hospedado no servidor, 
+        sendo que a criação deste tipo de programa foge ao escopo desta disciplina. 
+        Aqui, nos limitaremos a conhecer os elementos HTML para a criação de formulários.
+        </p>
+        
+        <h2>Formulários e controles</h2>
+        <p>
+        Um formulário é definido através da tag <span class="html">form</span>. Esta tag é 
+        normalmente utilizada em conjunto com os atributos <span class="html">action</span> 
+        e <span class="html">method</span>. <span class="html">action</span> é utilizado 
+        para indicar o endereço (URL) de destino do formulário, enquanto <span class="html">method</span> 
+        indica o método HTTP utilizado a ser utilizado na submissão do formulário (GET ou POST).
+        </p>
+        <p>
+        Um formulário contém campos para captação de dados. O exemplo a seguir, define um 
+        formulário com dois campos de texto e um botão de submissão.
+        </p>
+        <pre class="html">
+        
+  &lt;form action="pagina.html" method="get">
+    Nome:   &lt;input type="text" name="nome" /> &lt;br/>
+    E-mail: &lt;input type="text" name="email" /> &lt;br/>
+    &lt;input type="submit" />
+  &lt;/form>
+        </pre>
+        <img src="formularios_parte_1/exemplo01.png" alt="Visualização do exemplo 1." />
+        
+        <p>
+        Normalmente cada campo é usado em conjunto com o atributo <span class="html">name</span>. 
+        O valor deste atributo é utilizado pelo programa no lado servidor para identificação 
+        do campo.
+        </p>
+        <p>
+        A seguir, são apresentados os tipos de controles e campos disponíveis junto com seus 
+        respectivos elementos HTML.
+        </p>
+        
+        <h3>Campo de texto de uma linha</h3>
+        <p>
+        É definido pelo elemento <span class="html">input</span> em conjunto com o atributo 
+        <span class="html">type="text"</span>. É utilizado para captar digitação do usuário.
+        Seu uso foi demonstrado no exemplo anterior.
+        </p>
+        
+        <h3>Campo de senha</h3>
+        <p>
+        Similar ao campo de texto de uma linha, mas não exibe os caracteres informados 
+        pelo usuário. É definido pelo elemento <span class="html">input</span> em conjunto com o atributo 
+        <span class="html">type="password"</span>.
+        </p>
+        <pre class="html">
+      
+  &lt;form action="pagina.html" method="post">
+    Login: &lt;input type="text" name="login" />&lt;br/>
+    Senha: <b>&lt;input type="password" name="senha" /></b>&lt;br/>
+    &lt;input type="submit" />
+  &lt;/form>
+        </pre>
+        
+        <h3>Botões</h3>
+        <p>
+        Podem ser do tipo submit ou do tipo reset. O tipo submit, envia os campos do formulário, 
+        junto com seus respectivos valores, para o endereço definido no atributo <span class="html">action</span>
+        do formulário. O do tipo reset remove os valores informados pelo usuário, deixando 
+        os campos com seus valores iniciais.
+        </p>
+        <p>
+        Botões podem ser definidos pelo elemento <span class="html">input</span> em conjunto com o 
+        atributo <span class="html">type</span> (valores <span class="html">submit</span> ou 
+        <span class="html">reset</span>) como no exemplo abaixo. O uso do atributo <span class="html">value</span> 
+        permite personalizar o texto exibido pelo botão.
+        </p>
+        <pre class="html">
+        
+  &lt;form action="pagina.html" method="post">
+    Login: &lt;input type="text" name="login" />&lt;br/>
+    Senha: &lt;input type="password" name="senha" />&lt;br/>
+    <b>&lt;input type="submit" value="OK" />
+    &lt;input type="reset" value="Limpar" /></b>
+  &lt;/form>
+        </pre>
+        <p>
+        Botões também podem ser definidos através do elemento <span class="html">button</span>. 
+        A diferença, em relação ao elemento <span class="html">input</span>, é que 
+        <span class="html">button</span> permite a inserção de conteúdo HTML para enriquecer 
+        a visualização do botão.
+        </p>
+        <pre class="html">
+        
+  &lt;form action="pagina.html" method="post">
+    Nome: &lt;input type="text" name="nome" />&lt;br/>
+    <b>&lt;button type="submit">
+      &lt;img src="formularios_parte_1/accept.png" /> OK
+    &lt;/button></b>
+  &lt;/form>
+        </pre>
+        <img src="formularios_parte_1/exemplo02.png" alt="Visualização do exemplo 2." />
+        
+        <h3>Checkbox</h3>
+        <p>
+        Controle que possibilita a definição e seleção de várias opções (valores) pré-definidas 
+        para um mesmo campo. O atributo <span class="html">name</span> identifica o campo em questão. 
+        Deve-se utilizar um elemento <span class="html">input</span> com o atributo 
+        <span class="html">type="chekbox"</span> para cada opção disponível ao campo.
+        </p>
+        <pre class="html">
+        
+  &lt;form action="pagina.html" method="post">
+    Gêneros: &lt;br/>
+    <b>&lt;input type="checkbox" name="genero" value="terror" />Terror &lt;br/>
+    &lt;input type="checkbox" name="genero" value="comedia" />Comédia &lt;br/>
+    &lt;input type="checkbox" name="genero" value="aventura" />Aventura &lt;br/>
+    &lt;input type="checkbox" name="genero" value="drama" />Drama &lt;br/></b>
+    &lt;button type="submit">OK&lt;/button>
+  &lt;/form>
+        </pre>
+        <img src="formularios_parte_1/exemplo03.png" alt="Visualização do exemplo 3." />
+        
+        <h3>Radio button</h3>
+        <p>
+        Semelhante ao checkbox, mas permitindo a seleção de apenas uma única opção. 
+        É definido pelo elemento <span class="html">input</span> com o atributo 
+        <span class="html">type="radio"</span>.
+        </p>
+        <pre class="html">
+        
+  &lt;form action="pagina.html" method="post">
+    Gênero: &lt;br/>
+    <b>&lt;input type="radio" name="genero" value="M" />Masculino &lt;br/>
+    &lt;input type="radio" name="genero" value="F" />Feminino &lt;br/></b>
+    &lt;button type="submit">OK&lt;/button>
+  &lt;/form>
+        </pre>
+        <img src="formularios_parte_1/exemplo04.png" alt="Visualização do exemplo 4." />
+        
+        <h3>Lista de seleção</h3>
+        <p>
+        Controle que exibe uma relação pré-definida de valores disponíveis para seleção. 
+        Deve-se inserir um elemento <span class="html">option</span> para cada opção 
+        disponível. Para inserir uma lista de seleção devemos utilizar o elemento 
+        <span class="html">select</span>.
+        </p>
+        <pre class="html">
+        
+  &lt;form action="pagina.html" method="post">
+    Gênero 
+    <b>&lt;select name="genero">
+      &lt;option>Masculino&lt;/option>
+      &lt;option>Feminino&lt;/option>
+    &lt;/select></b>
+  &lt;/form>
+        </pre>
+        <img src="formularios_parte_1/exemplo05.png" alt="Visualização do exemplo 5." />
+        
+        <p>
+        Por padrão, só é permitida a seleção de uma única opção. O atributo 
+        <span class="html">multiple="multiple"</span> altera este comportamento e faz 
+        com que o controle seja renderizado no formato de lista com rolagem, ao invés 
+        de lista escamoteável.
+        </p>
+        <pre class="html">
+  
+  &lt;form action="pagina.html" method="post">
+    Gênero &lt;br/>
+    &lt;select name="genero" <b>multiple="multiple"</b>>
+      &lt;option>Terror&lt;/option>
+      &lt;option>Comédia&lt;/option>
+      &lt;option>Ação&lt;/option>
+      &lt;option>Drama&lt;/option>
+    &lt;/select>
+  &lt;/form>
+        </pre>
+        <img src="formularios_parte_1/exemplo06.png" alt="Visualização do exemplo 6." />
+        <p>
+        Caso se deseje este último formato de lista, mas com seleção de somente uma opção, 
+        basta utilizar o atributo <span class="html">size</span> para indicar a quantidade 
+        de itens visualizados.
+        </p>
+        
+        <h3>Campo de texto de múltiplas linhas</h3>
+        <p>
+        Controle destinado a receber textos longos, incluindo quebras de linha. Os atributos 
+        <span class="html">rows</span> e <span class="html">cols</span> podem ser utilizados 
+        para ajustar, respectivamente, a quantidade de linhas e a quantidade 
+        de colunas do controle exibidas pelo controle. É inserido através do elemento 
+        <span class="html">textarea</span>.
+        </p>
+        <pre class="html">
+  
+  &lt;form action="pagina.html" method="post">
+    E-mail do destinatário 
+    &lt;input type="text" name="email"> &lt;br>
+    Mensagem&lt;br/>
+    <b>&lt;textarea name="msg" rows="6" cols="40">
+    &lt;/textarea></b>
+  &lt;/form>
+  
+        </pre>
+        <img src="formularios_parte_1/exemplo07.png" alt="Visualização do exemplo 7." />
+        
+        <h2>Exercícios</h2>
+        <div class="exercicios">
+          <p>
+            1) Escreva uma página web com o formulário ilustrado na figura abaixo.
+          </p>
+          <img src="formularios_parte_1/exercicio01.png" alt="Formulário desejado para o exercício 1."/>
+        </div>
+        
+        <h2 class="referencias">Referências</h2>
+        <ul>
+          <li class="referencia">
+            SILVA, Maurício Samy. <em class="referencia">Construindo sites com CSS e (X)HTML: sites controlados 
+          por folhas de estilo em cascata</em>. São Paulo: Novatec, 2008.
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+  </body>
+</html>

@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="keywords" content="XHTML,HTML,CSS" />
+    <meta name="author" content="Alexandre Gomes de Lima" />
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="estilos/aulas.css" />
+    <title>IFRN/DIATINF/Design Web: Layout CSS - parte 2</title>
+  </head>
+  <body>
+    <div id="tudo">
+      <header id="cabecalho">
+        <img src="imagens/logo_ifrn.png" alt="IFRN" id="logoifrn" />
+        <h1 class="cabecalho">
+          Diretoria Acadêmica de Gestão e Tecnologia da Informação
+        </h1>
+        <h2 class="cabecalho">
+          Disciplina de Design Web e Arquitetura da Informação
+        </h2>
+      </header>
+      
+      <article id="conteudo">
+        <h1>Layout CSS - parte 2</h1>
+        
+        <p>
+          Nesta aula veremos como utilizar as propriedades CSS na criação de uma página com 
+          duas colunas utilizando layout fixo e layout flexível. Nos dois casos, o objetivo será 
+          deixar a página com o layout da figura abaixo:
+        </p>
+        
+        <figure>
+          <img src="layout_css_parte_2/layout_final.png" 
+               alt="Layout desejado para as áreas da página" />
+        </figure>
+        
+        <p>
+          O código HTML a seguir será a nossa marcação base:
+        </p>
+        <pre class="html">
+        
+  &lt;body>
+    &lt;div id="tudo">
+      &lt;header>
+        &#8942;
+      &lt;/header>
+      &lt;article>
+        &#8942;
+      &lt;/article>
+      &lt;nav>
+        &#8942;
+      &lt;/nav>
+    &lt;/div>
+  &lt;/body>
+        </pre>
+        
+        <h2>Layout Fixo</h2>
+        <p>
+          Vamos adotar os seguintes requisitos para nossa página com layout fixo:
+        </p>
+        <ul>
+          <li>Página centralizada na janela do navegador.</li>
+          <li>Área de conteúdo com largura igual a 760px.</li>
+          <li>Coluna principal posicionada à direita e com 560px de largura.</li>
+          <li>Coluna de navegação posicionada à esquerda e com 180px de largura.</li>
+          <li>Espaço entre as colunas igual a 20px (760px - 560px - 180px).</li>
+        </ul>
+        
+        <p>
+          Aqui cabe uma observação: a propriedade <span class="html">widht</span> se refere à área de conteúdo 
+          do elemento de bloco, não incluindo as margens e o afastamento (<span class="html">padding</span>). 
+          Portanto, devemos subtrair o valor de <span class="html">padding</span> desejado das larguras das 
+          colunas. Adotando os respectivos valores de 8px e 4px para os afastamentos de 
+          <span class="html">article</span> e <span class="html">nav</span>, teremos os seguintes 
+          resultados:
+        </p>
+        <ul>
+          <li>Largura da coluna principal: 560px - (8px + 8px) = <b>544px</b></li>
+          <li>Largura da coluna de navegação: 180px - (4px + 4px) = <b>172px</b></li>
+        </ul>
+        <p>
+          Para posicionar os elementos <span class="html">article</span> e <span class="html">nav</span> 
+          no sentido horizontal, basta utilizar a propriedade <span class="html">float</span>. Aqui, temos duas 
+          opções: utilizar o valor <span class="html">left</span> para os dois elementos e 
+          utilizar margens laterais para ajustar o espaço entre eles, ou usar os valores <span class="html">left</span> 
+          para <span class="html">article</span> e <span class="html">right</span> para 
+          <span class="html">nav</span>. Vamos utilizar a segunda opção por esta exigir uma menor 
+          quantidade de configurações.
+        </p>
+        <p>
+          O código a seguir apresenta os estilos necessários ao nosso layout fixo. 
+          O resultado pode ser visualizado no 
+          <a target="_blank" href="layout_css_parte_2/exemplo1.html">exemplo 1</a>. Observe que a largura 
+          dos elementos não é alterada quando a janela é redimensionada ou quando o usuário aumenta 
+          o tamanho padrão de fonte.
+        </p>
+        <pre class="html">
+        
+  #tudo{
+    width: 760px;
+    margin: auto;
+    padding: 0;
+  }
+  header{
+    background-color: silver;
+  }
+  article{
+    float: right;
+    width: 544px;
+    padding: 8px;
+    background-color: pink;
+  }
+  nav{
+    width: 172px;
+    padding: 4px;
+    background-color: yellow;
+  }
+        </pre>
+        
+        <h2>Layout flexível</h2>
+        <p>
+          Para migrar o exemplo para um layout flexível, teremos que adotar unidades relativas nas 
+          larguras dos elementos. Assim, para que a página acompanhe 
+          o redimensionamento da janela, iremos adotar medidas em porcentagem. Vamos partir das 
+          medidas anteriores para determinar os novos valores:
+        </p>
+        <ul>
+          <li>Largura de <span class="html">article</span>: 552 &div; 760 = <b>73%</b></li>
+          <li>Largura de <span class="html">nav</span>: 176 &div; 760 = <b>23%</b></li>
+        </ul>
+        
+        <p>
+          Também teremos que utilizar 
+          porcentagem na largura do elemento <span class="html">#tudo</span>. No entanto, queremos evitar 
+          colunas muito largas no caso de janelas largas e margens entre <span class="html">#tudo</span> e 
+          a janela no caso de janelas estreitas. Para evitar as margens, podemos utilizar o valor de 100% 
+          na largura do elemento, e para evitar as colunas largas basta adotar um valor para a propriedade 
+          <span class="html">max-width</span>. Por tratar-se de um layout flexível, devemos adotar uma unidade 
+          relativa para a largura máxima de <span class="html">#tudo</span>. O uso da unidade <span class="html">em</span> 
+          garante que o elemento acompanhará o tamanho da fonte utilizada no conteúdo. Para determinar o 
+          valor de <span class="html">max-width</span>, basta converter a largura em <span class="html">px</span>, 
+          adotada para <span class="html">#tudo</span> no layout fixo, para <span class="html">em</span>. 
+          Como a maioria dos navegadores adota 16px como tamanho padrão de fonte, adotaremos 16px = 1em. 
+          Assim, a largura máxima de <span class="html">#tudo</span> será igual a 47,5em (760 &div; 16).
+        </p>
+        
+        <p class="lembrete">
+          Lembre que 1em é igual ao tamanho de fonte definido para o elemento. Portanto, se um elemento 
+          usa um tamanho de fonte igual a 12px, este será o valor de 1em.
+        </p>
+        
+        <p>
+          Para impedir que as colunas tornem-se muito estreitas, ocasionando em sobreposição ou quebra dos 
+          blocos, vamos adotar o valor de 35em para a propriedade <span class="html">min-width</span>.
+        </p>
+        <p>
+          O código a seguir mostra as propriedades e os valores adotados para o nosso layout flexível. 
+          O resultado pode ser conferido no <a target="_blank" href="layout_css_parte_2/exemplo2.html">exemplo 2</a>. 
+          Redimensione a janela do navegador durante a visualização para observar o comportamento do 
+          layout flexível.
+        </p>
+        <pre class="html">
+        
+  #tudo{
+    widht: 100%;
+    max-width: 47.5em;
+    min-width: 35em;
+    margin: auto;
+    padding: 0;
+  }
+  header{
+    background-color: silver;
+  }
+  article{
+    float: right;
+    width: 73%;
+    padding: 8px;
+    background-color: pink;
+  }
+  nav{
+    width: 23%;
+    padding: 4px;
+    background-color: yellow;
+  }
+        </pre>
+        
+        <h2>Exercícios</h2>
+        <div class="exercicios">
+          <p>
+            1) Utilize as técnicas de layout flexível para escrever uma página de acordo com o layout 
+            exibido na figura abaixo.
+          </p>
+          <img src="layout_css_parte_2/exercicio1.png" alt="Layout desejado para o exercício 1."/>
+          <p>
+            2) Utilize as técnicas de layout fixo para escrever uma página de acordo com o layout 
+            exibido na figura abaixo. Insira figuras nos locais das caixas com o texto IMAGEM.
+          </p>
+          <img src="layout_css_parte_2/exercicio2.png" alt="Layout desejado para o exercício 2."/>
+        </div>
+        
+        <h2 class="referencias">Referências</h2>
+        <ul>
+          <li class="referencia">
+            SILVA, Maurício Samy. <em class="referencia">Construindo sites com CSS e (X)HTML: sites controlados 
+          por folhas de estilo em cascata</em>. São Paulo: Novatec, 2008.
+          </li>
+        </ul>
+      </article>
+      
+    </div>
+  </body>
+</html>

@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="keywords" content="XHTML,HTML,CSS" />
+    <meta name="author" content="Alexandre Gomes de Lima" />
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="estilos/aulas.css" />
+    <title>IFRN/DIATINF/Design Web: Elementos para estruturação de página</title>
+  </head>
+  <body>
+    <div id="tudo">
+      <header id="cabecalho">
+        <img src="imagens/logo_ifrn.png" alt="IFRN" id="logoifrn" />
+        <h1 class="cabecalho">
+          Diretoria Acadêmica de Gestão e Tecnologia da Informação
+        </h1>
+        <h2 class="cabecalho">
+          Disciplina de Design Web e Arquitetura da Informação
+        </h2>
+      </header>
+      
+      <article id="conteudo">
+        <h1>Elementos para estruturação de página</h1>
+        
+        <p>
+        Nesta aula serão apresentados elementos capazes de dar mais semântica (significado) ao 
+        conteúdo de uma página web. A maioria destes elementos surgiu com o HTML 5 e seu uso 
+        é altamente recomendado visto que eles tornam uma página web mais inteligível tanto para 
+        seres humanos como para programas de computador.
+        </p>
+        
+        <h2>Elementos para estruturação de página</h2>
+        <p>
+        Sabemos que os elementos <span class="html">div</span> e <span class="html">span</span> 
+        podem ser utilizados para criação de áreas ou trechos com significado específico 
+        ou que receberão formatação específica. Por exemplo, considere a imagem a seguir 
+        que ilustra as áreas de conteúdo de uma página.
+        </p>
+        
+        <figure>
+          <img src="estruturacao_de_pagina/exemplo_areas.png" 
+               alt="Figura com exemplo de áreas de uma página">
+        </figure>
+        
+        <p>
+        Estas áreas poderiam ser definidas com elementos <span class="html">div</span>
+        como no trecho de HTML abaixo:
+        </p>
+        <pre class="html">
+        
+  &lt;div id="topo"> ... &lt;/div>
+  &lt;div id="navegacao"> ... &lt;/div>
+  &lt;div id="conteúdo"> ... &lt;/div>
+        </pre>
+        <p>
+        Para um humano que leia o código HTML acima, os atributos <span class="html">id</span> 
+        deixam claro qual o significado da área representada por cada <span class="html">div</span>. 
+        No entanto, este mesmo significado não fica claro para um programa de computador destinado 
+        à interpretação de código HTML como um navegador, um leitor de tela ou um 
+        mecanismo de busca. Para tal fim, a HTML prevê diversos elementos semânticos, ou seja, 
+        elementos com significados específicos que permitem a um programa de computador 
+        interpretar corretamente o conteúdo presente em uma página web. Assim, sempre que 
+        possível devemos dar preferência ao uso de tais elementos em substituição aos 
+        genéricos <span class="html">div</span> e <span class="html">span</span>.
+        </p>
+        <p>
+        A seguir, são apresentados alguns elementos HTML que proporcionam uma melhor estruturação 
+        do conteúdo de uma página em termos de semântica.
+        </p>
+        
+        <h3>article</h3>
+        <p>
+        Elemento de bloco destinado a marcar conteúdo auto-suficiente, ou seja, independente 
+        de outros conteúdos como uma postagem de blog ou uma matéria de revista. Assim, 
+        utilize este elemento para definir o conteúdo principal de uma página.
+        </p>
+        <p>
+        É permitido o aninhamento de elementos <span class="html">article</span>, mas neste 
+        caso o conteúdo dos elementos aninhados deve estar relacionado ao conteúdo do 
+        <span class="html">article</span> que aninha os demais. Um exemplo prático seria a postagem 
+        de um blog seguido dos comentários dos leitores.
+        </p>
+        <pre class="html">
+  &lt;body>
+    <b>&lt;article></b>
+      &lt;h2>
+        &lt;a href="jerns034.html">
+          Equipe de futebol do IFRN obtém o terceiro lugar 
+          na regional dos JERNS.
+        &lt;/a>
+        &lt;p>
+          A equipe se classificou para a fase final que será 
+          disputada no próximo mês em Santa Cruz.
+        &lt;/p>
+    <b>&lt;/article></b>
+  &lt;/body>
+        </pre>
+        
+        <h3>section</h3>
+        <p>
+        Elemento de bloco destinado a marcar uma seção na página. São exemplos de seções: os capítulos 
+        de um livro, as seções de um texto ou as seções em um página web tais como introdução e informações 
+        de contato. É totalmente adequado usar este elemento para definir as seções do conteúdo 
+        presente em um elemento <span class="html">article</span>, como no exemplo a seguir:
+        </p>
+        <pre class="html">
+  &lt;article>
+    &lt;p>
+      Fundo de Manutenção e Desenvolvimento da Educação Básica (FUNDEB) 
+      é um conjunto de fundos contábeis formado por recursos dos três 
+      níveis da administração pública do Brasil para promover o financiamento 
+      da educação básica pública em substituição ao FUNDEF.
+    &lt;/p>
+    <b>&lt;section></b>
+      &lt;h2>Destinação&lt;/h2>
+      &lt;p>
+        O FUNDEB atende a educação infantil, os ensinos médio e fundamental e 
+        a educação de jovens e adultos. O seu antecessor, o FUNDEF, atendia 
+        apenas o ensino fundamental.
+      &lt;/p>
+    <b>&lt;/section>
+    &lt;section></b>
+      &lt;h2>Regulamentação&lt;/h2>
+      &lt;p>
+        Foi criado pela Emenda Constitucional nº 53/2006 e regulamentado 
+        pela Lei nº 11.494/2007 e pelo Decreto nº 6.253/2007.
+      &lt;/p>
+    <b>&lt;/section></b>
+  &lt;/article>
+        </pre>
+        
+        <h3>aside</h3>
+        <p>
+        Elemento de bloco utilizado para definir conteúdo complementar relacionado 
+        a algum outro conteúdo de maior importância presente na página. Em tipografia, 
+        é o conteúdo presente nas colunas laterais do texto. Usos típicos deste elemento 
+        em uma página web: agrupamento de publicidade, barras laterais e links secundários.
+        </p>
+        <pre class="html">
+  &lt;body>
+    &lt;article>
+      &lt;p>
+        Fundo de Manutenção e Desenvolvimento da Educação Básica (FUNDEB) 
+        é um conjunto de fundos contábeis formado por recursos dos três 
+        níveis da administração pública do Brasil para promover o financiamento 
+        da educação básica pública em substituição ao FUNDEF.
+      &lt;/p>
+    &lt;/article>
+    <b>&lt;aside></b>
+      &lt;p>
+        O FUNDEB foi criado pela Emenda Constitucional nº 53/2006 
+        e regulamentado pela Lei nº 11.494/2007 e pelo Decreto nº 
+        6.253/2007.
+      &lt;/p>
+    <b>&lt;/aside></b>
+  &lt;/body>
+        </pre>
+        
+        <h3>nav</h3>
+        <p>
+        Elemento de bloco destinado a agrupar o(s) menu(s) de navegação da página, 
+        ou seja, a(s) área(s) que contém os principais links de acesso às diversas 
+        partes de um site.
+        </p>
+        <pre class="html">
+  &lt;body>
+    <b>&lt;nav></b>
+      &lt;a href="legislacao.html">Legislação&lt;/a>
+      &lt;a href="estatisticas.html">Dados estatísticos&lt;/a>
+      &lt;a href="faq.html">Perguntas frequentes&lt;/a>
+    <b>&lt;/nav></b>
+    &lt;article>
+      &lt;p>
+        Fundo de Manutenção e Desenvolvimento da Educação Básica (FUNDEB) 
+        é um conjunto de fundos contábeis formado por recursos dos três 
+        níveis da administração pública do Brasil para promover o financiamento 
+        da educação básica pública em substituição ao FUNDEF.
+      &lt;/p>
+    &lt;/article>
+  &lt;/body>
+        </pre>
+        
+        <h3>header</h3>
+        <p>
+        Elemento de bloco para a criação de cabeçalhos de páginas ou cabeçalhos 
+        de seções do conteúdo.
+        </p>
+        <pre class="html">
+  &lt;body>
+    <b>&lt;header></b>
+      &lt;img src="logoifrn.png">
+      &lt;h1>Instituto Federal do Rio Grande do Norte&lt;/h1>
+    <b>&lt;/header></b>
+    &lt;article>
+      <b>&lt;header></b>
+        &lt;h2>PROEX divulga lista de projetos selecionados&lt;/h2>
+        &lt;h3>Foram selecionados 20 trabalhos de um total de 48&lt;/h3>
+      <b>&lt;/header></b>
+      &lt;p>
+        A PROEX divulgou nesta última sexta-feira a relação de 
+        trabalhos aprovados na seleção referente ao edital nº ...
+      &lt;/p>
+    &lt;/article>
+  &lt;/body>
+        </pre>
+        
+        <h3>footer</h3>
+        <p>
+        Elemento de bloco destinado a criação de rodapés de páginas ou 
+        rodapés de seções do conteúdo. Um rodapé geralmente contém informações 
+        sobre o autor da página, direitos de uso, informações de contato, 
+        entre outras.
+        </p>
+        <pre class="html">
+  &lt;body>
+    &lt;header>
+      ...
+    &lt;header>
+    &lt;article>
+      ...
+    &lt;/article>
+    <b>&lt;footer></b>
+      &lt;p>
+        Instituto Federal do Rio Grande do Norte&lt;br>
+        Av. Sen. Salgado Filho, 1559, Tirol. Natal-RN&lt;br>
+        Telefones: 84-4005 9843 / 9842
+      &lt;/p>
+    <b>&lt;/footer></b>
+  &lt;/body>
+        </pre>
+        
+        <p>
+        Vimos que estes elementos recém-apresentados são capazes de definir 
+        áreas com significado específico. No entanto, repare que o navegador 
+        lhes aplica a mesma lógica de posicionamento que é utilizada 
+        com outros elementos de bloco. Assim, qualquer posicionamento diferente do padrão deve ser 
+        obtido através da aplicação de regras CSS de posicionamento.
+        </p>
+        
+        <h2>Elementos de conteúdo</h2>
+        <p>
+        Esta seção apresenta alguns elementos capazes de dar mais semântica ao conteúdo presente 
+        nas áreas de uma página web.
+        </p>
+        
+        <h3>figure e figcaption</h3>
+        <p>
+        <span class="html">figure</span> é um elemento de bloco para definição de 
+        conteúdos tais como ilustrações, diagramas, listagens de código, imagens, 
+        entre outros.
+        </p>
+        <p>
+        <span class="html">figcaption</span> é um elemento que define uma legenda 
+        para o conteúdo de um elemento <span class="html">figure</span>, portanto 
+        sempre é inserido como filho deste último.
+        </p>
+        <pre class="html">
+  <b>&lt;figure></b>
+    &lt;img src="monumento-zumbi.jpg">
+    <b>&lt;figcaption></b>
+      Estátua localizada no bairro do Pelourinho 
+      em homenagem a Zumbi dos Palmares.
+    <b>&lt;/figcaption>
+  &lt;/figure></b>
+        </pre>
+        
+        <h3>hgroup</h3>
+        <p>
+        Elemento para agrupar elementos <span class="html">h1-h6</span> utilizados como 
+        cabeçalho de uma seção, artigo ou página. Um exemplo de uso rotineiro 
+        é no agrupamento de título e subtítulo de um texto.
+        </p>
+        <pre class="html">
+  &lt;article>
+    &lt;header>
+      <b>&lt;hgroup></b>
+        &lt;h2>PROEX divulga lista de projetos selecionados&lt;/h2>
+        &lt;h3>Foram selecionados 20 trabalhos de um total de 48&lt;/h3>
+      <b>&lt;/hgroup></b>
+    &lt;/header>
+    &lt;p>
+      A PROEX divulgou nesta última sexta-feira a relação de 
+      trabalhos aprovados na seleção referente ao edital nº ...
+    &lt;/p>
+  &lt;/article>
+        </pre>
+        
+        <h3>mark</h3>
+        <p>
+        Elemento de linha para destacar partes do texto. Seu uso é recomendado 
+        em palavras ou frases que servirão de referência durante o restante da 
+        leitura. A maioria dos navegadores formata esse elemento com um fundo 
+        na cor amarela, simulando a aplicação de uma caneta marcadora de texto.
+        </p>
+        
+        <h3>abbr</h3>
+        <p>
+        Elemento de linha para marcar uma abreviação ou acrônimo. Pode ser acompanhada 
+        do atributo <span class="html">title</span> para informar o 
+        o termo abreviado por extenso.
+        </p>
+        <pre class="html">
+  &lt;p>
+    O <b>&lt;abbr title="Fundo de Manutenção e Desenvolvimento da Educação Básica">FUNDEB&lt;/abbr></b> 
+    é um conjunto de fundos contábeis formado por recursos dos três níveis da administração 
+    pública do Brasil para promover o financiamento da educação básica pública.
+  &lt;/p>
+        </pre>
+        
+        <h3>address</h3>
+        <p>
+        Elemento para definir informações de contato do autor da página ou artigo. 
+        Não deve ser utilizado para descrever endereços postais que não sejam 
+        do autor do texto/página. É comum o seu uso junto com o elemento 
+        <span class="html">footer</span>.
+        </p>
+        <pre class="html">
+  &lt;footer>
+    <b>&lt;address></b>
+      Instituto Federal do Rio Grande do Norte&lt;br>
+      Av. Sen. Salgado Filho, 1559, Tirol. Natal-RN&lt;br>
+      Telefones: 84-4005 9843 / 9842
+    <b>&lt;/adrress></b>
+  &lt;/footer>
+        </pre>
+        
+        <h2>Exercícios</h2>
+        <div class="exercicios">
+          <p>
+            1) Utilize os elementos apresentados nesta aula para criar a página exibida no 
+            PDF presente nos <a href="estruturacao_de_pagina/exercicio01.zip">arquivos deste exercício</a>.
+          </p>
+        </div>
+        
+        <h2 class="referencias">Referências</h2>
+        <ul>
+          <li class="referencia">
+            W3Schools.com. <em class="referencia">HTML5 Semantic Elements</em>. Disponível em &lt;http://www.w3schools.com/html/html5_semantic_elements.asp>.
+          </li>
+          <li class="referencia">
+            SILVA, Maurício Samy. <em class="referencia">HTML 5</em>. São Paulo: Novatec, 2011.
+          </li>
+          <li class="referencia">
+            Wikipédia. <em class="referencia">Fundo de Manutenção e Desenvolvimento da Educação Básica</em>. Disponível em &lt;http://pt.wikipedia.org/wiki/Fundo_de_Manuten%C3%A7%C3%A3o_e_Desenvolvimento_da_Educa%C3%A7%C3%A3o_B%C3%A1sica>.
+          </li>
+        </ul>
+      </article>
+      
+    </div>
+  </body>
+</html>

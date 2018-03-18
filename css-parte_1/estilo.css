@@ -1,0 +1,8 @@
+body{ background-color: green }
+h1{ font-size: 32pt }
+h2{
+  color: #FF0000;
+  font-family: cursive
+}
+ul{ list-style-type: square }
+li{ font-style: italic }

@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="keywords" content="HTML,CSS">
+    <meta name="author" content="Alexandre Gomes de Lima">
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="estilos/aulas.css">
+    <title>IFRN/DIATINF/Design Web: Tabelas - introdução</title>
+  </head>
+  <body>
+    <div id="tudo">
+      <header id="cabecalho">
+        <img src="imagens/logo_ifrn.png" alt="IFRN" id="logoifrn">
+        <h1 class="cabecalho">
+          Diretoria Acadêmica de Gestão e Tecnologia da Informação
+        </h1>
+        <h2 class="cabecalho">
+          Disciplina de Design Web e Arquitetura da Informação
+        </h2>
+      </header>
+      
+      <article id="conteudo">
+        <h1>Tabelas: introdução</h1>
+        
+        <section>
+          <p>
+            Tabelas são amplamento utilizadas em páginas web e em outros tipos de documentos e,  
+            como você deve saber, uma tabela organiza seu dados em linhas e colunas.
+          </p>
+          <p>
+            Em HTML, as principais tags relacionadas à tabelas são <span class="html">table</span> 
+            (define uma tabela), <span class="html">tr</span> (define uma linha) e <span class="html">td</span> 
+            (define uma célula). O contéudo exibido pela tabela será o conteúdo da tag <span class="html">td</span>, 
+            as quais são definidas como conteúdo de uma tag <span class="html">tr</span>. Observe o exemplo a seguir.
+          </p>
+          
+          <pre class="html">
+  <strong>&lt;table border="1"&gt;
+    &lt;tr&gt;
+      &lt;td&gt;A&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;C&lt;/td&gt;
+      &lt;td&gt;D&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;</strong>
+          </pre>
+          <figure>
+            <img src="tabelas-parte_1/figura01.png" 
+                 alt="Imagem exibindo a renderização da tabela definida no exemplo anterior: tabela com duas linhas e duas colunas.">
+          </figure>
+          
+          <p>
+            Para uma melhor compreensão, segue uma reapresentação do código anterior com comentários 
+            explicativos.
+          </p>
+          <pre class="html">
+  &lt;table border="1"&gt;    &lt;!-- início da tabela --&gt;
+    &lt;tr&gt;                &lt;!-- abertura da 1ª linha --&gt;
+      &lt;td&gt;A&lt;/td&gt;        &lt;!-- 1ª célula da 1ª linha --&gt;
+      &lt;td&gt;B&lt;/td&gt;        &lt;!-- 2ª célula da 1ª linha --&gt;
+    &lt;/tr&gt;               &lt;!-- fechamento da 1ª linha --&gt;
+    &lt;tr&gt;                &lt;!-- abertura da 2ª linha --&gt;
+      &lt;td&gt;C&lt;/td&gt;        &lt;!-- 1ª célula da 2ª linha --&gt;
+      &lt;td&gt;D&lt;/td&gt;        &lt;!-- 2ª célula da 2ª linha --&gt;
+    &lt;/tr&gt;               &lt;!-- fechamento da 2ª linha --&gt;
+  &lt;/table&gt;              &lt;!-- fechamento da tabela --&gt;
+          </pre>
+          
+          <p>
+            Repare o uso do atributo <span class="html">border</span> na tag <span class="html">table</span>. 
+            Este atributo é necessário para que possamos visualizar as bordas da tabela, cuja espessura é 
+            definida por este atributo. Caso <span class="html">border</span> não seja informado, a borda 
+            provavelmente não será visualizada pois o seu valor padrão é igual zero.
+          </p>
+          
+          <p>
+            As células de uma tabela podem conter não apenas texto, mas também diversos tipos de conteúdos como 
+            links, imagens, listas, além de outros. Veja o próximo exemplo.
+          </p>
+          <pre class="html">
+  &lt;table border="1"&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Link&lt;/td&gt;
+      <strong>&lt;td&gt;
+        &lt;a href="http://ifrn.edu.br"&gt;IFRN&lt;/a&gt;
+      &lt;/td&gt;</strong>
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Imagem&lt;/td&gt;
+      <strong>&lt;td&gt;
+        &lt;img src="https://2.gravatar.com/avatar/2680410b3b56ef729321083dc614814c?s=128&d=identicon&r=G"&gt;
+      &lt;/td&gt;</strong>
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Lista&lt;/td&gt;
+      <strong>&lt;td&gt;
+        &lt;ul&gt;
+          &lt;li&gt;Natal Central&lt;/li&gt;
+          &lt;li&gt;Zona Norte&lt;/li&gt;
+          &lt;li&gt;Cidade Alta / Rocas&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/td&gt;</strong>
+    &lt;/tr&gt;
+  &lt;/table&gt;
+          </pre>
+          <figure>
+            <img src="tabelas-parte_1/figura02.png" 
+                 alt="Imagem exibindo a renderização da tabela definida no exemplo anterior: tabela contendo texto, link, imagem e lista.">
+          </figure>
+          
+          <p>
+            Outra tag bastante utilizada com tabelas é <span class="html">th</span>, cuja função é definir células 
+            de cabeçalho. Geralmente esta tag é utilizada na primeira linha ou na primeira coluna da tabela, mas sua 
+            utilização é permitida em qualquer linha ou coluna. Seu uso é idêntico ao da tag <span class="html">td</span>. 
+            A diferença fica na renderização pois geralmente o navegador formatará o conteúdo de <span class="html">th</span> 
+            com negrito. Confira no próximo exemplo.
+          </p>
+          <pre class="html">
+  &lt;table border="1"&gt;
+    &lt;tr&gt;
+      <strong>&lt;td&gt;&lt;/td&gt;
+      &lt;th&gt;Fortaleza&lt;/th&gt;
+      &lt;th&gt;João Pessoa&lt;/th&gt;
+      &lt;th&gt;Natal&lt;/th&gt;
+      &lt;th&gt;Recife&lt;/th&gt;</strong>
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      <strong>&lt;th&gt;Fortaleza&lt;/th&gt;</strong>
+      &lt;td&gt;----&lt;/td&gt;
+      &lt;td&gt;555&lt;/td&gt;
+      &lt;td&gt;537&lt;/td&gt;
+      &lt;td&gt;800&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      <strong>&lt;th&gt;João Pessoa&lt;/th&gt;</strong>
+      &lt;td&gt;555&lt;/td&gt;
+      &lt;td&gt;----&lt;/td&gt;
+      &lt;td&gt;185&lt;/td&gt;
+      &lt;td&gt;120&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      <strong>&lt;th&gt;Natal&lt;/th&gt;</strong>
+      &lt;td&gt;537&lt;/td&gt;
+      &lt;td&gt;185&lt;/td&gt;
+      &lt;td&gt;----&lt;/td&gt;
+      &lt;td&gt;297&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      <strong>&lt;th&gt;Recife&lt;/th&gt;</strong>
+      &lt;td&gt;800&lt;/td&gt;
+      &lt;td&gt;120&lt;/td&gt;
+      &lt;td&gt;297&lt;/td&gt;
+      &lt;td&gt;----&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+          </pre>
+          <figure>
+            <img src="tabelas-parte_1/figura03.png" 
+                 alt="Imagem exibindo a renderização da tabela com células de cabeçalho.">
+          </figure>
+        </section>
+        
+        <section>
+          <h2 class="referencias">Exercícios</h2>
+          <p>
+            1) Escreva uma página HTML contendo uma tabela de duas colunas com os cursos ofertados pela DIATINF. 
+            Cada linha da tabela deve apresentar um curso. Em uma coluna apresente o nome do curso e na outra coluna 
+            apresente o nível do curso (técnico ou tecnológico). A primeira linha deve conter as células de cabeçalho da tabela. 
+            Veja o exemplo abaixo.
+          </p>
+          <figure>
+            <img src="tabelas-parte_1/figura04.png" 
+                 alt="Exemplo de tabela a ser produzida no exercício 1.">
+          </figure>
+          <p>
+            2) Escreva uma página HTML contendo uma tabela de duas colunas e duas linhas com os cursos ofertados pela DIATINF. 
+            A primeira coluna deve apresentar o nível dos cursos (técnico ou tecnológico). A segunda coluna deve apresentar 
+            uma lista dos cursos do respectivo nível. Veja o exemplo abaixo.
+          </p>
+          <figure>
+            <img src="tabelas-parte_1/figura05.png" 
+                 alt="Exemplo de tabela a ser produzida no exercício 2.">
+          </figure>
+        </section>
+        
+        <section>
+          <h2 class="referencias">Referências</h2>
+          <ul>
+            <li class="referencia">
+              Itatrans. <em class="referencia">Distância entre as capitais brasileiras</em>. Disponível em 
+              &lt;<a href="http://www.itatrans.com.br/distancia.html">http://www.itatrans.com.br/distancia.html</a>&gt;
+            </li>
+          </ul>
+        </section>
+      </article>
+      
+    </div>
+  </body>
+</html>

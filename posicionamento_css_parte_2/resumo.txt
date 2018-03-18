@@ -1,0 +1,9 @@
+ A proriedade CSS position permite alterar o posicionamento através dos valores static, relative, absolute e fixed.
+->Posicionamento estático (position: static): é o posicionamento padrão. Segue o esquema normal.
+->Posicionamento relativo (position: relative): é utilizado em conjunto com as propriedades top, bottom, left e right. Desloca o elemento com base no canto superior esquerdo da sua posição original. O espaço original do elemento é preservado.
+->Posicionamento absoluto (position: absolute): desloca o elemento com base no canto superior esquerdo do seu ancestral mais próximo posicionado com um dos valores relative, absolute ou fixed. Caso esta condição não seja atendida, o elemento é deslocado em relação ao canto superior esquerdo da janela do navegador web. O espaço original do elemento não é preservado.
+->Posicionamento fixo (position: fixed): o elemento permanece fixo em relação à janela do navegador.
+
+Exercícios?
+1)Página cuja parte superior contém um menu de navegação que permanece fixo quando a página é rolada.
+2)

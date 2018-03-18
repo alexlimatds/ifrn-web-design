@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="keywords" content="HTML,CSS" />
+    <meta name="author" content="Alexandre Gomes de Lima" />
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="estilos/aulas.css" />
+    <title>IFRN/DIATINF/Design Web: Introdução a CSS</title>
+  </head>
+  <body>
+    <div id="tudo">
+      <div id="cabecalho">
+        <img src="imagens/logo_ifrn.png" alt="IFRN" id="logoifrn" />
+        <h1 class="cabecalho">
+          Diretoria Acadêmica de Gestão e Tecnologia da Informação
+        </h1>
+        <h2 class="cabecalho">
+          Disciplina de Design Web e Arquitetura da Informação
+        </h2>
+      </div>
+      
+      <div id="conteudo">
+        <h1>Introdução a CSS - parte 1</h1>
+        
+        <p>
+          Até agora vimos como inserir diversos elementos (parágrafos, figuras, links, 
+          tabelas, etc) em uma página HTML sem indicar qualquer formatação. No entanto, 
+          ao abrir o arquivo <a href="css-parte_1/css01.html">css01.html</a>, é fácil perceber 
+          que o navegador aplica uma formatação padrão aos elementos:
+        </p>
+        <img src="css-parte_1/exemplo01.png" alt="Visualização do exemplo 1" />
+        
+        <p>
+          Nesta aula iremos iniciar o uso da <strong>CSS</strong> (<em>Cascading Style Sheets</em>
+          – Folhas de Estilo em Cascata) para aplicar estilo (formatação) aos elementos presentes 
+          em uma página HTML. Com CSS é possível aplicar diversas formatações tais 
+          como cor de fundo, tamanho de fontes e posicionamento.
+        </p>
+        
+        <h2>Estilos inline</h2>
+        <p>
+          Vamos começar com os estilos inline, ou seja, estilos definidos nas próprias 
+          tags através do atributo <span class="html">style</span> 
+          (arquivo <a href="css-parte_1/css02.html">css02.html</a>):
+        </p>
+        <pre class="html">
+  &lt;body <b>style="background-color: green"</b>>
+    &lt;h1 <b>style="font-size: 32pt"</b>>DIATINF&lt;/h1>
+    &lt;h2 <b>style="color: #FF0000; font-family: cursive"</b>>
+      Cursos técnicos
+    &lt;/h2>
+    &lt;ul <b>style="list-style-type: square"</b>>
+      &lt;li>Informática para Internet&lt;/li>
+      &lt;li>Manutenção e Suporte em Informática&lt;/li>
+      &lt;li>Administração&lt;/li>
+    &lt;/ul>
+  &lt;/body>
+        </pre>
+        <img src="css-parte_1/exemplo02.png" alt="Visualização do exemplo 2" />
+        
+        <p>
+          O atributo <span class="html">style</span> especifica o estilo de um elemento. 
+          Cada <strong>propriedade</strong> CSS (<span class="html">font-size</span>, 
+          <span class="html">color</span>, etc) é seguida por um sinal de dois-pontos e 
+          um valor. É possível especificar mais de uma propriedade separando-as 
+          com o sinal de ponto-e-vírgula, assim como foi feito na tag 
+          <span class="html">h2</span>. 
+          Seguem as descrições das propriedades utilizadas:
+        </p>
+        
+        <table>
+          <tr>
+            <th>Propriedade</th>
+            <th>Descrição</th>
+          </tr>
+          <tr>
+            <td><span class="html">background-color</span></td>
+            <td>Cor de fundo do elemento.</td>
+          </tr>
+          <tr>
+            <td><span class="html">font-size</span></td>
+            <td>Tamanho da fonte utilizada no elemento.</td>
+          </tr>
+          <tr>
+            <td><span class="html">color</span></td>
+            <td>Cor do texto presente no elemento.</td>
+          </tr>
+          <tr>
+            <td><span class="html">font-family</span></td>
+            <td>Fonte, ou família de fontes, do texto presente no elemento.</td>
+          </tr>
+          <tr>
+            <td><span class="html">list-style-type</span></td>
+            <td>Tipo de marcador ou numeração dos itens em uma lista.</td>
+          </tr>
+        </table>
+        
+        <h2>Folhas de estilo internas</h2>
+        <p>
+          Estilos inline são úteis para aplicar formatação individual, mas não 
+          são adequados para definir estilos que devem ser aplicados em todo o 
+          documento HTML. Para isso, podemos utilizar as <strong>folhas de estilos internas</strong>, 
+          que também chamadas de folhas de estilo incorporadas. 
+          O arquivo <a href="css-parte_1/css03.html">css03.html</a> utiliza esta segunda 
+          forma de estilo para aplicar a mesma formatação do exemplo anterior:
+        </p>
+        <pre class="html">
+  &lt;html>
+    &lt;head>
+      &lt;title>CSS&lt;/title>
+      <b>&lt;style type="text/css">
+        body{ background-color: green }
+        h1{ font-size: 32pt }
+        h2{
+          color: #FF0000;
+          font-family: cursive
+        }
+        ul{ list-style-type: square }
+      &lt;/style></b>
+    &lt;/head>
+    &lt;body>
+      &lt;h1>DIATINF&lt;/h1>
+      &lt;h2>Cursos técnicos&lt;/h2>
+      &lt;ul>
+        &lt;li>Informática para Internet&lt;/li>
+        &lt;li>Manutenção e Suporte em Informática&lt;/li>
+        &lt;li>Administração&lt;/li>
+      &lt;/ul>
+    &lt;/body>
+  &lt;/html>
+        </pre>
+        
+        <p>
+          A tag <span class="html">style</span>, que deve vir acompanhada do atributo 
+          <span class="html">type="text/css"</span>, é utilizada para definir folhas 
+          de estilos internas e deve ser 
+          declarada como conteúdo de <span class="html">head</span>. O conteúdo de 
+          <span class="html">style</span> define as regras de formatação a serem 
+          aplicadas ao documento HTML. Cada regra de formatação é composta por um 
+          seletor e uma ou mais propriedades CSS. O seletor determina quais elementos 
+          serão estilizados de acordo com a respectiva regra. Por exemplo, a regra
+          CSS abaixo determina um tamanho de fonte com 32pt para o texto de todos 
+          os elementos <span class="html">h1</span> presentes no documento:
+        </p>
+        <pre class="html">
+  h1{ font-size: 32pt; }
+        </pre>
+        
+        <p>
+          Percebe-se então que folhas de estilo internas são mais indicadas 
+          quando precisamos definir regras de formatação generalizadas. Por exemplo, 
+          vamos definir que os itens de lista presentes na página devam utilizar texto 
+          formatado em itálico. Adicione, então, o seguinte código ao arquivo 
+          <a href="css-parte_1/css03.html">css03.html</a> e observe o resultado:
+        </p>
+        <pre class="html">
+  li{ font-style: italic; }
+        </pre>
+        
+        <p>
+          Caso utilizássemos o estilo inline, teríamos que repetir a declaração do estilo 
+          para cada ocorrência de <span class="html">li</span> presente no documento, o que  
+          seria uma tarefa pouco agradável se a lista possuísse muitos itens.
+        </p>
+        
+        <h2>Folhas de estilo externas</h2>
+        <p>
+          Até aqui vimos que estilos inline são apropriados para aplicação de formatação 
+          individual e que folhas de estilos internas são mais adequadas para formatação 
+          generalizada na mesma página. No entanto, é comum que queiramos aplicar os mesmos 
+          estilos de formatação às diversas páginas que constituem um site. Neste caso, devemos 
+          utilizar as <strong>folhas de estilo externas</strong>, que nada mais são do que 
+          arquivos que contém apenas código CSS. Assim como nas folhas de estilo internas, 
+          uma folha de estilo externa contém regras de formatação 
+          compostas por seletores e propriedades CSS. O arquivo <a href="css-parte_1/estilo.css">estilo.css</a> 
+          contém as mesmas regras de formatação presentes na folha de estilo incorporada 
+          da página <a href="css-parte_1/css03.html">css03.html</a>.
+        </p>
+        <p>
+          A tag <span class="html">link</span> é utilizada para relacionar uma página HTML 
+          com arquivos de folhas de estilo externas e deve ser acompanhada dos atributos 
+          <span class="html">rel="stylesheet"</span> e <span class="html">type="text/css"</span>.  
+          O atributo <span class="html">href</span> também deve estar presente e seu valor deve ser 
+          o nome, ou caminho relativo, do arquivo de folha de estilo externa. A página 
+          <a href="css-parte_1/css04.html">css04.html</a> utiliza a tag <span class="html">link</span> 
+          para referenciar uma folha de estilo externa:
+        </p>
+        <pre class="html">
+  &lt;html>
+    &lt;head>
+      &lt;title>CSS&lt;/title>
+      <b>&lt;link rel="stylesheet" type="text/css" href="estilo.css" /></b>
+    &lt;/head>
+    &lt;body>
+      &lt;h1>DIATINF&lt;/h1>
+      &lt;h2>Cursos técnicos&lt;/h2>
+      &lt;ul>
+        &lt;li>Informática para Internet&lt;/li>
+        &lt;li>Manutenção e Suporte em Informática&lt;/li>
+        &lt;li>Administração&lt;/li>
+      &lt;/ul>
+    &lt;/body>
+  &lt;/html>
+        </pre>
+        
+        <p>
+          Ao centralizar as regras de formatação em arquivos separados, folhas de 
+          estilo externas proporcionam facilidade de manutenção do site. Caso algum 
+          estilo precise de modificações, basta alterar a folha de estilo externa, não 
+          sendo necessárias alterações nas páginas HTML. Folhas de estilo externas também 
+          evitam a repetição de código CSS nas diversas páginas HTML.
+        </p>
+        
+        <h2>Exercícios</h2>
+        <p>
+          1) Aplique a seguinte formatação ao arquivo <a href="css-parte_1/exercicio01.html">exercicio01.html</a>:
+        </p>
+        <ol class="opcoes_exercicio">
+          <li>Fonte Arial para o elemento <span class="html">body</span>.</li>
+          <li>Estilo de fonte itálico para os elementos <span class="html">h2</span>.</li>
+          <li>Cor de fundo <strong>#d2b48c</strong> para os elementos <span class="html">h1</span>.</li>
+        </ol>
+        <p>
+          2) Aplique estilos na página <a href="css-parte_1/exercicio02.html">exercicio02.html</a> para 
+          deixá-la semelhante à figura abaixo. Faça uma pesquisa sobre as propriedades 
+          <span class="html">margin-right</span>, <span class="html">margin-left</span> e 
+          <span class="html">padding</span>. Utilize a ferramenta disponível em 
+          <a href="https://www.w3schools.com/colors/colors_picker.asp">https://www.w3schools.com/colors/colors_picker.asp</a> para descobrir 
+          os códigos de cores.
+        </p>
+        <img src="css-parte_1/exercicio02.png" alt="Visualização do exemplo 2" />
+        
+        <p>
+          3) Explore a documentação disponível no endereço 
+          <a href="https://www.w3schools.com/cssref/default.asp">https://www.w3schools.com/cssref/default.asp</a> para conhecer as propriedades 
+          CSS e use sua criatividade para formatar uma cópia do arquivo 
+          <a href="css-parte_1/exercicio01.html">exercicio01.html</a>.
+        </p>
+        
+        <h2 class="referencias">Referências</h2>
+        <ul>
+          <li class="referencia">
+            Deitel, P. J. e Deitel, H. M. <em class="referencia">Ajax, Rich Internet 
+            Applications e desenvolvimento Web para programadores.</em> 
+            São Paulo: Pearson Prentice Hall, 2008.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

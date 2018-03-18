@@ -1,0 +1,266 @@
+﻿ <!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="keywords" content="XHTML,HTML,CSS">
+    <meta name="author" content="Alexandre Gomes de Lima">
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="estilos/aulas.css">
+    <title>IFRN/DIATINF/Design Web: </title>
+  </head>
+  <body>
+    <div id="tudo">
+      <header id="cabecalho">
+        <img src="imagens/logo_ifrn.png" alt="IFRN" id="logoifrn">
+        <h1 class="cabecalho">
+          Diretoria Acadêmica de Gestão e Tecnologia da Informação
+        </h1>
+        <h2 class="cabecalho">
+          Disciplina de Design Web e Arquitetura da Informação
+        </h2>
+      </header>
+      
+      <article id="conteudo">
+        <h1>Posicionamento CSS - parte 1</h1>
+        <p>
+          A tecnologia CSS disponibiliza diversos recursos para controle de como o conteúdo é 
+          distribuído e posicionado em uma página web. Nesta aula iremos conhecer as propriedades 
+          <span class="html">float</span> e <span class="html">clear</span>, as quais são 
+          utilizadas para controlar o fluxo de apresentação do conteúdo.
+        </p>
+        
+        <section>
+          <h2 class="referencias">Fluxo em elementos de linha</h2>
+          <p>
+            Por padrão, elementos de linha seguem um fluxo horizontal, ou seja, são posicionados lado-a-lado.
+            Caso o elemento atinja a extremidade do seu bloco contêiner, seu conteúdo inicia uma nova linha. 
+            Veja o exemplo a seguir:
+          </p>
+          <pre class="html">
+        
+  span{ background-color: pink; }
+  .a{ background-color: yellow; }
+  
+  &lt;p>
+    &lt;span>Lorem ipsum dolor sit amet,&lt;/span>
+    &lt;span class="a"> consectetur adipiscing elit.&lt;/span>
+    &lt;span>Nulla iaculis sagittis massa,&lt;/span>
+    &lt;span class="a">eget blandit libero egestas non.&lt;/span>
+    &lt;span>Pellentesque eget mi at massa pharetra sodales.&lt;/span>
+  &lt;/p>
+          </pre>
+        
+          <figure>
+            <img src="posicionamento_css_parte_1/exemplo01.png" 
+                 alt="Exemplo de fluxo padrão em elementos de linha">
+          </figure>
+          
+          <p>Assim, quando utilizamos o elemento <span class="html">img</span> como conteúdo de um 
+            parágrafo, o efeito visual pode acabar não sendo o desejado, já que <span class="html">img</span> 
+            é um elemento de linha:
+          </p>
+          <pre class="html">
+          
+  &lt;p>
+      Fascismo é uma forma de radicalismo político autoritário nacionalista que 
+      ganhou destaque no início do século XX na Europa e teve origem na Itália. 
+      &lt;img src="mussolini_hitler.jpg">
+      Os fascistas procuravam unificar sua nação através de um Estado totalitário 
+      que promove a vigilância, um estado forte, a mobilização em massa da comunidade 
+      nacional, confiando em um partido de vanguarda para iniciar uma revolução e 
+      organizar a nação em princípios fascistas, hostis a todas as vertentes do 
+      marxismo, desde o comunismo totalitário ao socialismo democrático.
+    &lt;/p>
+          </pre>
+          
+          <figure>
+            <img src="posicionamento_css_parte_1/exemplo02.png" 
+                 alt="Exemplo de parágrafo com imagem seguindo fluxo padrão">  
+          </figure>
+          
+          <p>
+            A propriedade <span class="html">float</span> (flutuante) pode ser utilizada 
+            para alterar o fluxo seguido pelos elementos de uma página. Os valores 
+            possíveis são <span class="html">left</span>, <span class="html">right</span>, 
+            <span class="html">none</span> (valor padrão) e <span class="html">inherit</span>. 
+            Quando aplicada a um elemento de linha, faz com que o elemento deixe de seguir 
+            a linha padrão e posicione-se no lado direito ou esquerdo do bloco. Veja o 
+            próximo exemplo:
+        </section>
+        <pre class="html">
+        
+  img{ float: right; }
+        </pre>
+        
+          <figure>
+            <img src="posicionamento_css_parte_1/exemplo03.png" 
+                 alt="Exemplo de parágrafo com imagem fora do fluxo padrão">
+          </figure>
+        
+        <section>
+          <h2 class="referencias">Fluxo em elementos de bloco</h2>
+          <p>
+            Diferentemente do elementos de linha, os elementos de bloco seguem um fluxo padrão de 
+            posicionamento vertical no qual cada bloco ocupa toda a largura disponível na página.
+          </p>
+          <pre class="html">
+        
+  div{ 
+    border: 1px black solid;
+    margin: 10px;
+  }
+  
+  &lt;div id="a">A&lt;/div>
+  &lt;div id="b">B&lt;/div>
+  &lt;div id="c">C&lt;/div>
+  &lt;div id="d">D&lt;/div>
+          </pre>
+          
+          <figure>
+            <img src="posicionamento_css_parte_1/exemplo04.png" 
+                 alt="Exemplo de blocos seguindo fluxo padrão">
+          </figure>
+          
+          <p>
+            Caso seja aplicada a propriedade <span class="html">float</span> com os valores 
+            <span class="html">left</span> ou <span class="html">right</span>, o fluxo passará 
+            a ser horizontal. Note que neste caso os blocos deixam de ocupar todo o espaço horizontal 
+            disponível e sua largura se ajusta a seu conteúdo interno.
+          </p>
+          <pre class="html">
+        
+  div{ 
+    border: 1px black solid;
+    margin: 10px;
+    <b>float: left;</b>
+  }
+  
+  &lt;div id="a">A&lt;/div>
+  &lt;div id="b">B&lt;/div>
+  &lt;div id="c">C&lt;/div>
+  &lt;div id="d">D&lt;/div>
+          </pre>
+          
+          <figure>
+            <img src="posicionamento_css_parte_1/exemplo05.png" 
+                 alt="Exemplo de blocos seguindo fluxo à esquerda">
+          </figure>
+          
+          <p>
+            Ao trabalharmos com <span class="html">float</span>, é comum o uso da propriedade <span class="html">clear</span>, 
+            a qual tem como efeito impedir que outros elementos flutuem em torno do seu elemento alvo. Veja o resultado 
+            do exemplo a seguir:
+          </p>
+          <pre class="html">
+        
+  div{ 
+    border: 1px black solid;
+    margin: 10px;
+  }
+  <b>#a,#b{
+    float: left;
+  }</b>
+  
+  &lt;div id="a">A&lt;/div>
+  &lt;div id="b">B&lt;/div>
+  &lt;div id="c">C&lt;/div>
+  &lt;div id="d">D&lt;/div>
+          </pre>
+          
+          <figure>
+            <img src="posicionamento_css_parte_1/exemplo06.png" 
+                 alt="Exemplo de blocos se sobrepondo por flutuação">
+          </figure>
+          
+          <p>
+            Para evitar que as <span class="html">div</span>s A e B flutuem sobre as outras <span class="html">div</span>s, 
+            podemos usar a propriedade <span class="html">clear</span>:
+          </p>
+          <pre class="html">
+        
+  div{ 
+    border: 1px black solid;
+    margin: 10px;
+  }
+  #a,#b{
+    float: left;
+  }
+  <b>#c{
+    clear:left; 
+  }</b>
+  
+  &lt;div id="a">A&lt;/div>
+  &lt;div id="b">B&lt;/div>
+  &lt;div id="c">C&lt;/div>
+  &lt;div id="d">D&lt;/div>
+          </pre>
+          
+          <figure>
+            <img src="posicionamento_css_parte_1/exemplo07.png" 
+                 alt="Exemplo de uso da propriedade clear">
+          </figure>
+          
+          <p>
+            <span class="html">clear</span> aceita os valores <span class="html">left</span> (impede flutuação à esquerda), 
+            <span class="html">right</span> (impede flutuação à direita), <span class="html">both</span> (impede flutuação 
+            nos dois lados), <span class="html">none</span> (valor padrão, permite flutuação nos dois lados) e 
+            <span class="html">inherit</span>.
+          </p>
+          
+          <p>
+            Antes da CSS 3, <span class="html">float</span> era muito utilizada com elementos de bloco na organização 
+            de layouts de páginas. No entanto, alguns "macetes" deveriam ser conhecidos para seu uso efetivo 
+            (consulte as referências desta aula para saber mais). Atualmente, outras técnicas são mais recomendadas as 
+            quais serão abordadas em aulas futuras.
+          </p>
+        </section>
+        
+        <section>
+          <h2>Exercícios</h2>
+          <div class="exercicios">
+            <p>
+              1) <em>Pullquote</em> é um recurso muito utilizado em editoração gráfica que consiste em 
+              na criação de uma área que destaca algum trecho do texto principal. Utilize a propriedade 
+              <span class="html">float</span> em conjunto com outras propriedades CSS para deixar a 
+              formatação da página <a href="posicionamento_css_parte_1/exercicio01.html">exercicio01.html</a> 
+              como na apresentado no arquivo <a href="posicionamento_css_parte_1/exercicio01_resultado.pdf">exercicio01_resultado.pdf</a>. OBS: não modifique 
+              o código HTML, altere apenas os estilos CSS.
+            </p>
+
+            <p>
+              2) Crie uma página HTML com um layout semelhante ao apresentado na figura abaixo. Utilize 
+              <span class="html">div</span>s para definir as três áreas da página e a propriedade 
+              <span class="html">float</span> para realizar o posicionamento destas áreas.
+            </p>
+            <figure>
+              <img src="posicionamento_css_parte_1/exercicio02.png" 
+                   alt="Layout a ser obtido no exercício 2.">
+            </figure>
+          </div>
+        </section>
+        
+        <section>
+          <h2 class="referencias">Referências</h2>
+          <ul>
+            <li class="referencia">
+              SILVA, Maurício Samy. <em class="referencia">Construindo sites com CSS e (X)HTML: sites controlados 
+              por folhas de estilo em cascata</em>. São Paulo: Novatec, 2008.
+            </li>
+            <li class="referencia">
+              W3Schools. <em class="referencia">CSS Layout - float and clear</em>. Disponível em &lt;<a href="https://www.w3schools.com/css/css_float.asp">https://www.w3schools.com/css/css_float.asp</a>>.
+            </li>
+            <li class="referencia">
+              HTML.net. <em class="referencia">Lição 13: Flutuando elementos (floats)</em>. Disponível em &lt;<a href="http://pt-br.html.net/tutorials/css/lesson13.php">http://pt-br.html.net/tutorials/css/lesson13.php</a>>.
+            </li>
+            <li class="referencia">
+              Desenvolvimento para web. <em class="referencia">CSS float: considerações, dicas e macetes para bons layouts na web</em>. Disponível em &lt;<a href="http://desenvolvimentoparaweb.com/css/css-float-consideracoes-dicas-e-macetes-para-bons-layouts-na-web/">http://desenvolvimentoparaweb.com/css/css-float-consideracoes-dicas-e-macetes-para-bons-layouts-na-web/</a>>.
+            </li>
+            <li class="referencia">
+              Wikipedia. <em class="referencia">Fascismo</em>. Disponível em &lt;<a href="https://pt.wikipedia.org/wiki/Fascismo">https://pt.wikipedia.org/wiki/Fascismo</a>>.
+            </li>
+          </ul>
+        </section>
+      </article>
+      
+    </div>
+  </body>
+</html>

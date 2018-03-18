@@ -1,0 +1,304 @@
+<html>
+  <head>
+    <style type="text/css">
+      table{
+        font-family: arial;
+        border-collapse: collapse;
+      }
+      table caption{
+        height: 23px;
+        font-weight: bold;
+        padding: 2px 2px 2px 75px;
+        text-align: left;
+        background-image: url(tabelas_3/icon-2.png);
+        background-repeat: no-repeat;
+        background-color: #FFFF99;
+        border-bottom: solid black 2px;
+      }
+      thead{
+        font-size: 95%;
+      }
+      thead th{
+        padding-right: 15px;
+        border-bottom: solid 1px silver;
+        background-position: 0 2px;
+        background-repeat: no-repeat;
+      }
+      thead th.hora{
+        background-image: url(tabelas_3/icon-hora.gif);
+        padding-left: 20
+      }
+      thead th.classe{
+        background-image: url(tabelas_3/icon-classe.gif);
+        padding-left: 20
+      }
+      thead th.tarifa{
+        background-image: url(tabelas_3/icon-tarifa.gif);
+        padding-left: 20
+      }
+      tbody{
+        font-size: 80%;
+      }
+      tbody td, tbody th{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-bottom: solid 1px silver;
+        background-repeat: no-repeat;
+      }
+      tbody th{
+        padding-right: 15px;
+        padding-left: 10px;
+        background-image: url(tabelas_3/bullet-row.gif);
+        background-position: 0 1px;
+      }
+      tbody td{
+        padding-left: 16px;
+        background-image: url(tabelas_3/bullet.png);
+        background-position: left center;
+      }
+      tfoot{
+        text-align: center;
+        font-size: 70%;
+      }
+      tfoot td{
+        background-color: #FFFF99;
+        border-bottom: solid 1px silver;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <caption>Viação Alfa</caption>
+      <thead>
+        <tr>
+          <th></th>
+          <th class="hora">Hora de saída</th>
+          <th class="hora">Hora de chegada</th>
+          <th class="classe">Classe do ônibus</th>
+          <th class="tarifa">Tarifa</th>
+        </tr>
+        <tfoot>
+          <tr>
+            <td colspan="5">Vigência: 02/04/2014 a 15/06/2014</td>
+          </tr>
+        </tfoot>
+        <tbody>
+          <tr>
+            <th>Cidade A</th>
+            <td>06:45</td>
+            <td>14:30</td>
+            <td>Convencional</td>
+            <td>80,00</td>
+          </tr>
+          <tr>
+            <th>Cidade B</th>
+            <td>12:30</td>
+            <td>21:00</td>
+            <td>Convencional</td>
+            <td>100,00</td>
+          </tr>
+          <tr>
+            <th>Cidade C</th>
+            <td>19:00</td>
+            <td>06:00</td>
+            <td>Leito</td>
+            <td>150,00</td>
+          </tr>
+        </tbody>
+      </thead>
+    </table>
+    <br/>
+    
+    
+    <table>
+      <caption>Região Sul - Distância entre as capitais</caption>
+      <tr class="primeira">
+        <td class="canto"></td>
+        <th>Curitiba</th>
+        <th>Florianópolis</th>
+        <th>Porto Alegre</th>
+      </tr>
+      <tr>
+        <th>Curitiba</th>
+        <td class="vazio"></td>
+        <td>300</td>
+        <td>711</td>
+      </tr>
+      <tr>
+        <th>Florianópolis</th>
+        <td>300</td>
+        <td class="vazio"></td>
+        <td>476</td>
+      </tr>
+      <tr class="ultima">
+        <th>Porto Alegre</th>
+        <td>711</td>
+        <td>476</td>
+        <td class="vazio"></td>
+      </tr>
+    </table>
+    <br/>
+    
+    <table>
+      <tr>
+        <th>Cidade</th>
+        <th>Dia da semana</th>
+        <th>Temperatura em ºC</th>
+      </tr>
+      <tr>
+        <td rowspan="5">Currais Novos</td>
+        <td class="diaSemana">Segunda</td>
+        <td class="temperatura">33</td>
+      </tr>
+      <tr>
+        <td class="diaSemana">Terça</td>
+        <td class="temperatura">34</td>
+      </tr>
+      <tr>
+        <td class="diaSemana">Quarta</td>
+        <td class="temperatura">31</td>
+      </tr>
+      <tr>
+        <td class="diaSemana">Quinta</td>
+        <td class="temperatura">34</td>
+      </tr>
+      <tr>
+        <td class="diaSemana">Sexta</td>
+        <td class="temperatura">36</td>
+      </tr>
+      <tr>
+        <td rowspan="5">Caicó</td>
+        <td class="diaSemana">Segunda</td>
+        <td class="temperatura">35</td>
+      </tr>
+      <tr>
+        <td class="diaSemana">Terça</td>
+        <td class="temperatura">36</td>
+      </tr>
+      <tr>
+        <td class="diaSemana">Quarta</td>
+        <td class="temperatura">34</td>
+      </tr>
+      <tr>
+        <td class="diaSemana">Quinta</td>
+        <td class="temperatura">38</td>
+      </tr>
+      <tr>
+        <td class="diaSemana">Sexta</td>
+        <td class="temperatura">36</td>
+      </tr>
+    </table>
+    
+    <br/>
+    <caption>Brasil - PIB por região (2011)</caption>
+    <thead>
+      <tr>
+        <th>Região</th>
+        <th>PIB (milhões de R$)</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th>TOTAL</th>
+        <th class="valor">4.143.013</th>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <td>Sudeste</td>
+        <td class="valor">2.295.690</td>
+      </tr>
+      <tr>
+        <td>Sul</td>
+        <td class="valor">672.049</td>
+      </tr>
+      <tr>
+        <td>Nordeste</td>
+        <td class="valor">555.325</td>
+      </tr>
+      <tr>
+        <td>Centro-oeste</td>
+        <td class="valor">396.411</td>
+      </tr>
+      <tr>
+        <td>Norte</td>
+        <td class="valor">223.538</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <br/><br/>
+  <table>
+    <tr>
+      <td rowspan="3">Região Sul</td>
+      <td>RS</td>
+    </tr>
+    <tr>
+      <td>SC</td>
+    </tr>
+    <tr>
+      <td>PR</td>
+    </tr>
+  </table>
+  <br/><br/>
+  <table>
+    <tr>
+      <th>Nação</th>
+      <th>População</th>
+      <th>IDH</th>
+      <th>PIB (milhões de U$$)</th>
+      <th>PIB per capita (U$$)</th>
+      <th>Gini</th>
+    </tr>
+    <tr>
+      <td>Brasil</td>
+      <td>190.755.799</td>
+      <td>0,718</td>
+      <td>2.569.471,00</td>
+      <td>12.789</td>
+      <td>51,9</td>
+    </tr>
+    <tr>
+      <td>Chile</td>
+      <td>17.423.214</td>
+      <td>0,819</td>
+      <td>248.411,00</td>
+      <td>14.278</td>
+      <td>50,3</td>
+    </tr>
+    <tr>
+      <td>EUA</td>
+      <td>315.791.284</td>
+      <td>0,956</td>
+      <td>15.094.025,00</td>
+      <td>48.387</td>
+      <td>47,7</td>
+    </tr>
+    <tr>
+      <td>Canadá</td>
+      <td>34.674.708</td>
+      <td>0,966</td>
+      <td>1.736.869,00</td>
+      <td>50.435</td>
+      <td>32,1</td>
+    </tr>
+    <tr>
+      <td>África do Sul</td>
+      <td>50.738.255</td>
+      <td>0,629</td>
+      <td>408.074,00</td>
+      <td>8.066</td>
+      <td>63,1</td>
+    </tr>
+    <tr>
+      <td>Argentina</td>
+      <td>40.117.096</td>
+      <td>0,811</td>
+      <td>435.200,00</td>
+      <td>10.639</td>
+      <td>45,8</td>
+    </tr>
+  </table>
+  
+  </body>
+</html>
