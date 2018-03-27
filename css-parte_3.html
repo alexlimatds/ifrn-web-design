@@ -23,7 +23,8 @@
         <h1>Introdução a CSS - parte 3</h1>
         <p>
         Nesta aula serão apresentados o seletor descendente, o seletor filho, o seletor atributo, 
-        os pseudo-seletores e as pseudoclasses. Também reforça o conceito de árvore de elementos. 
+        os pseudo-seletores e as pseudoclasses. Também será reforçado o conceito de árvore de elementos, 
+        o qual é necessário para que determinados seletores sejam utilizados de forma adequada.
         O conhecimento destes seletores nos permitirá a criação de folhas de estilos mais ricas 
         e flexíveis.
         </p>
@@ -57,7 +58,9 @@
     &lt;/div>
   &lt;/body>
         </pre>
-        <img style="width: 60%" src="css-parte_3/arvore.png" alt="Árvore do documento" />
+        <img style="width: 60%" 
+             src="css-parte_3/arvore.png" 
+             alt="Árvore do documento" />
         
         <p>Seguem alguns relacionamentos determinados pela árvore de exemplo:</p>
         <ul>
@@ -86,7 +89,7 @@
         algum elemento <span class="html">div</span>.
         </p>
         <pre class="html">
-  div p{ color: red }
+  <strong>div p</strong> { color: red }
         </pre>
         
         <p>
@@ -94,7 +97,8 @@
         dois elementos <span class="html">p</span> presentes no documento já que ambos são 
         ancestrais de algum <span class="html">div</span>:
         </p>
-        <img src="css-parte_3/exemplo1.png" alt="Visualização da regra CSS aplicada ao documento" />
+        <img src="css-parte_3/exemplo1.png" 
+             alt="Visualização da regra CSS aplicada ao documento" />
         
         <p>
         Já no próximo exemplo, a regra CSS aplica formatação aos elementos 
@@ -103,9 +107,10 @@
         o segundo parágrafo foi formatado com base na regra CSS.
         </p>
         <pre class="html">
-  div blockquote p{ color: red }
+  <strong>div blockquote p</strong> { color: red }
         </pre>
-        <img src="css-parte_3/exemplo2.png" alt="Visualização da regra CSS aplicada ao documento" />
+        <img src="css-parte_3/exemplo2.png" 
+             alt="Visualização da regra CSS aplicada ao documento" />
         
         <p>
         O seletor filho é semelhante ao seletor descedente, mas tem efeito apenas sobre elementos filhos.  
@@ -117,13 +122,14 @@
         não é formatado).
         </p>
         <pre class="html">
-  div > p{ color: red }
+  div <strong>></strong> p { color: red }
         </pre>
-        <img src="css-parte_3/exemplo3.png" alt="Visualização da regra CSS aplicada ao documento" />
+        <img src="css-parte_3/exemplo3.png" 
+             alt="Visualização da regra CSS aplicada ao documento" />
         
         <h2>Pseudoclasses</h2>
         <p>
-        Permite a criação de seletores que fogem da hierarquia determinada pela árvore 
+        As pseudoclasses permitem a criação de seletores que fogem da hierarquia determinada pela árvore 
         de elementos, proporcionando a definição de regras CSS mais ricas.
         Podem ocupar qualquer posição no seletor.
         </p>
@@ -131,11 +137,11 @@
         <h3>:first-child</h3>
         <p>
         Refere-se ao elemento que é o primeiro filho de determinado elemento. Por exemplo, a regra  
-        a seguir aplica o estilo aos parágrafos descendentes do elemento com id x e que também sejam 
+          a seguir aplica o estilo aos parágrafos descendentes do elemento com id idual a <em>x</em> e que também sejam 
         primeiro-filho de algum elemento.
         </p>
         <pre class="html">
-  #x p:first-child{ color: red }
+  #x p<strong>:first-child</strong> { color: red }
         </pre>
         
         <p>
@@ -172,24 +178,24 @@
         </p>
         <p>
         São pseudoclasses aplicáveis apenas ao elemento <span class="html">a</span> e que 
-        contenham o atributo <span class="html">href</span>, ou seja, apenas links externos. 
+        contenham o atributo <span class="html">href</span>.
         Desta forma, o elemento <span class="html">a</span> pode ser omitido ao utilizar 
         uma destas pseudoclasses. As duas regras CSS a seguir são equivalentes e produzem 
         o mesmo efeito:
         </p>
         <pre class="html">
-  a:link{ color: red }
-  :link{ color: red }
+  a<strong>:link</strong> { color: red }
+  <strong>:link</strong>  { color: red }
         </pre>
         
         <p>Como as pseudoclasses podem ocupar qualquer posição de um seletor, as regras 
         a seguir são válidas e equivalentes:
         </p>
         <pre class="html">
-  a.externo:link{ color: red }
-  .externo:link{ color: red }
-  a:link.externo{ color: red }
-  :link.externo{ color: red }
+  a.externo:link { color: red }
+  .externo:link  { color: red }
+  a:link.externo { color: red }
+  :link.externo  { color: red }
         </pre>
         
         <h3>:hover, :active e :focus</h3>
@@ -218,9 +224,9 @@
   &lt;html>
     &lt;head>
       &lt;style type="text/css">
-        #t1:hover{ background-color: pink }
-        #t2:active{ font-style: italic }
-        #l1:focus{ border: solid red 5px }
+        #t1<strong>:hover</strong>  { background-color: pink }
+        #t2<strong>:active</strong> { font-style: italic }
+        #l1<strong>:focus</strong>  { border: solid red 5px }
       &lt;/style>
     &lt;/head>
     &lt;body>
@@ -236,8 +242,8 @@
         <p>
         Assim como as pseudoclasses, os pseudo-elementos possibilitam a definição de 
         seletores com elementos que não estão presentes na árvore de elementos, 
-        enriquecendo as regras CSS. Diferentemente das pseudoclasses, os pseudo-
-        elementos devem ser declarados no final do seletor.
+        enriquecendo as regras CSS. Diferentemente das pseudoclasses, os pseudo-elementos 
+        devem ser declarados no final do seletor.
         </p>
         
         <ul>
@@ -266,14 +272,14 @@
   &lt;html>
     &lt;head>
       &lt;style type="text/css">
-        body:before{ content: "INÍCIO" }
-        body:after{ content: "FIM" }
-        p{ width: 300px }
-        #p1:first-line{ 
+        body<strong>:before</strong> { content: "INÍCIO" }
+        body<strong>:after</strong> { content: "FIM" }
+        p { width: 300px }
+        #p1<strong>:first-line</strong>{ 
           font-style: italic;
           font-size: 200%;
         }
-        #p2:first-letter{
+        #p2<strong>:first-letter</strong>{
           font-size: 200%;
           background-color: pink;
         }
@@ -293,7 +299,8 @@
     &lt;/body>
   &lt;/html>
         </pre>
-        <img src="css-parte_3/exemplo4.png" alt="Visualização da regra CSS aplicada ao documento" />
+        <img src="css-parte_3/exemplo4.png" 
+             alt="Visualização da regra CSS aplicada ao documento" />
         
         <h2>Seletor atributo</h2>
         <p>
@@ -303,12 +310,13 @@
         </span> que contenham o atributo <span class="html">lang</span>.
         </p>
         <pre class="html">
-  p[lang] { color: red }
+  p<strong>[lang]</strong> { color: red }
   
   &lt;p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&lt;/p>
   &lt;p lang="eng">The quick brown fox jumps over the lazy dog.&lt;/p>
         </pre>
-        <img src="css-parte_3/exemplo5.png" alt="Visualização da regra CSS aplicada ao documento" />
+        <img src="css-parte_3/exemplo5.png" 
+             alt="Visualização da regra CSS aplicada ao documento" />
         
         <p>
         Também é possível limitar a seleção com base no valor do atributo. O próximo 
@@ -316,12 +324,13 @@
         valor do atributo <span class="html">lang</span> seja igual a <em>en</em>.
         </p>
         <pre class="html">
-  p[lang=en] { color: red }
+  p<strong>[lang=en]</strong> { color: red }
   
   &lt;p lang="la">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.&lt;/p>
   &lt;p lang="en">The quick brown fox jumps over the lazy dog.&lt;/p>
         </pre>
-        <img src="css-parte_3/exemplo5.png" alt="Visualização da regra CSS aplicada ao documento" />
+        <img src="css-parte_3/exemplo5.png" 
+             alt="Visualização da regra CSS aplicada ao documento" />
         
         <h2>Exercícios</h2>
         <div class="exercicios">
