@@ -104,12 +104,13 @@
     &lt;/tr>
   &lt;/table>
           </pre>
-          <img src="tabelas-parte_3/exemplo1.png" alt="visualização do exemplo 1" />
+          <img src="tabelas-parte_3/exemplo1.png" 
+               alt="visualização do exemplo 1" />
 
           <p>
-          Como pode ser visto na figura, a formatação padrão do navegador não é muito atraente. 
-          Estilos CSS podem ser utilizados para melhorar a apresentação visual da tabela. 
-          Vamos começar aplicando bordas ao elemento <span class="html">table</span>:
+            Como pode ser visto na figura, a formatação padrão do navegador não é muito atraente. 
+            Estilos CSS podem ser utilizados para melhorar a apresentação visual da tabela. 
+            Vamos começar aplicando bordas ao elemento <span class="html">table</span>:
           </p>
           <pre class="html">
     <b>table { border: solid 2px black; }</b>
@@ -117,40 +118,42 @@
           <img src="tabelas-parte_3/exemplo2.png" alt="visualização do exemplo 2" />
 
           <p>
-          Como podemos ver pelo exemplo anterior, a propriedade <span class="html">border</span> 
-          aplicada ao elemento <span class="html">table</span> estiliza apenas a borda ao 
-          redor da tabela, não tendo qualquer efeito sobre as bordas das células. Vamos, então, 
-          verificar qual é o resultado ao aplicar um estilo de borda ao elemento 
-          <span class="html">td</span>:
+            Como podemos ver pelo exemplo anterior, a propriedade <span class="html">border</span> 
+            aplicada ao elemento <span class="html">table</span> estiliza apenas a borda ao 
+            redor da tabela, não tendo qualquer efeito sobre as bordas das células. Vamos, então, 
+            verificar qual é o resultado ao aplicar um estilo de borda ao elemento 
+            <span class="html">td</span>:
           </p>
           <pre class="html">
   table { border: solid 2px black; }
   <strong>td { border: solid 1px black; }</strong>
           </pre>
-          <img src="tabelas-parte_3/exemplo3.png" alt="visualização do exemplo 3" />
+          <img src="tabelas-parte_3/exemplo3.png" 
+               alt="visualização do exemplo 3" />
 
           <p>
-          Com a última alteração, podemos ver que quase todas as células receberam uma borda. 
-          A exceção ficou por conta das células da primeira linha da tabela.
-          Este comportamento é explicado pelo uso de elementos <span class="html">th</span> na 
-          linha, e portanto, as regras CSS definidas para o elemento <span class="html">td</span> 
-          não foram aplicadas. Para aproveitar o estilo de borda já definido para o elemento 
-          <span class="html">td</span>, basta acrescentar o elemento <span class="html">th</span> 
-          ao seletor da regra CSS:
+            Com a última alteração, podemos ver que quase todas as células receberam uma borda. 
+            A exceção ficou por conta das células da primeira linha da tabela.
+            Este comportamento é explicado pelo uso de elementos <span class="html">th</span> na 
+            linha, e portanto, as regras CSS definidas para o elemento <span class="html">td</span> 
+            não foram aplicadas. Para aproveitar o estilo de borda já definido para o elemento 
+            <span class="html">td</span>, basta acrescentar o elemento <span class="html">th</span> 
+            ao seletor da regra CSS:
           </p>
           <pre class="html">
   table { border: solid 2px black; }
   td, <strong>th</strong> { border: solid 1px black; }
           </pre>
-          <img src="tabelas-parte_3/exemplo4.png" alt="visualização do exemplo 4" />
+          <img src="tabelas-parte_3/exemplo4.png" 
+               alt="visualização do exemplo 4" />
 
           <p>
-          Ao analisar as últimas figuras, podemos ver que há um espaço entre as células da tabela
-          bem como entre as células e a borda da tabela. 
-          A ocorrência deste espaço é controlada pela propriedade <span class="html">border-collapse</span>, 
-          a qual suporta os valores <span class="html">collapse</span>, <span class="html">separate</span> 
-          (valor padrão) e <span class="html">inherit</span>. Vamos utilizar esta propriedade para 
-          remover este espaçamento:
+            Ao analisar as últimas figuras, podemos ver que há um espaço entre as células da tabela
+            bem como entre as células e a borda da tabela. 
+            A ocorrência deste espaço é controlada pela propriedade <span class="html">border-collapse</span>, 
+            a qual suporta os valores <span class="html">collapse</span>, <span class="html">separate</span> 
+            (valor padrão) e <span class="html">inherit</span>. Vamos utilizar esta propriedade para 
+            remover este espaçamento:
           </p>
           <pre class="html">
   table { 
@@ -159,10 +162,11 @@
   }
   td, th { border: solid 1px black; }
           </pre>
-          <img src="tabelas-parte_3/exemplo5.png" alt="visualização do exemplo 5" />
+          <img src="tabelas-parte_3/exemplo5.png" 
+               alt="visualização do exemplo 5" />
 
           <p>
-          A propriedade <span class="html">padding</span> também é aplicável às células de uma tabela:
+            A propriedade <span class="html">padding</span> também é aplicável às células de uma tabela:
           </p>
           <pre class="html">
   table { 
@@ -174,16 +178,17 @@
     <strong>padding: 2px 6px 2px 6px;</strong>
   }
           </pre>
-          <img src="tabelas-parte_3/exemplo6.png" alt="visualização do exemplo 6" />
+          <img src="tabelas-parte_3/exemplo6.png" 
+               alt="visualização do exemplo 6" />
 
           <p>
-          Além de bordas e espaçamento, a CSS também permite a estilização do
-          fundo de uma tabela. Neste caso, as propriedades de background 
-          podem ser aplicadas aos elementos 
-          <span class="html">table</span>, <span class="html">tr</span>, 
-          <span class="html">td</span> e <span class="html">th</span>. 
-          Vamos utilizar a propriedade <span class="html">background-color</span> 
-          para destacar as células de cabeçalho:
+            Além de bordas e espaçamento, a CSS também permite a estilização do
+            fundo de uma tabela. Neste caso, as propriedades de background 
+            podem ser aplicadas aos elementos 
+            <span class="html">table</span>, <span class="html">tr</span>, 
+            <span class="html">td</span> e <span class="html">th</span>. 
+            Vamos utilizar a propriedade <span class="html">background-color</span> 
+            para destacar as células de cabeçalho:
           </p>
           <pre class="html">
   table { 
@@ -198,10 +203,11 @@
     background-color: pink;
   }</strong>
           </pre>
-          <img src="tabelas-parte_3/exemplo7.png" alt="visualização do exemplo 7" />
+          <img src="tabelas-parte_3/exemplo7.png" 
+               alt="visualização do exemplo 7" />
 
           <p>
-          Para a formatação do texto, vamos começar pela fonte utilizada na tabela:
+            Para a formatação do texto, vamos começar pela fonte utilizada na tabela:
           </p>
           <pre class="html">
   table { 
@@ -219,14 +225,14 @@
   }
           </pre>
           <p>
-          Desta forma, os elementos <span class="html">tr</span>, <span class="html">td</span> 
-          e <span class="html">th</span> herdarão as propriedades de fonte definidas para 
-          <span class="html">table</span>.
+            Desta forma, os elementos <span class="html">tr</span>, <span class="html">td</span> 
+            e <span class="html">th</span> herdarão as propriedades de fonte definidas para 
+            <span class="html">table</span>.
           </p>
           <p>
-          Agora vamos definir alinhamento de texto à direita para a primeira coluna e 
-          alinhamento de texto à esquerda para as demais colunas. As células de cabeçalho permancerão 
-          com alinhamento padrão:
+            Agora vamos definir alinhamento de texto à esquerda para a primeira coluna e 
+            alinhamento de texto à direita para as demais colunas. As células de cabeçalho permancerão 
+            com alinhamento padrão:
           </p>
           <pre class="html">
   table { 
@@ -249,13 +255,14 @@
     text-align: left;
   }</strong>
           </pre>
-          <img src="tabelas-parte_3/exemplo8.png" alt="visualização do exemplo 8" />
+          <img src="tabelas-parte_3/exemplo8.png" 
+               alt="visualização do exemplo 8" />
 
           <p>
-          A propriedade <span class="html">vertical-align</span> permite, através dos valores 
-          <span class="html">top</span>, <span class="html">middle</span> e 
-          <span class="html">bottom</span>, definir a posição vertical do conteúdo 
-          de uma tabela. Veja o exemplo a seguir:
+            A propriedade <span class="html">vertical-align</span> permite, através dos valores 
+            <span class="html">top</span>, <span class="html">middle</span> e 
+            <span class="html">bottom</span>, definir a posição vertical do conteúdo 
+            de uma tabela. Veja o exemplo a seguir:
           </p>
           <pre class="html">
   table { border-collapse: collapse; }
@@ -278,30 +285,33 @@
     &lt;/tr>
   &lt;/table>
           </pre>
-          <img src="tabelas-parte_3/exemplo9.png" alt="visualização do exemplo 9" />
+          <img src="tabelas-parte_3/exemplo9.png" 
+               alt="visualização do exemplo 9" />
         </section>
         
         <section>
           <h2>Mais elementos de tabela</h2>
           <p>
-          O elemento <span class="html">caption</span> permite a definição de títulos de tabelas. 
-          Por padrão, esse elemento é renderizado com alinhamento centralizado e acima da tabela, 
-          mas é possível utilizar propridades CSS para alterar essa configuração.
+            O elemento <span class="html">caption</span> permite a definição de títulos de tabelas. 
+            Por padrão, esse elemento é renderizado com alinhamento centralizado e acima da tabela, 
+            mas é possível utilizar propridades CSS para alterar essa configuração.
           </p>
           <p>
-          Os elementos <span class="html">thead</span> e <span class="html">tfoot</span> são 
-          utilizados para agrupar, respectivamente, linhas de cabeçalho e linhas de rodapé 
-          de uma tabela. Estes elementos são úteis quando trabalhamos com tabelas extensas que 
-          ocupam mais de uma página, pois eles fazem com que o cabeçalho e o rodapé da tabela 
-          sejam impressos em cada uma das páginas.
+            Os elementos <span class="html">thead</span> e <span class="html">tfoot</span> são 
+            utilizados para agrupar, respectivamente, linhas de cabeçalho e linhas de rodapé 
+            de uma tabela. Estes elementos são úteis quando trabalhamos com tabelas extensas pois possibilitam 
+            que o navegador ofereça rolagem apenas no corpo da tabela enquanto mantém o cabeçalho e 
+            o rodapé visíveis. No caso de impressão, este elementos fazem com que o cabeçalho e o rodapé da tabela 
+            sejam impressos em cada uma das páginas. Além disso, tais elementos deixam a marcação com uma 
+            semântica mais rica e ainda podem facilitar a estilização da tabela.
           </p>
           <p>
-          Caso <span class="html">thead</span> e <span class="html">tfoot</span> sejam utilizados, 
-          as linhas de conteúdo da tabela deverão estar contidas no elemento <span class="html">tbody</span>.
+            Caso <span class="html">thead</span> e <span class="html">tfoot</span> sejam utilizados, 
+            as linhas de conteúdo da tabela deverão estar contidas no elemento <span class="html">tbody</span>.
           </p>
           <p>
-          No próximo exemplo é demonstrado o uso destes elementos. Repare que o elemento <span class="html">tfoot</span> 
-          deve ser declarado após <span class="html">thead</span> e antes de <span class="html">tbody</span>.
+            No próximo exemplo é demonstrado o uso destes elementos. Repare que o elemento <span class="html">tfoot</span> 
+            deve ser declarado após <span class="html">thead</span> e antes de <span class="html">tbody</span>.
           </p>
           <pre class="html">
   table{ 
@@ -362,26 +372,27 @@
     &lt;/tbody>
   &lt;/table>
           </pre>
-          <img src="tabelas-parte_3/exemplo10.png" alt="visualização do exemplo 10" />
+          <img src="tabelas-parte_3/exemplo10.png" 
+               alt="visualização do exemplo 10" />
         </section>
         
         <section class="exercicios">
           <h2>Exercícios</h2>
           <p>
-          1) Crie e estilize cada uma das tabelas apresentadas nas figuras a seguir:
+            1) Crie e estilize cada uma das tabelas apresentadas nas figuras a seguir:
           </p>
           <p style="padding-left: 2em">
-          a) <img src="tabelas-parte_3/exercicio1a.png" alt="tabela do exercício 1.a" style="vertical-align: top" />
+            a) <img src="tabelas-parte_3/exercicio1a.png" alt="tabela do exercício 1.a" style="vertical-align: top" />
           </p>
           <p style="padding-left: 2em">
-          b) <img src="tabelas-parte_3/exercicio1b.png" alt="tabela do exercício 1.a" style="vertical-align: top" />
+            b) <img src="tabelas-parte_3/exercicio1b.png" alt="tabela do exercício 1.a" style="vertical-align: top" />
           </p>
 
           <p>
-          2) Dado o código HTML de tabela abaixo, aplique estilos para deixar 
-          a tabela com o visual apresentado na figura seguinte. Faça o que se 
-          pede sem alterar a marcação HTML da tabela. As imagens ecnontram-se 
-          no arquivo <a href="tabelas-parte_3/icones.zip">icones.zip</a>.
+            2) Dado o código HTML de tabela abaixo, aplique estilos para deixar 
+            a tabela com o visual apresentado na figura seguinte. Faça o que se 
+            pede sem alterar a marcação HTML da tabela. As imagens ecnontram-se 
+            no arquivo <a href="tabelas-parte_3/icones.zip">icones.zip</a>.
           </p>
           <pre class="html">
   &lt;table>
@@ -425,7 +436,8 @@
     &lt;/thead>
   &lt;/table>
           </pre>
-          <img src="tabelas-parte_3/exercicio2.png" alt="resultado final da tabela" />
+          <img src="tabelas-parte_3/exercicio2.png" 
+               alt="resultado final da tabela" />
         </section>
         
         <h2 class="referencias">Referências</h2>
