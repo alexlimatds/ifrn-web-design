@@ -1,11 +1,12 @@
 ﻿ <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta name="keywords" content="XHTML,HTML,CSS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="HTML,CSS">
     <meta name="author" content="Alexandre Gomes de Lima">
     <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="estilos/aulas.css">
-    <title>IFRN/DIATINF/Design Web: </title>
+    <title>IFRN/DIATINF/Design Web: Posicionamento CSS - parte 2</title>
   </head>
   <body>
     <div id="tudo">
@@ -52,20 +53,25 @@
           <span class="html">left</span> e <span class="html">right</span> para que haja algum efeito.
           </p>
           <pre class="html">
-        
   div{
     border: solid black 1px;
     margin-bottom: 5px;
   }
   #dois{
-    top: 25px;
+    <strong>top: 25px;
     left: 25px;
-    position: relative;
+    position: relative;</strong>
   }
   
-  &lt;div>&lt;p>DIV 1&lt;/p>&lt;/div>
-  &lt;div id="dois">&lt;p>DIV 2&lt;/p>&lt;/div>
-  &lt;div>&lt;p>DIV 3&lt;/p>&lt;/div>
+  &lt;div>
+    &lt;p>DIV 1&lt;/p>
+  &lt;/div>
+  &lt;div id="dois">
+    &lt;p>DIV 2&lt;/p>
+  &lt;/div>
+  &lt;div>
+    &lt;p>DIV 3&lt;/p>
+  &lt;/div>
           </pre>
         
           <figure>
@@ -97,20 +103,20 @@
           </p>
           <pre class="html">
   div{
-      border: solid black 1px;
-      margin-bottom: 10px;
-      padding: 10px;
-      height: 100px;
-    }
-    #b{
-      position: relative;
-    }
-    #c{
-      position: absolute;
-      top: 25px;
-      left: 60px;
-      height: 50px;
-    }
+    border: solid black 1px;
+    margin-bottom: 10px;
+    padding: 10px;
+    height: 100px;
+  }
+  #b{
+    position: relative;
+  }
+  #c{
+    <strong>position: absolute;
+    top: 25px;
+    left: 60px;</strong>
+    height: 50px;
+  }
     
   &lt;div>&lt;/div>
   &lt;div id="b">
@@ -138,7 +144,7 @@
   }
   #fixo{
     background-color: pink;
-    position: fixed;
+    <strong>position: fixed;</strong>
   }
   #texto{
     width: 120%;
@@ -189,7 +195,7 @@
               1) Crie uma página HTML com um layout semelhante ao apresentado na figura abaixo. Utilize 
               <span class="html">div</span>s para definir as três áreas da página e a propriedade 
               <span class="html">position</span> para realizar o posicionamento destas áreas 
-              (OBS: não utilize a propriedade <span class="html">float</span>.
+              (OBS: não utilize a propriedade <span class="html">float</span>).
             </p>
             <figure>
               <img src="posicionamento_css_parte_2/exercicio01.png" 
@@ -207,7 +213,7 @@
             </li>
             <li class="referencia">
               W3Schools. <em class="referencia">CSS Layout: the position property</em>. 
-              Disponível <a href="https://www.w3schools.com/css/css_positioning.asp">&lt;https://www.w3schools.com/css/css_positioning.asp></a>.
+              Disponível em <a href="https://www.w3schools.com/css/css_positioning.asp">&lt;https://www.w3schools.com/css/css_positioning.asp></a>.
             </li>
           </ul>
         </section>
