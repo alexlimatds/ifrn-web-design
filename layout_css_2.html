@@ -1,7 +1,9 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta name="keywords" content="XHTML,HTML,CSS" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="HTML,CSS" />
     <meta name="author" content="Alexandre Gomes de Lima" />
     <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="estilos/aulas.css" />
@@ -10,7 +12,9 @@
   <body>
     <div id="tudo">
       <header id="cabecalho">
-        <img src="imagens/logo_ifrn.png" alt="IFRN" id="logoifrn" />
+        <img src="imagens/logo_ifrn.png" 
+             alt="IFRN" 
+             id="logoifrn" />
         <h1 class="cabecalho">
           Diretoria Acadêmica de Gestão e Tecnologia da Informação
         </h1>
@@ -30,7 +34,7 @@
         
         <figure>
           <img src="layout_css_parte_2/layout_final.png" 
-               alt="Layout desejado para as áreas da página" />
+               alt="Layout desejado para as áreas da página: header no topo da página, nav como coluna esquerda, article como coluna direira e todos estes dentro do div com id tudo" />
         </figure>
         
         <p>
@@ -41,13 +45,13 @@
   &lt;body>
     &lt;div id="tudo">
       &lt;header>
-        &#8942;
+        
       &lt;/header>
       &lt;article>
-        &#8942;
+        
       &lt;/article>
       &lt;nav>
-        &#8942;
+        
       &lt;/nav>
     &lt;/div>
   &lt;/body>
@@ -60,14 +64,18 @@
         <ul>
           <li>Página centralizada na janela do navegador.</li>
           <li>Área de conteúdo com largura igual a 760px.</li>
-          <li>Coluna principal posicionada à direita e com 560px de largura.</li>
-          <li>Coluna de navegação posicionada à esquerda e com 180px de largura.</li>
+          <li>Coluna principal (elemento <span class="html">article</span>) posicionada à direita e com 560px de largura.</li>
+          <li>Coluna de navegação (elemento <span class="html">nav</span>) posicionada à esquerda e com 180px de largura.</li>
           <li>Espaço entre as colunas igual a 20px (760px - 560px - 180px).</li>
         </ul>
+        <figure>
+          <img src="layout_css_parte_2/esquema01.png" 
+               alt="Esquema com as larguras de header, nav, article e da margem entre nav e article.">
+        </figure>
         
         <p>
-          Aqui cabe uma observação: a propriedade <span class="html">widht</span> se refere à área de conteúdo 
-          do elemento de bloco, não incluindo as margens e o afastamento (<span class="html">padding</span>). 
+          Aqui cabe uma observação: a propriedade <span class="html">width</span> se refere à área de conteúdo 
+          do elemento de bloco, não incluindo margens, bordas e afastamento (<span class="html">padding</span>). 
           Portanto, devemos subtrair o valor de <span class="html">padding</span> desejado das larguras das 
           colunas. Adotando os respectivos valores de 8px e 4px para os afastamentos de 
           <span class="html">article</span> e <span class="html">nav</span>, teremos os seguintes 
@@ -77,6 +85,11 @@
           <li>Largura da coluna principal: 560px - (8px + 8px) = <b>544px</b></li>
           <li>Largura da coluna de navegação: 180px - (4px + 4px) = <b>172px</b></li>
         </ul>
+        <figure>
+          <img src="layout_css_parte_2/esquema02.png" 
+               alt="Esquema com as larguras espaçamentos e margens.">
+        </figure>
+        
         <p>
           Para posicionar os elementos <span class="html">article</span> e <span class="html">nav</span> 
           no sentido horizontal, basta utilizar a propriedade <span class="html">float</span>. Aqui, temos duas 
@@ -110,6 +123,7 @@
     background-color: pink;
   }
   nav{
+    float: left;
     width: 172px;
     padding: 4px;
     background-color: yellow;
@@ -161,9 +175,9 @@
         <pre class="html">
         
   #tudo{
-    widht: 100%;
+    <strong>width: 100%;
     max-width: 47.5em;
-    min-width: 35em;
+    min-width: 35em;</strong>
     margin: auto;
     padding: 0;
   }
@@ -172,12 +186,13 @@
   }
   article{
     float: right;
-    width: 73%;
+    <strong>width: 73%;</strong>
     padding: 8px;
     background-color: pink;
   }
   nav{
-    width: 23%;
+    float: left;
+    <strong>width: 23%;</strong>
     padding: 4px;
     background-color: yellow;
   }
