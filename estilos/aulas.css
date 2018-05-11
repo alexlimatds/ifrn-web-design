@@ -4,17 +4,12 @@
 #cabecalho img{
   border-style: none;
 }
-#cabecalho h1,h2{
-  margin: 0.2em;
+#cabecalho > *{
+  margin-bottom: 0.1em;
+  margin-top: 0.1em;
 }
-h1.cabecalho{
+.cabecalho{
   font-family: "Book Antiqua", Palatino, serif;
-  font-size: 20pt;
-  text-align: center;
-}
-h2.cabecalho{
-  font-family: "Book Antiqua", Palatino, serif;
-  font-size: 18pt;
   text-align: center;
 }
 #tudo{
