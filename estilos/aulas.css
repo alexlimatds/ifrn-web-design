@@ -14,7 +14,8 @@
 }
 #tudo{
   text-align: left;
-  width: 80%;
+  /* width: 80%; */
+  max-width: 70em;
   padding: 2em;
   margin: 0 auto;
   background-color: #FFFFE0;
@@ -57,6 +58,9 @@ ul{
 }
 ul.semmarcador li{
   list-style-type: none;
+}
+ul.indice li{
+  margin-bottom: 0.5em;
 }
 table{
   border-collapse: collapse;
