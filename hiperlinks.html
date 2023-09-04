@@ -93,13 +93,13 @@
           </pre>
           
           <p>
-            Repare que, no exemplo anterior, somente foi preciso utilizar o nome do arquivo da página alvo como 
+            Repare que no exemplo somente foi preciso utilizar o nome do arquivo da página alvo como 
             valor do atributo <span class="html">href</span>. No entanto, se as páginas se encontrarem em pastas 
-            distintas, teremos que utilizar o nome do arquivo precedido de seu caminho. Para verificar na prática. 
+            distintas, teremos que utilizar o nome do arquivo precedido de seu caminho. Para verificar na prática 
             vamos modificar nosso 
-            exemplo da seguinte forma: na pasta atual dos arquivos <strong>pagina1.html</strong> e <strong>pagina2.html</strong>, 
+            exemplo da seguinte forma. Na pasta atual dos arquivos <strong>pagina1.html</strong> e <strong>pagina2.html</strong>, 
             crie uma pasta chamada <strong>sub</strong> e mova <strong>pagina2.html</strong> para esta nova pasta. 
-            Em seguida, recarregue e <strong>pagina1.html</strong>, acesse o link e veja que este ficou quebrado 
+            Em seguida, recarregue <strong>pagina1.html</strong>, acesse o link e veja que este ficou quebrado 
             (a página não é encontrada).
           </p>
           <p>
@@ -123,8 +123,8 @@
             não está no mesmo diretório que <strong>pagina2.html</strong>. Analisando de forma mais precisa, 
             verificamos que <strong>pagina2.html</strong> está na pasta <strong>sub</strong> enquanto que 
             <strong>pagina1.html</strong> está em uma pasta acima. Neste caso, no link de <strong>pagina2.html</strong> 
-            temos que preceder o nome do arquivo alvo com <strong>../</strong>. Isto indica que o navegador deve 
-            procurar o arquivo em uma pasta acima da qual <strong>pagina2.html</strong> se encontra. Verifique 
+            temos que preceder o nome do arquivo alvo com <strong>../</strong> para indicar que o 
+            arquivo alvo está em uma pasta acima da qual <strong>pagina2.html</strong> se encontra. Verifique 
             como <strong>pagina2.html</strong> deve ser modificada:
           </p>
           <pre class="html">
@@ -146,7 +146,7 @@
             Links com caminhos absolutos somente funcionam no próprio computador em 
             que as páginas foram criadas. Os caminhos de arquivos utilizados no exemplo são chamados de 
             caminhos relativos, pois são sempre baseados na localização da própria página do hiperlink. 
-            Caminhos relativos garantem que os links do seu website fucionarão corretamente em qualquer 
+            Caminhos relativos garantem que os links do seu website funcionarão corretamente em qualquer 
             computador.
           </p>
         </section>
