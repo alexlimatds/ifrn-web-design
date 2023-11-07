@@ -3,6 +3,7 @@
   <head>
     <meta name="keywords" content="HTML,CSS" />
     <meta name="author" content="Alexandre Gomes de Lima" />
+    <meta charset="UTF-8">
     <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="estilos/aulas.css" />
     <title>IFRN/DIATINF/Design Web: CSS parte 3</title>
@@ -66,12 +67,12 @@
         <ul>
           <li>
             Elemento <span class="html">body</span>: é pai dos dois elementos <span class="html">div</span> e 
-            ancestral de todos os elementos.
+            ancestral de todos os elementos mostrados na árvore.
           </li>  
           <li>
-            Elemento <span class="html">div</span> (topo): é filho e descendente de <span class="html">body</span>. 
-            É pai de <span class="html">h1</span> e de <span class="html">ul</span>. É ancestral dos três 
-            <span class="html">li</span> e dos três <span class="html">a</span>.
+            Elemento <span class="html">div</span> (topo): é filho e descendente do elemento <span class="html">body</span>. 
+            É pai dos elementos <span class="html">h1</span> e <span class="html">ul</span>. É ancestral dos três 
+            elementos <span class="html">li</span> e dos três elementos <span class="html">a</span>.
           </li>
           <li>
             Elemento <span class="html">ul</span>: é pai dos três elementos <span class="html">li</span> e 
@@ -95,7 +96,7 @@
         <p>
         Quando aplicada ao documento anterior, a regra CSS do útimo exemplo formata os  
         dois elementos <span class="html">p</span> presentes no documento já que ambos são 
-        ancestrais de algum <span class="html">div</span>:
+        descendentes de algum elemento <span class="html">div</span>:
         </p>
         <img src="css-parte_3/exemplo1.png" 
              alt="Visualização da regra CSS aplicada ao documento" />
@@ -114,7 +115,7 @@
         
         <p>
         O seletor filho é semelhante ao seletor descedente, mas tem efeito apenas sobre elementos filhos.  
-        O símbolo <em>maior que</em> é utilizado para indicar a relação pai-e-filho. O seguinte exemplo 
+        O símbolo <span class="html">&gt;</span> (maior que) é utilizado para indicar a relação pai-e-filho. O seguinte exemplo 
         aplica formatação aos elementos <span class="html">p</span> filhos de algum elemento 
         <span class="html">div</span>. Repare que, para o documento anterior, apenas um 
         dos elementos <span class="html">p</span> recebe a formatação (o elemento <span class="html">
